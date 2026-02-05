@@ -57,7 +57,7 @@ export const links: Link[] = [
     description: "努力吃上更贵的雪糕！",
     url: "https://www.hydsb0.com",
     avatar: "https://s21.ax1x.com/2025/07/13/pVlsr8S.jpg",
-    rss: "https://www.hydsb0.com/atom.xml"
+    // rss: ""
   },
   {
     name: "清欲の小窝",
