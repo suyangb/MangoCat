@@ -4,6 +4,8 @@ import { ProfileConfig } from '../config.ts';
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import PostList from '../components/Postlist.astro';
+import CategoryNav from '../components/CategoryNav.astro';
+import ProfileIntro from '../components/ProfileIntro.astro';
 import { ReadingTime } from '../utils/Readtime-Wordcount';
 import { Icon } from "astro-icon/components";
 
@@ -41,20 +43,13 @@ const paginatedPosts = processedPosts.slice(startIndex, startIndex + POSTS_PER_P
 ---
 <Layout>
   
-      <!-- 头像和作者信息 -->
+      <!-- 个人介绍区域 -->
       {ProfileConfig.showOnHome && (
-        <a href="/about" class="profile-link">
-        <div class="profile-section">
-          <div class="profile-avatar">
-            <img src={ProfileConfig.avatar} alt={ProfileConfig.name} />
-          </div>
-          <div class="profile-info">
-            <h1 class="profile-author">@{ProfileConfig.name}</h1>
-            <p class="profile-subtitle">{ProfileConfig.desc}</p>
-          </div>
-        </div>
-        </a>
+        <ProfileIntro />
       )}
+      
+      <!-- 分类导航卡片 -->
+      <CategoryNav />
       
       <PostList posts={paginatedPosts} />
       <!-- 分页导航 -->

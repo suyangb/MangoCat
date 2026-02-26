@@ -83,9 +83,9 @@ export const links: Link[] = [
   {
     name: "bbb-lsy07",
     description: "科技激荡人文，洞见智慧本真。",
-    url: "https://blog.6uu.us/",
-    avatar: "https://blog.6uu.us/upload/87790bc9-63eb-4420-ae4f-75872fec057d.png",
-    rss: "https://blog.6uu.us/rss.xml"
+    url: "https://blog.tsoo.net/",
+    avatar: "https://blog.tsoo.net/upload/logo.jpg?width=800",
+    rss: "https://blog.tsoo.net/rss.xml"
   },
   {
     name: "ElysiumStack",

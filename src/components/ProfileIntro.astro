@@ -1,0 +1,190 @@
+---
+import { Icon } from "astro-icon/components";
+import { SiteConfig } from '../config'; 
+---
+<div class="profile-section">
+  <div class="profile-content">
+    <div class="profile-main">
+      <div class="profile-intro">
+        <p class="intro-line-1">Hi Guys! Welcome To</p>
+        <p class="intro-line-2"><span style="color: var(--theme-color);">{SiteConfig.author}</span>'s blog.</p>
+        <p class="intro-line-3">{SiteConfig.desc}.</p>
+      </div>
+      <div class="profile-social">
+        <a href="https://github.com/AlMango" class="social-btn github">
+          <Icon name="mdi:github" />
+          GitHub
+        </a>
+        <a href="mailto:sliveralmango@outlook.com" class="social-btn email">
+          <Icon name="mdi:email" />
+          Email
+        </a>
+        <a href="https://blog.almango.cn/rss.xml" class="social-btn bilibili">
+          <Icon name="mdi:rss" />
+          RSS
+        </a>
+      </div>
+    </div>
+    <div class="profile-avatar">
+      <img src="/avatar.png" alt="{SiteConfig.author}" />
+    </div>
+  </div>
+</div>
+
+<style scoped>
+/* 个人介绍区域样式 */
+.profile-section {
+    margin: 10px 0 40px 0;
+    border-radius: var(--radius);
+    border: none;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.profile-section:hover {
+    box-shadow: none;
+}
+
+.profile-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.profile-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.intro-line-1 {
+    font-size: 20px;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.intro-line-2 {
+    font-size: 30px;
+    color: var(--title-color);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.intro-line-3 {
+    font-size: 18px;
+    color: var(--desc-color);
+    margin: 0;
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 700px;
+}
+
+.profile-social {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    color: var(--desc-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.social-btn:hover {
+    border-color: var(--theme-color);
+}
+
+.social-btn svg {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* 移动端响应式设计 */
+@media (max-width: 768px) {
+    .profile-section {
+        margin-bottom: 30px;
+    }
+
+    .profile-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .profile-main {
+        gap: 16px;
+    }
+
+    .profile-intro {
+        gap: 12px;
+    }
+
+    .profile-avatar {
+        display: none;
+    }
+
+    .intro-line-1 {
+        font-size: 20px;
+    }
+
+    .intro-line-2 {
+        font-size: 28px;
+    }
+
+    .intro-line-3 {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    .profile-social {
+        gap: 12px;
+    }
+
+    .social-btn {
+        font-size: 13px;
+        padding: 6px 14px;
+    }
+
+    .social-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+</style>

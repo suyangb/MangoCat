@@ -52,14 +52,15 @@ import { links } from '../data/links.ts';
   
   .links-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--gap);
     margin-bottom: 40px;
   }
   
   .link-card {
+        background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: var(--radius);
     overflow: hidden;
     transition: all 0.3s ease;
     
@@ -74,10 +75,10 @@ import { links } from '../data/links.ts';
   .link-card-inner {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 12px;
     text-decoration: none;
     color: var(--text-color);
-    gap: 10px;
+    gap: 12px;
   }
   
   .link-avatar-container {
@@ -85,9 +86,9 @@ import { links } from '../data/links.ts';
   }
   
   .link-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 8px;
+    width: 54px;
+    height: 54px;
+    border-radius: var(--radius);
     object-fit: cover;
     border: 1px solid var(--border-color);
   }
@@ -105,7 +106,7 @@ import { links } from '../data/links.ts';
   }
   
   .link-name {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--title-color);
     margin: 0;
@@ -122,7 +123,7 @@ import { links } from '../data/links.ts';
   }
   
   .link-description {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--text-color);
     margin: 0;
     overflow: hidden;
@@ -137,7 +138,7 @@ import { links } from '../data/links.ts';
   @media (max-width: 768px) {
     .links-grid {
       grid-template-columns: 1fr;
-      gap: 10px;
+      gap: var(--gap);
     }
     
     .link-card-inner {
@@ -146,16 +147,16 @@ import { links } from '../data/links.ts';
     }
     
     .link-avatar {
-      width: 50px;
-      height: 50px;
+      width: 54px;
+      height: 54px;
     }
     
     .link-name {
-      font-size: 0.9rem;
+      font-size: 1.1rem;
     }
     
     .link-description {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
   }
 </style>

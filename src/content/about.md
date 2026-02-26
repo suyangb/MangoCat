@@ -11,7 +11,7 @@
 **建站经历**：从WordPress到Hexo，再到Astro，从多样式到简洁设计，我尝试过很多不同的博客框架和主题，但还是厌倦了它们那复杂配置和样式多样化，最终决定自己写一套符合自己需求的博客主题，性能和简洁成为了我关注的重点，我希望我的博客能够为访客提供简单、快速、美观的浏览体验，正如[鹿哥所说](https://blog.zhilu.site/2025/unpopular-blog-tech#%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C)的那样。
 ### 网站信息：
 
-**框架** : Astro 5.16.4
+**框架** : Astro 5.18.0
 集多功能于一体的 Web 框架。
 
 **主题** : [MangoCat](https://github.com/Almango/MangoCat) (beta)

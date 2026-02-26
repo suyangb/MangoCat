@@ -1,0 +1,86 @@
+---
+// 分类导航组件
+import { SiteConfig } from '../config';
+import { Icon } from "astro-icon/components";
+---
+<div class="category-nav-card">
+    <div class="category-nav-list">
+        {Object.entries(SiteConfig.Categories).map(([category, config]) => (
+            <a href={`/archive?category=${encodeURIComponent(category)}`} class="category-nav-item">
+                <span class="category-name"><b>{category}</b></span>
+            </a>
+        ))}
+    </div>
+</div>
+
+<style scoped>
+/* 分类导航卡片样式 */
+.category-nav-card {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    transition: all 0.3s ease;
+}
+
+.category-nav-card:hover {
+    border-color: var(--theme-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.category-nav-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.category-nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    border-radius: var(--radius);
+    background-color: transparent;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Satoshi'
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.category-nav-item .category-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* 移动端响应式设计 */
+@media (max-width: 768px) {
+    .category-nav-list {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none; /* 隐藏Firefox滚动条 */
+        -ms-overflow-style: none; /* 隐藏IE滚动条 */
+    }
+
+    /* 隐藏Chrome/Safari滚动条但保留功能 */
+    .category-nav-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    .category-nav-card {
+        padding: 10px;
+    }
+
+    .category-nav-item {
+        font-size: 13px;
+        padding: 0px 10px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+    }
+}
+</style>
