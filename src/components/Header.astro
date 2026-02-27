@@ -9,9 +9,7 @@ import Search from "./Search.astro";
 
 <header class="header">
     <div class="container">
-        <a href="/" class="logo-button">
-            <Icon name="tabler:home" />
-        </a>
+        <a href="/" class="logo"><h1>{SiteConfig.title}</h1></a>
         
         <nav class="nav-container">
             <ul class="nav-links">
@@ -30,7 +28,7 @@ import Search from "./Search.astro";
             
             <!-- 移动端导航折叠按钮 -->
             <button class="nav-toggle" aria-label="打开导航">
-                <Icon name="tabler:menu-4" />
+                <Icon name="material-symbols:menu-rounded" />
             </button>
         </div>
     </div>
@@ -43,31 +41,12 @@ import Search from "./Search.astro";
         navToggle?.addEventListener('click', () => {
             navContainer?.classList.toggle('nav-open');
         });
-        
-        // 导航栏滚动显示/隐藏逻辑
-        let lastScrollTop = 0;
-        const header = document.querySelector('.header');
-        
-        if (header) {
-            window.addEventListener('scroll', () => {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                if (scrollTop > lastScrollTop && scrollTop > 200) {
-                    // 向下滚动且超过100px，隐藏导航栏
-                    header.classList.add('header-hidden');
-                } else {
-                    // 向上滚动，显示导航栏
-                    header.classList.remove('header-hidden');
-                }
-                
-                lastScrollTop = scrollTop;
-            });
-        }
     </script>
 
     <style>
         .header {
-            padding: 15px 15px;
+            background-color: var(--card-bg);
+            padding: 15px 0;
             position: fixed;
             top: 0;
             left: 0;
@@ -75,18 +54,10 @@ import Search from "./Search.astro";
             z-index: 1000;
             width: 100%;
             box-sizing: border-box;
-            transition: transform 0.3s ease;
-        }
-
-        .header.header-hidden {
-            transform: translateY(-100%);
         }
 
         .container {
-            border-radius: 50px;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 8px 8px;
+            padding: 5px;
             width: 100%;
             max-width: var(--width);
             box-sizing: border-box;
@@ -94,35 +65,18 @@ import Search from "./Search.astro";
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
-            position: relative;
         }
 
-        .logo-button {
-            border: 1px solid var(--border-color);
-            background-color: transparent;
-            border-radius: var(--radius);
-            padding: 6px;
-            cursor: pointer;
-            font-size: 14px;
+        .header h1 {
+            font-size: 20px;
+            font-weight: 600;
             color: var(--text-color);
-            transition: all 0.3s ease;
+            margin: 0;
+        }
+
+        .logo {
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-        }
-
-        .logo-button:hover {
-            background-color: var(--hover-color);
-            border-color: var(--theme-color);
-        }
-
-        .logo-button svg {
-            width: 16px;
-            height: 16px;
+            color: var(--text-color);
         }
 
         /* 导航容器 */
@@ -136,7 +90,7 @@ import Search from "./Search.astro";
 
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 20px;
             list-style: none;
             padding: 0;
             margin: 0;
@@ -146,29 +100,11 @@ import Search from "./Search.astro";
             text-decoration: none;
             color: var(--text-color);
             font-size: 15px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 8px 0;
+            transition: color 0.3s ease;
         }
 
         .nav-links li a:hover {
             color: var(--theme-color);
-        }
-
-        .nav-links li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--theme-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links li a:hover::after {
-            width: 100%;
         }
 
         /* 移动端导航切换按钮 */
@@ -222,66 +158,50 @@ import Search from "./Search.astro";
             }
 
             .nav-container {
-                text-align: center;
                 position: absolute;
-                top: calc(100% + 8px);
-                right: 0;
-                background-color: var(--card-bg);
+                top: 110%;
+                right: 15px;
+                left: 0;
+                background-color: var(--header-footer-bg-color);
                 max-height: 0;
                 overflow: hidden;
-                transition: max-height 0.3s ease, opacity 0.3s ease;
+                transition: max-height 0.3s ease;
                 margin-right: 0;
                 flex-direction: column;
                 justify-content: flex-start;
-                box-shadow: 0 4px 12px var(--shadow-color);
+                box-shadow: 0 3px 5px var(--shadow-color);
+                text-align: center;
+                border: none;
+                width: 100px;
                 border-radius: var(--radius);
-                border: 1px solid var(--border-color);
-                opacity: 0;
-                width: 120px;
-                box-sizing: border-box;
             }
 
             .nav-container.nav-open {
-                max-height: 300px;
-                opacity: 1;
+                max-height: 250px;
+                border: 1px solid var(--border-color);
             }
 
             .nav-links {
                 flex-direction: column;
-                padding: 20px;
-                gap: 8px;
+                padding: 15px 20px;
+                gap: 10px;
                 width: 100%;
                 box-sizing: border-box;
             }
 
             .nav-links li {
                 width: 100%;
-                border-radius: var(--radius);
-                transition: background-color 0.3s ease;
-            }
-
-            .nav-links li:hover {
-                background-color: var(--hover-color);
             }
 
             .nav-links li a {
                 font-size: 16px;
                 width: 100%;
                 display: block;
-                padding: 10px 15px;
-                border-radius: var(--radius);
-            }
-
-            .nav-links li a::after {
-                display: none;
+                padding: 5px 0;
             }
 
             .container {
-                padding: 8px 8px;
-            }
-
-            .header-buttons {
-                gap: 8px;
+                padding: 0 15px;
             }
         }
     </style>

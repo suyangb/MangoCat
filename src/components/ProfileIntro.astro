@@ -6,21 +6,21 @@ import { SiteConfig } from '../config';
   <div class="profile-content">
     <div class="profile-main">
       <div class="profile-intro">
-        <p class="intro-line-1">Hi Guys! Welcome To</p>
-        <p class="intro-line-2"><span style="color: var(--theme-color);">{SiteConfig.author}</span>'s blog.</p>
+        <p class="intro-line-1">Hi！欢迎来到</p>
+        <p class="intro-line-2"><span style="color: var(--theme-color);">{SiteConfig.author}</span> 的个人博客</p>
         <p class="intro-line-3">{SiteConfig.desc}.</p>
       </div>
       <div class="profile-social">
         <a href="https://github.com/AlMango" class="social-btn github">
-          <Icon name="mdi:github" />
+          <Icon name="tabler:brand-github" />
           GitHub
         </a>
         <a href="mailto:sliveralmango@outlook.com" class="social-btn email">
-          <Icon name="mdi:email" />
+          <Icon name="tabler:mail" />
           Email
         </a>
         <a href="https://blog.almango.cn/rss.xml" class="social-btn bilibili">
-          <Icon name="mdi:rss" />
+          <Icon name="tabler:rss" />
           RSS
         </a>
       </div>
@@ -34,7 +34,7 @@ import { SiteConfig } from '../config';
 <style scoped>
 /* 个人介绍区域样式 */
 .profile-section {
-    margin: 8% 0 60px 0;
+    margin: 8% 0 8% 0;
     border-radius: var(--radius);
     border: none;
     background-color: transparent;
@@ -56,12 +56,12 @@ import { SiteConfig } from '../config';
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .profile-avatar {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
@@ -76,11 +76,11 @@ import { SiteConfig } from '../config';
 .profile-intro {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
 }
 
 .intro-line-1 {
-    font-size: 40px;
+    font-size: 45px;
     color: var(--text-color);
     margin: 0;
 }
@@ -125,6 +125,7 @@ import { SiteConfig } from '../config';
 
 .social-btn:hover {
     border-color: var(--theme-color);
+    color: var(--theme-color);
 }
 
 .social-btn svg {
@@ -139,7 +140,7 @@ import { SiteConfig } from '../config';
 /* 移动端响应式设计 */
 @media (max-width: 768px) {
     .profile-section {
-       margin: 6% 0 50px 0;
+        margin: 8% 0 8% 0;
     }
 
     .profile-content {
@@ -161,15 +162,15 @@ import { SiteConfig } from '../config';
     }
 
     .intro-line-1 {
-        font-size: 30px;
+        font-size: 35px;
     }
 
     .intro-line-2 {
-        font-size: 25px;
+        font-size: 28px;
     }
 
     .intro-line-3 {
-        font-size: 18px;
+        font-size: 20px;
         line-height: 1.5;
     }
 
