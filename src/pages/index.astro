@@ -4,7 +4,7 @@ import { ProfileConfig } from '../config.ts';
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import PostList from '../components/Postlist.astro';
-import Categorynav from '../components/Categorynav.astro';
+import Topcategory from '../components/Topcategory.astro';
 import Introduction from '../components/Introduction.astro';
 import { ReadingTime } from '../utils/Readtime-Wordcount';
 import { Icon } from "astro-icon/components";
@@ -49,7 +49,7 @@ const paginatedPosts = processedPosts.slice(startIndex, startIndex + POSTS_PER_P
       )}
       
       <!-- 分类导航卡片 -->
-      <Categorynav />
+      <Topcategory />
       
       <PostList posts={paginatedPosts} />
       <!-- 分页导航 -->
