@@ -3,7 +3,7 @@ title: Hexo Out，Astro In！！！
 published: 2025-08-22
 pinned: false
 description: 关于我退出了Hexo，转而加入了Astro这个更有权威的圈子。
-tags: [Astro, Hexo, Mizuki]
+tags: [Astro, Hexo]
 category: Astro
 licenseName: "CC BY 4.0"
 author: Almango
