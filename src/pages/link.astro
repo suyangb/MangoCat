@@ -133,45 +133,31 @@ import { links } from '../data/links.ts';
     -webkit-box-orient: vertical;
     
   }
-
-  /* 移动端适配 */
+    
+  /* 响应式设计 */
   @media (max-width: 768px) {
-    .links-container {
-      padding: 0 15px;
-    }
-    
-    .links-subtitle {
-      font-size: calc(var(--font-title-size) - 8px);
-      margin-bottom: 20px;
-    }
-    
     .links-grid {
       grid-template-columns: 1fr;
-      gap: 12px;
-      margin-bottom: 30px;
+      gap: var(--gap);
     }
     
     .link-card-inner {
-      padding: 10px;
-      gap: 10px;
+      padding: 12px;
+      gap: 12px;
     }
     
     .link-avatar {
-      width: 48px;
-      height: 48px;
+      width: 54px;
+      height: 54px;
     }
     
     .link-name {
-      font-size: calc(var(--font-text-size) - 2px);
-    }
-    
-    .link-icon {
-      width: 18px;
-      height: 18px;
+      font-size: calc(var(--font-text-size) + 1px);
     }
     
     .link-description {
-      font-size: calc(var(--font-text-size) - 3px);
+      font-size: var(--font-desc-size);
     }
   }
+
 </style>

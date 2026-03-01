@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { SiteConfig } from '../config.ts'; 
+import { SiteConfig } from '../config'; 
 ---
 <div class="profile-section">
   <div class="profile-content">
@@ -136,22 +136,16 @@ import { SiteConfig } from '../config.ts';
     justify-content: center;
     flex-shrink: 0;
 }
-
-/* 移动端适配 */
+/* 移动端响应式设计 */
 @media (max-width: 768px) {
     .profile-section {
-        margin: 5% 0 5% 0;
-        padding: 0 15px;
+        margin: 8% 0 8% 0;
     }
 
     .profile-content {
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
-    }
-
-    .profile-avatar {
-        display: none;
     }
 
     .profile-main {
@@ -162,31 +156,35 @@ import { SiteConfig } from '../config.ts';
         gap: 12px;
     }
 
+    .profile-avatar {
+        display: none;
+    }
+
     .intro-line-1 {
-        font-size: calc(var(--font-title-size) + 8px);
+        font-size: calc(var(--font-title-size) + 20px);
     }
 
     .intro-line-2 {
-        font-size: calc(var(--font-title-size) + 5px);
+        font-size: calc(var(--font-title-size) + 15px);
     }
 
     .intro-line-3 {
-        font-size: calc(var(--font-desc-size) + 4px);
-        max-width: 100%;
+        font-size: calc(var(--font-desc-size) + 10px);
+        line-height: 1.5;
     }
 
     .profile-social {
-        gap: 8px;
+        gap: 12px;
     }
 
     .social-btn {
-        padding: 5px 12px;
         font-size: calc(var(--font-desc-size) - 1px);
+        padding: 6px 14px;
     }
 
     .social-btn svg {
         width: 14px;
         height: 14px;
     }
-}
+
 </style>

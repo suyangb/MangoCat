@@ -335,7 +335,25 @@ body {
     .header {
         padding: 12px 15px;
     }
+    .post-title h2 {
+        font-size: calc(var(--font-title-size) - 2px);
+    }
 
+    .post-desc p {
+        font-size: calc(var(--font-desc-size) + 2px);
+    }
+
+    .post-info {
+        font-size: var(--font-desc-size);
+    }
+
+    .article-title {
+        font-size: var(--font-title-size);
+    }
+
+    .article-meta {
+        font-size: calc(var(--font-desc-size) + 2px);
+    }
 }
 
 /* 定义slide-in动画 */

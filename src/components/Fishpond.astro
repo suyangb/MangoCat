@@ -418,6 +418,130 @@ const initialArticles = await getAllRSSArticles();
     padding: 50px 0;
     color: var(--text-color);
   }
+    .fishpond-container {
+    width: 100%;
+  }
   
+  .archive-post-list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .archive-post-item {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .archive-post-item:hover {
+    border-color: var(--theme-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+  }
+  
+  .archive-post-link {
+    text-decoration: none;
+    color: var(--title-color);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    height: 100%;
+    padding: 10px 15px;
+  }
+  
+  .author-avatar {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  
+  .archive-post-date {
+    font-size: 15px;
+    color: var(--info-font-color);
+    font-weight: 500;
+  }
+  
+  .archive-post-title {
+    font-size: 15px;
+    font-weight: 500;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
+  
+  .archive-post-author {
+    font-size: 13px;
+    color: var(--text-color);
+    margin-left: 10px;
+    background-color: var(--info-bg-color);
+    padding: 2px 8px;
+    border-radius: var(--radius);
+    flex-shrink: 0;
+  }
+  
+  .empty-state {
+    text-align: center;
+    padding: 50px 0;
+    color: var(--text-color);
+  }
+  
+  /* 动画效果 */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 0.5s ease forwards;
+  }
+  
+  /* 响应式设计 */
+  @media (max-width: 768px) {
+    .circle-post-date {
+      font-size: calc(var(--font-text-size) - 2px);
+    }
+    
+    .circle-post-item {
+      padding: 0;
+    }
+    
+    .circle-year-title {
+      font-size: var(--font-title-size);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .circle-post-link, .circle-post-link span {
+      gap: 10px;
+      font-size: calc(var(--font-text-size) - 2px);
+    }
+    
+    .author-avatar {
+      width: 24px;
+      height: 24px;
+    }
+    
+    /* 在移动端隐藏作者名称 */
+    .archive-post-author {
+      display: none;
+    }
+  }
 
 </style>

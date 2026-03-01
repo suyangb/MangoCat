@@ -75,25 +75,3 @@ const paginatedPosts = processedPosts.slice(startIndex, startIndex + POSTS_PER_P
         </div>
       )}
 </Layout>
-
-<style>
-  /* 移动端适配 */
-  @media (max-width: 768px) {
-    .pagination {
-      flex-direction: column;
-      gap: 15px;
-      padding: 0 15px;
-    }
-    
-    .pagination-info {
-      font-size: 1rem;
-      padding: 6px 12px;
-    }
-    
-    .pagination-btn {
-      width: 36px;
-      height: 36px;
-      font-size: 1.2rem;
-    }
-  }
-</style>
