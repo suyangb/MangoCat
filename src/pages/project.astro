@@ -5,15 +5,15 @@ import { Icon } from "astro-icon/components";
 
 // 语言图标映射
 const languageIcons = {
-  'TypeScript': 'mdi:language-typescript',
-  'JavaScript': 'mdi:language-javascript',
-  'HTML': 'mdi:language-html5',
-  'CSS': 'mdi:language-css3',
-  'Astro': 'simple-icons:astro',
-  'Python': 'mdi:language-python',
-  'Java': 'mdi:language-java',
-  'C++': 'mdi:language-cpp',
-  'C#': 'mdi:language-csharp',
+  'TypeScript': 'tabler:brand-typescript',
+  'JavaScript': 'tabler:brand-javascript',
+  'HTML': 'tabler:brand-html5',
+  'CSS': 'tabler:brand-css3',
+  'Astro': 'tabler:brand-astro',
+  'Python': 'tabler:brand-python',
+  'Java': 'tabler:brand-java',
+  'C++': 'tabler:brand-cpp',
+  'C#': 'tabler:brand-csharp',
 };
 
 // 项目数据
@@ -58,7 +58,7 @@ const projects = [
             <h2 class="project-name">{project.name}</h2>
             {project.language && (
               <div class="project-language">
-                <Icon name={languageIcons[project.language] || 'mdi:language'} class="project-language-icon" />
+                <Icon name={languageIcons[project.language] || 'tabler:brand'} class="project-language-icon" />
               </div>
             )}
           </div>
@@ -76,12 +76,12 @@ const projects = [
           <div class="project-links">
             {project.demoUrl && (
               <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" class="project-link demo-link">
-                <Icon name="mdi:eye" class="link-icon" /> 示例网站
+                <Icon name="tabler:link" class="link-icon" /> 示例网站
               </a>
             )}
             {project.githubUrl && (
               <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="project-link github-link">
-                <Icon name="mdi:github" class="link-icon" /> 项目仓库
+                <Icon name="tabler:brand-github" class="link-icon" /> 项目仓库
               </a>
             )}
           </div>
@@ -98,7 +98,7 @@ const projects = [
   }
   
   .projects-subtitle {
-    font-size: 1rem;
+    font-size: calc(var(--font-title-size) - 5px);
     color: var(--text-color);
     margin-bottom: 25px;
   }
@@ -134,7 +134,7 @@ const projects = [
   }
   
   .project-name {
-    font-size: 1.25rem;
+    font-size: calc(var(--font-title-size) - 5px);
     font-weight: 600;
     color: var(--title-color);
     margin: 0;
@@ -161,8 +161,8 @@ const projects = [
   }
   
   .project-description {
-    font-size: 0.9rem;
-    color: var(--text-color);
+    font-size: var(--font-text-size);
+    color: var(--desc-color);
     margin-bottom: 16px;
     line-height: 1.6;
   }
@@ -175,7 +175,7 @@ const projects = [
   }
   
   .tag {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     background-color: var(--hover-color);
     color: var(--text-color);
     padding: 4px 8px;
@@ -191,7 +191,7 @@ const projects = [
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.85rem;
+    font-size: var(--font-text-size);
     text-decoration: none;
     color: var(--text-color);
     padding: 6px 12px;
@@ -209,36 +209,5 @@ const projects = [
     width: 18px;
     height: 18px;
   }
-  
-  /* 响应式设计 */
-  @media (max-width: 768px) {
-    .projects-grid {
-      grid-template-columns: 1fr;
-      gap: var(--gap);
-    }
-    
-    .project-card {
-      padding: 16px;
-    }
-    
-    .project-name {
-      font-size: 1.1rem;
-    }
-    
-    .project-stats {
-      font-size: 0.8rem;
-    }
-    
-    .project-description {
-      font-size: 0.85rem;
-    }
-    
-    .project-links {
-      flex-direction: column;
-    }
-    
-    .project-link {
-      justify-content: center;
-    }
-  }
+
 </style>

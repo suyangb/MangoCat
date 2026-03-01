@@ -98,7 +98,7 @@ for (const yearData of sortedYears) {
 
   
   .archive-subtitle {
-    font-size: 1rem;
+    font-size: calc(var(--font-title-size) - 5px);
     color: var(--text-color);
     margin-bottom: 25px;
   }
@@ -114,8 +114,8 @@ for (const yearData of sortedYears) {
   }
   
   .archive-year-title {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: calc(var(--font-title-size) + 3px); 
+    font-weight: bold;
     color: var(--title-color);
     margin-bottom: 20px;
     display: flex;
@@ -124,7 +124,7 @@ for (const yearData of sortedYears) {
   }
   
   .archive-post-count {
-    font-size: 0.9rem;
+    font-size: var(--font-text-size);
     font-weight: 500;
     color: var(--text-color);
     background-color: var(--info-bg-color);
@@ -167,14 +167,14 @@ for (const yearData of sortedYears) {
   
   
   .archive-post-date {
-    font-size: 15px;
+    font-size: var(--font-text-size);
     color: var(--info-font-color);
     font-weight: 500;
     min-width: 60px;
   }
   
   .archive-post-title {
-    font-size: 15px;
+    font-size: var(--font-text-size);
     font-weight: 500;
     flex: 1;
     display: -webkit-box;
@@ -183,29 +183,5 @@ for (const yearData of sortedYears) {
     overflow: hidden;       /* 隐藏超出部分 */
   }
   
-  /* 响应式设计 */
-  @media (max-width: 768px) {
-    .archive-title {
-      font-size: 1.8rem;
-    }
-    .archive-post-date{
-    min-width: 20px;    
-}
-    
-    .archive-post-item{
-        padding: 0;
-    }
-    .archive-year-title {
-      font-size: 1.3rem;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    
-    .archive-post-link, .archive-post-link span {
-      gap: 10px;
-     font-size: 14px;
 
-    }
-  }
 </style>

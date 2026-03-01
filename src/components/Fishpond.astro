@@ -100,7 +100,7 @@ async function getAllRSSArticles() {
       try {
         const feed = await fetchRSSFeed(url);
         if (feed && feed.items) {
-          return feed.items.map((item: any) => ({
+          return feed.items.map((item) => ({
             title: item.title,
             link: item.link,
             pubDate: item.pubDate,
@@ -123,28 +123,27 @@ async function getAllRSSArticles() {
     }
   });
   
-  return articles.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
+  return articles.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 }
 
-// 构建时获取初始数据（可选，用于SEO和首屏加载）
 const initialArticles = await getAllRSSArticles();
 ---
 
 <div class="fishpond-container">
-  <div class="archive-post-list" id="fishpond-articles">
+  <div class="circle-post-list" id="fishpond-articles">
     {initialArticles.slice(0, 20).length > 0 ? (
       initialArticles.slice(0, 20).map((article, index) => {
         const postDate = article.pubDate;
         const monthDay = postDate.toISOString().substring(5, 10);
         return (
-          <div class="archive-post-item animate-slide-in" key={index} style={{ animationDelay: `${index * 0.05}s` }}>
-            <a href={article.link} target="_blank" rel="noopener noreferrer" class="archive-post-link">
+          <div class="circle-post-item animate-slide-in" key={index} style={{ animationDelay: `${index * 0.05}s` }}>
+            <a href={article.link} target="_blank" rel="noopener noreferrer" class="circle-post-link">
               <img src={article.avatar} alt={article.author} class="author-avatar" />
-              <span class="archive-post-date">
+              <span class="circle-post-date">
                 {monthDay}
               </span>
-              <span class="archive-post-title">{article.title}</span>
-              <span class="archive-post-author">{article.author}</span>
+              <span class="circle-post-title">{article.title}</span>
+              <span class="circle-post-author">{article.author}</span>
             </a>
           </div>
         );
@@ -310,14 +309,14 @@ const initialArticles = await getAllRSSArticles();
             const monthDay = postDate.toISOString().substring(5, 10);
             
             const articleEl = document.createElement('div');
-            articleEl.className = 'archive-post-item animate-slide-in';
+            articleEl.className = 'circle-post-item animate-slide-in';
             articleEl.style.animationDelay = `${index * 0.05}s`;
             articleEl.innerHTML = `
-              <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="archive-post-link">
+              <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="circle-post-link">
                 <img src="${article.avatar}" alt="${article.author}" class="author-avatar" />
-                <span class="archive-post-date">${monthDay}</span>
-                <span class="archive-post-title">${article.title}</span>
-                <span class="archive-post-author">${article.author}</span>
+                <span class="circle-post-date">${monthDay}</span>
+                <span class="circle-post-title">${article.title}</span>
+                <span class="circle-post-author">${article.author}</span>
               </a>
             `;
             
@@ -346,7 +345,7 @@ const initialArticles = await getAllRSSArticles();
     width: 100%;
   }
   
-  .archive-post-list {
+  .circle-post-list {
     padding: 0;
     margin: 0;
     display: flex;
@@ -354,20 +353,21 @@ const initialArticles = await getAllRSSArticles();
     gap: 10px;
   }
   
-  .archive-post-item {
+  .circle-post-item {
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
     overflow: hidden;
     transition: all 0.3s ease;
   }
   
-  .archive-post-item:hover {
+  .circle-post-item:hover {
     border-color: var(--theme-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px var(--shadow-color);
   }
   
-  .archive-post-link {
+  .circle-post-link {
+    background-color: var(--card-bg);
     text-decoration: none;
     color: var(--title-color);
     display: flex;
@@ -387,14 +387,14 @@ const initialArticles = await getAllRSSArticles();
     flex-shrink: 0;
   }
   
-  .archive-post-date {
-    font-size: 15px;
+  .circle-post-date {
+    font-size: var(--font-text-size);
     color: var(--info-font-color);
     font-weight: 500;
   }
   
-  .archive-post-title {
-    font-size: 15px;
+  .circle-post-title {
+    font-size: var(--font-text-size);
     font-weight: 500;
     flex: 1;
     display: -webkit-box;
@@ -403,8 +403,8 @@ const initialArticles = await getAllRSSArticles();
     overflow: hidden;
   }
   
-  .archive-post-author {
-    font-size: 13px;
+  .circle-post-author {
+    font-size: var(--font-text-size);
     color: var(--text-color);
     margin-left: 10px;
     background-color: var(--info-bg-color);
@@ -419,45 +419,5 @@ const initialArticles = await getAllRSSArticles();
     color: var(--text-color);
   }
   
-  /* 动画效果 */
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .animate-slide-in {
-    animation: slideIn 0.5s ease forwards;
-  }
-  
-  /* 响应式设计 */
-  @media (max-width: 768px) {
-    .archive-post-date {
-      min-width: 20px;
-    }
-    
-    .archive-post-item {
-      padding: 0;
-    }
-    
-    .archive-post-link, .archive-post-link span {
-      gap: 10px;
-      font-size: 14px;
-    }
-    
-    .author-avatar {
-      width: 24px;
-      height: 24px;
-    }
-    
-    /* 在移动端隐藏作者名称 */
-    .archive-post-author {
-      display: none;
-    }
-  }
+
 </style>

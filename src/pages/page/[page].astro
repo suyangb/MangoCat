@@ -78,13 +78,13 @@ const paginatedPosts = processedPosts.slice(startIndex, startIndex + POSTS_PER_P
         <div class="pagination-buttons">
           {page > 1 && (
             <a href={page === 2 ? '/' : `/page/${page - 1}`} class="pagination-btn prev">
-              <Icon name="material-symbols:chevron-left-rounded" />
+              <Icon name="tabler:chevron-left" />
             </a>
           )}
           
           {page < totalPages && (
             <a href={`/page/${page + 1}`} class="pagination-btn next">
-              <Icon name="material-symbols:chevron-right-rounded" />
+              <Icon name="tabler:chevron-right" />
             </a>
           )}
         </div>

@@ -30,13 +30,13 @@ const { post, prevPost, nextPost } = Astro.props;
 <div class="nav-container">
 {nextPost && (
   <a href={`/posts/${nextPost.slug}`} class="nav-link prev-post">
-    <h3><Icon name="material-symbols:chevron-left-rounded" />上一篇</h3>
+    <h3><Icon name="tabler:chevron-left" />上一篇</h3>
     <span>{nextPost.data.title}</span>
   </a>
 )}
 {prevPost && (
   <a href={`/posts/${prevPost.slug}`} class="nav-link next-post">
-    <h3>下一篇<Icon name="material-symbols:chevron-right-rounded" /></h3>
+    <h3>下一篇<Icon name="tabler:chevron-right" /></h3>
     <span>{prevPost.data.title}</span>
   </a>
 )}
@@ -73,7 +73,7 @@ const { post, prevPost, nextPost } = Astro.props;
 
 
 .info-label {
-    font-size: 16px;
+    font-size: calc(var(--font-text-size) + 2px);
     color: var(--title-color);
     font-weight: 600;
     margin-bottom: 4px;
@@ -82,7 +82,7 @@ const { post, prevPost, nextPost } = Astro.props;
 }
 
 .info-value {
-    font-size: 14px;
+    font-size: calc(var(--font-text-size) - 1px);
     color: var(--text-color);
     line-height: 1.5;
     word-break: break-word;
@@ -107,21 +107,6 @@ const { post, prevPost, nextPost } = Astro.props;
 }
 
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .article-footer-card {
-        padding: 5px 20px;
-    }
-    
-    .article-footer-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-    
-    .info-value {
-        font-size: 13px;
-    }
-}
 
 /* 文章导航样式 */
 .nav-container {
@@ -169,7 +154,7 @@ const { post, prevPost, nextPost } = Astro.props;
 .nav-link h3 svg {
     width: 25px;
     height: 25px;
-    color: var(--theme-color);
+    color: var(--text-color);
     display: inline-flex;
     align-items: center;
     justify-content: center;

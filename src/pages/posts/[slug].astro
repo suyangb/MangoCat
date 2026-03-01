@@ -35,18 +35,18 @@ const categoryConfig = post.data.category ? SiteConfig.Categories[post.data.cate
 				<h1 class="article-title">{post.data.title}</h1>
 				<div class="article-meta">
 					<span>
-						<Icon name="material-symbols:date-range" />
+						<Icon name="tabler:calendar" />
 						发布于：{new Date(post.data.published).toISOString().slice(0, 19).replace('T', ' ')}
 					</span>
 					{post.data.category && (
 						<span style={{ color: categoryConfig?.color || 'inherit' }}>
-							<Icon name={categoryConfig?.icon || 'material-symbols:category'} />
+							<Icon name={categoryConfig?.icon || 'tabler:category'} />
 							{post.data.category}
 						</span>
 					)}
 					{post.data.tags.length > 0 && (
 						<span>
-							<Icon name="material-symbols:label" />
+							<Icon name="tabler:tag" />
 							{post.data.tags.join(', ')}
 						</span>
 					)}

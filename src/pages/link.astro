@@ -24,7 +24,7 @@ import { links } from '../data/links.ts';
             <div class="link-info">
               <div class="link-header">
                 <h3 class="link-name">{link.name}</h3>
-                <Icon name="mdi:external-link" class="link-icon" />
+                <Icon name="tabler:external-link" class="link-icon" />
               </div>
               <p class="link-description">{link.description}</p>
             </div>
@@ -45,7 +45,7 @@ import { links } from '../data/links.ts';
   }
   
   .links-subtitle {
-    font-size: 1rem;
+    font-size: calc(var(--font-title-size) - 5px);
     color: var(--text-color);
     margin-bottom: 25px;
   }
@@ -58,7 +58,7 @@ import { links } from '../data/links.ts';
   }
   
   .link-card {
-        background-color: var(--card-bg);
+    background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
     overflow: hidden;
@@ -106,7 +106,7 @@ import { links } from '../data/links.ts';
   }
   
   .link-name {
-    font-size: 1.1rem;
+    font-size: var(--font-text-size);
     font-weight: 600;
     color: var(--title-color);
     margin: 0;
@@ -116,14 +116,14 @@ import { links } from '../data/links.ts';
   }
   
   .link-icon {
-    width: 13px;
-    height: 13px;
+    width: 20px;
+    height: 20px;
     color: var(--text-color);
     opacity: 0.6;
   }
   
   .link-description {
-    font-size: 0.9rem;
+    font-size: calc(var(--font-text-size) - 1px);
     color: var(--text-color);
     margin: 0;
     overflow: hidden;
@@ -134,29 +134,5 @@ import { links } from '../data/links.ts';
     
   }
   
-  /* 响应式设计 */
-  @media (max-width: 768px) {
-    .links-grid {
-      grid-template-columns: 1fr;
-      gap: var(--gap);
-    }
-    
-    .link-card-inner {
-      padding: 12px;
-      gap: 12px;
-    }
-    
-    .link-avatar {
-      width: 54px;
-      height: 54px;
-    }
-    
-    .link-name {
-      font-size: 1.1rem;
-    }
-    
-    .link-description {
-      font-size: 0.9rem;
-    }
-  }
+
 </style>

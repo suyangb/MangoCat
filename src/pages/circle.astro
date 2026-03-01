@@ -6,39 +6,39 @@ import { links } from '../data/links';
 import Fishpond from '../components/Fishpond.astro';
 ---
 <Layout pagetitle={`鱼塘 - ${SiteConfig.title}`}>
-  <div class="archive-container">
+  <div class="circle-container">
     <h1 class="text-3xl font-bold">鱼塘（beta）</h1>
-    <p class="archive-subtitle">看看朋友们在干嘛</p>
+    <p class="circle-subtitle">看看朋友们在干嘛</p>
     
-    <div class="archive-content">
+    <div class="circle-content">
       <Fishpond />
     </div>
   </div>
 </Layout>
 
 <style>
-  .archive-container {
+  .circle-container {
     max-width: var(--width);
     margin: 0 auto;
   }
   
-  .archive-subtitle {
-    font-size: 1rem;
+  .circle-subtitle {
+    font-size: 1.2rem;
     color: var(--text-color);
     margin-bottom: 25px;
   }
   
-  .archive-content {
+  .circle-content {
     display: flex;
     flex-direction: column;
     gap: 30px;
   }
   
-  .archive-year {
+  .circle-year {
     border-radius: var(--radius);
   }
   
-  .archive-year-title {
+  .circle-year-title {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--title-color);
@@ -48,8 +48,8 @@ import Fishpond from '../components/Fishpond.astro';
     align-items: center;
   }
   
-  .archive-post-count {
-    font-size: 0.9rem;
+  .circle-post-count {
+    font-size: 1rem;
     font-weight: 500;
     color: var(--text-color);
     background-color: var(--info-bg-color);
@@ -57,7 +57,7 @@ import Fishpond from '../components/Fishpond.astro';
     border-radius: var(--radius);
   }
   
-  .archive-post-list {
+  .circle-post-list {
     padding: 0;
     margin: 0;
     display: flex;
@@ -65,7 +65,7 @@ import Fishpond from '../components/Fishpond.astro';
     gap: var(--gap);
   }
   
-  .archive-post-item {
+  .circle-post-item {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
@@ -73,13 +73,13 @@ import Fishpond from '../components/Fishpond.astro';
     transition: all 0.3s ease;
   }
   
-  .archive-post-item:hover {
+  .circle-post-item:hover {
     border-color: var(--theme-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px var(--shadow-color);
   }
   
-  .archive-post-link {
+  .circle-post-link {
     text-decoration: none;
     color: var(--title-color);
     display: flex;
@@ -98,15 +98,15 @@ import Fishpond from '../components/Fishpond.astro';
     object-fit: cover;
     flex-shrink: 0;
   }
-  
-  .archive-post-date {
-    font-size: 15px;
+
+  .circle-post-date {
+    font-size: 1rem;
     color: var(--info-font-color);
     font-weight: 500;
   }
   
-  .archive-post-title {
-    font-size: 15px;
+  .circle-post-title {
+    font-size: 1rem;
     font-weight: 500;
     flex: 1;
     display: -webkit-box;
@@ -115,8 +115,8 @@ import Fishpond from '../components/Fishpond.astro';
     overflow: hidden;
   }
   
-  .archive-post-author {
-    font-size: 13px;
+  .circle-post-author {
+    font-size: 1rem;
     color: var(--text-color);
     margin-left: 10px;
     background-color: var(--info-bg-color);
@@ -130,41 +130,5 @@ import Fishpond from '../components/Fishpond.astro';
     padding: 50px 0;
     color: var(--text-color);
   }
-  
-  /* 响应式设计 */
-  @media (max-width: 768px) {
-    .archive-title {
-      font-size: 1.8rem;
-    }
-    
-    .archive-post-date {
-      min-width: 20px;
-    }
-    
-    .archive-post-item {
-      padding: 0;
-    }
-    
-    .archive-year-title {
-      font-size: 1.3rem;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    
-    .archive-post-link, .archive-post-link span {
-      gap: var(--gap);
-      font-size: 14px;
-    }
-    
-    .author-avatar {
-      width: 24px;
-      height: 24px;
-    }
-    
-    /* 在移动端隐藏作者名称 */
-    .archive-post-author {
-      display: none;
-    }
-  }
+
 </style>
