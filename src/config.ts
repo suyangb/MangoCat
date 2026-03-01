@@ -14,7 +14,7 @@ export const SiteConfig: SiteConfigType = {
     '年度总结': { icon: 'tabler:star', color: '#f8aa00ff' },
     '感言': { icon: 'tabler:heart', color: '#fd185dff' },
     '日常': {icon: 'tabler:edit',color: '#c03f99ff'},
-    '游戏': {icon: 'tabler:gamepad',color: '#00da49ff'},
+    '游戏': {icon: 'tabler:device-gamepad-2',color: '#00da49ff'},
     '技能': {icon: 'tabler:braces', color: '#36bd41ff'}
   },
   NavConfig: [
