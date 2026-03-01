@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { SiteConfig } from '../config'; 
+import { SiteConfig } from '../config.ts'; 
 ---
 <div class="profile-section">
   <div class="profile-content">
@@ -80,20 +80,20 @@ import { SiteConfig } from '../config';
 }
 
 .intro-line-1 {
-    font-size: 48px;
+    font-size: calc(var(--font-title-size) + 20px);
     color: var(--text-color);
     margin: 0;
 }
 
 .intro-line-2 {
-    font-size: 38px;
+    font-size: calc(var(--font-title-size) + 15px);
     color: var(--title-color);
     margin: 0;
     line-height: 1.2;
 }
 
 .intro-line-3 {
-    font-size: 21px;
+    font-size: calc(var(--font-desc-size) + 10px);
     color: var(--desc-color);
     margin: 0;
     font-weight: 400;
@@ -117,7 +117,7 @@ import { SiteConfig } from '../config';
     background-color: transparent;
     color: var(--desc-color);
     text-decoration: none;
-    font-size: 17px;
+    font-size: var(--font-desc-size);
     font-weight: 500;
     transition: all 0.3s ease;
     white-space: nowrap;
@@ -137,16 +137,21 @@ import { SiteConfig } from '../config';
     flex-shrink: 0;
 }
 
-/* 移动端响应式设计 */
+/* 移动端适配 */
 @media (max-width: 768px) {
     .profile-section {
-        margin: 8% 0 8% 0;
+        margin: 5% 0 5% 0;
+        padding: 0 15px;
     }
 
     .profile-content {
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
+    }
+
+    .profile-avatar {
+        display: none;
     }
 
     .profile-main {
@@ -157,30 +162,26 @@ import { SiteConfig } from '../config';
         gap: 12px;
     }
 
-    .profile-avatar {
-        display: none;
-    }
-
     .intro-line-1 {
-        font-size: 38px;
+        font-size: calc(var(--font-title-size) + 8px);
     }
 
     .intro-line-2 {
-        font-size: 31px;
+        font-size: calc(var(--font-title-size) + 5px);
     }
 
     .intro-line-3 {
-        font-size: 23px;
-        line-height: 1.5;
+        font-size: calc(var(--font-desc-size) + 4px);
+        max-width: 100%;
     }
 
     .profile-social {
-        gap: 12px;
+        gap: 8px;
     }
 
     .social-btn {
-        font-size: 16px;
-        padding: 6px 14px;
+        padding: 5px 12px;
+        font-size: calc(var(--font-desc-size) - 1px);
     }
 
     .social-btn svg {
