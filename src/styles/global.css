@@ -6,7 +6,7 @@
     --bg-color: #fafafa;
     --title-color: #161616;
     --desc-color: #606060;
-    --text-color: #161616;
+    --text-color: #2d3541;
     --card-bg: #fff;
     --header-footer-bg-color: #ffffff;
     --footer-color: #6b7280;
@@ -34,7 +34,7 @@
     --bg-color: hsl(223, 14%, 10%);
     --title-color: #d9d9d9;
     --desc-color: #888888;
-    --text-color: #c5c5c5;
+    --text-color: #b4b4b4;
     --card-bg: hsl(225, 13%, 12%);
     --header-footer-bg-color: var(--bg-color);
     --footer-color: #a1a1aa;
@@ -160,9 +160,9 @@ body {
 
 .post-info .tag,
 .post-info .category,
-.post-info .word-count {
+.post-info .word-count {    
     background-color: var(--info-bg-color);
-    padding: 2px 5px;
+    padding: 2px 8px;
     border-radius: var(--radius);
     display: flex;
     align-items: center;
@@ -219,10 +219,10 @@ body {
 }
 
 .article-title {
-    font-size: var(--font-title-size);
-    font-weight: 700;
+    font-size: calc(var(--font-title-size) + 10px);
+    font-weight: bold;
     color: var(--title-color);
-    padding-bottom: 12px;
+    padding: 12px 0;
     line-height: 1.2;
     display: inline-block;
 }
@@ -231,13 +231,12 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    font-size: calc(var(--font-desc-size) + 2px);
+    font-size: var(--font-text-size);
     color: #6c757d;
 }
 
 .article-meta span {
     border-radius: var(--radius);
-    white-space: nowrap;
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -246,21 +245,6 @@ body {
     transition: opacity 0.3s ease;
 }
 
-.article-meta span svg {
-    width: 16px;
-    height: 16px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
-    flex-shrink: 0;
-    color: inherit;
-}
-
-/* 悬停效果 */
-.article-meta span:hover {
-    opacity: 1;
-}
 
 /* 文章内容样式由 markdown.css 接管 */
 
@@ -348,7 +332,7 @@ body {
     }
 
     .article-title {
-        font-size: var(--font-title-size);
+        font-size: calc(var(--font-title-size) + 5px);
     }
 
     .article-meta {

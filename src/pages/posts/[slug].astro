@@ -47,7 +47,7 @@ const categoryConfig = post.data.category ? SiteConfig.Categories[post.data.cate
 					{post.data.tags.length > 0 && (
 						<span>
 							<Icon name="tabler:tag" />
-							{post.data.tags.join(', ')}
+							{post.data.tags.join(' & ')}
 						</span>
 					)}
 				</div>

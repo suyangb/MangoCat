@@ -63,7 +63,7 @@ import { Icon } from "astro-icon/components";
     .footer-info > span,
     .footer-info .version {
         font-family: 'AlimamaFangYuanTi', 'Satoshi', system-ui, sans-serif;
-        font-size: 0.875rem;
+        font-size: calc(var(--font-desc-size) + 2px);
         font-weight: 400;
         color: var(--footer-color);
         opacity: 0.8;
@@ -80,8 +80,7 @@ import { Icon } from "astro-icon/components";
         font-family: 'AlimamaFangYuanTi', 'Satoshi', system-ui, sans-serif;
         color: var(--footer-color);
         text-decoration: none;
-        transition: all 0.2s ease;
-        font-weight: 500;
+        transition: all 0.2s ease;  
     }
     
     a:hover {
@@ -92,7 +91,7 @@ import { Icon } from "astro-icon/components";
     /* 响应式字体调整 */
     @media (max-width: 768px) {
         .copyright, .powered, .icp {
-            font-size: 0.8125rem;
+            font-size: var(--font-desc-size);
             letter-spacing: 0.01em;
         }
         
@@ -136,7 +135,7 @@ import { Icon } from "astro-icon/components";
         }
         
         .copyright, .powered, .icp {
-            font-size: 0.8125rem;
+            font-size: var(--font-desc-size);
         }
     }
 </style>
