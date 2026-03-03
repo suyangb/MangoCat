@@ -245,7 +245,6 @@
   .article-content {
     font-size: calc(var(--font-text-size) + 1px); /* 基于变量微缩，比PC小1px */
     margin: 15px 0; /* 减小上下外边距，适配小屏留白 */
-    padding: 0 8px; /* 增加左右内边距，避免内容贴边，比原5px更舒适 */
     line-height: 1.75; /* 微缩行高，提升小屏阅读效率 */
   }
 
