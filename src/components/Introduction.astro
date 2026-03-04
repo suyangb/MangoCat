@@ -7,7 +7,7 @@ import { SiteConfig } from '../config';
     <div class="profile-main">
       <div class="profile-intro">
         <p class="intro-line-1">Hi！欢迎来到</p>
-        <p class="intro-line-2"><span style="color: var(--theme-color);">{SiteConfig.author}</span> 的个人博客</p>
+        <p class="intro-line-2"><span style="color: var(--theme-color);">{SiteConfig.author}</span>'s  Blog</p>
         <p class="intro-line-3">{SiteConfig.desc}.</p>
       </div>
       <div class="profile-social">
@@ -77,12 +77,14 @@ import { SiteConfig } from '../config';
     display: flex;
     flex-direction: column;
     gap: 16px;
+        font-weight: bold
 }
 
 .intro-line-1 {
     font-size: calc(var(--font-title-size) + 22px);
-    color: var(--text-color);
+    color: var(--title-color);
     margin: 0;
+
 }
 
 .intro-line-2 {
@@ -114,7 +116,7 @@ import { SiteConfig } from '../config';
     padding: 6px 14px;
     border-radius: var(--radius);
     border: 1px solid var(--border-color);
-    background-color: transparent;
+    background-color: var(--card-bg);
     color: var(--desc-color);
     text-decoration: none;
     font-size: var(--font-desc-size);
@@ -139,7 +141,7 @@ import { SiteConfig } from '../config';
 /* 移动端响应式设计 */
 @media (max-width: 768px) {
     .profile-section {
-        margin: 8% 0 10% 0;
+        margin: 10% 0 10% 0;
     }
 
     .profile-content {
