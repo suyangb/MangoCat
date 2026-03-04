@@ -83,7 +83,7 @@ body {
 
 /* 为页面内容添加顶部边距，避免被固定的 header 遮挡 */
 body {
-    padding-top: 70px;
+    padding-top: 6rem;
 }
 
 
