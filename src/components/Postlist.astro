@@ -57,9 +57,13 @@ const processedPosts = posts.map((post: Post, index: number) => ({
                         </span>
                     )}
                     {post.data.tags.map((tag: string, index: number) => (
-                        <span class="tag">{tag}</span>
+                        <span class="tag">
+                            <Icon name="tabler:tag" />
+                            {tag}
+                        </span>
                     ))}
                     <span class="word-count">
+                        <Icon name="tabler:file-word" />
                         {formatWordCount(post.data.wordCount)} 字
                     </span>
                 </div>

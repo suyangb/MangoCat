@@ -11,8 +11,8 @@ export const SiteConfig: SiteConfigType = {
     POSTS_PER_PAGE: 8,    // 每页显示的文章数量
     },
   Categories: {
-    '年度总结': { icon: 'tabler:star', color: '#f8aa00ff' },
-    '感言': { icon: 'tabler:heart', color: '#fd185dff' },
+    '年度总结': { icon: 'tabler:star', color: '#ffae00ff' },
+    '感言': { icon: 'tabler:heart', color: '#ee0f52ff' },
     '日常': {icon: 'tabler:edit',color: '#c03f99ff'},
     '游戏': {icon: 'tabler:device-gamepad-2',color: '#00da49ff'},
     '技能': {icon: 'tabler:braces', color: '#36bd41ff'}
@@ -43,5 +43,5 @@ export const CommentConfig = {
 }
 
 export const DEVELOPER_CONFIG = {
-  THEME_VERSION: '1.6a',
+  THEME_VERSION: '1.7',
 }

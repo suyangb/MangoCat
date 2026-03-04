@@ -35,8 +35,8 @@ const categoryConfig = post.data.category ? SiteConfig.Categories[post.data.cate
 				<h1 class="article-title">{post.data.title}</h1>
 				<div class="article-meta">
 					<span>
-						<Icon name="tabler:calendar" />
-						发布于：{new Date(post.data.published).toISOString().slice(0, 19).replace('T', ' ')}
+						<Icon name="tabler:clock-hour-4" />
+						{new Date(post.data.published).toISOString().slice(0, 19).replace('T', ' ')}
 					</span>
 					{post.data.category && (
 						<span style={{ color: categoryConfig?.color || 'inherit' }}>

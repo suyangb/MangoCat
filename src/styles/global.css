@@ -118,7 +118,6 @@ body {
 
 .post-card:hover {
     border-color: var(--theme-color);
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px var(--shadow-color);
 }
 
@@ -152,26 +151,23 @@ body {
 .post-info {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: var(--gap);
     font-size: var(--font-desc-size);
-    color: var(--info-font-color);
+    color: var(--desc-color);
     align-items: center;
 }
 
 .post-info .tag,
 .post-info .category,
 .post-info .word-count {    
-    background-color: var(--info-bg-color);
-    padding: 2px 8px;
     border-radius: var(--radius);
     display: flex;
     align-items: center;
     gap: 5px;
     white-space: nowrap;
 }
-.post-info .category{font-weight: bold;}
 /* 全局图标样式，确保与文字对齐 */
-.post-info .category svg {
+.post-info  svg {
     width: 16px;
     height: 16px;
     display: inline-flex;
@@ -182,15 +178,9 @@ body {
 }
 
 
-
-.post-date {
-    width: 100%;
-}
-
 .post-date p {
     font-size: var(--font-desc-size);
-    color: #7f8c8d;
-    margin: 0;
+    color: var(--desc-color);
 }
 
 /* 文章详情页样式 */
@@ -214,16 +204,15 @@ body {
 } */
 
 .article-header {
-    margin-bottom: 30px;
+
     padding-bottom: 20px;
 }
 
 .article-title {
-    font-size: calc(var(--font-title-size) + 10px);
+    font-size: calc(var(--font-title-size) + 5px);
     font-weight: bold;
     color: var(--title-color);
-    padding: 12px 0;
-    line-height: 1.2;
+
     display: inline-block;
 }
 
@@ -244,6 +233,8 @@ body {
     opacity: 0.8;
     transition: opacity 0.3s ease;
 }
+
+
 
 
 /* 文章内容样式由 markdown.css 接管 */
