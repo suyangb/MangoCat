@@ -140,21 +140,23 @@ body {
     font-size: var(--font-text-size);
     color: var(--desc-color);
     margin: 0;
-    line-height: 2;
-
-    display: -webkit-box;
-    box-orient: vertical;
-    line-clamp: 3;         /* 标准属性，兼容性 */
-    overflow: hidden;       /* 隐藏超出部分 */
+    line-height: 1.5;
+    display: -webkit-box;          /* 将元素设为弹性盒模型（webkit 私有） */
+    -webkit-box-orient: vertical;  /* 子元素垂直排列（必须加前缀） */
+    -webkit-line-clamp: 3;         /* 限制显示行数（必须加前缀） */
+    line-clamp: 3;                 /* 标准属性，仅作兼容补充 */
+    overflow: hidden;              /* 隐藏超出部分（必加） */
+    text-overflow: ellipsis;       /* 可选：末尾显示省略号（增强效果） */
 }
 
 .post-info {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--gap);
+    gap: calc(var(--gap) - 2px);
     font-size: var(--font-desc-size);
     color: var(--desc-color);
     align-items: center;
+    
 }
 
 .post-info .tag,
@@ -165,6 +167,7 @@ body {
     align-items: center;
     gap: 5px;
     white-space: nowrap;
+
 }
 /* 全局图标样式，确保与文字对齐 */
 .post-info  svg {
@@ -175,6 +178,7 @@ body {
     justify-content: center;
     vertical-align: middle;
     flex-shrink: 0;
+    font-weight: bold;
 }
 
 
@@ -221,7 +225,7 @@ body {
     flex-wrap: wrap;
     gap: 10px;
     font-size: var(--font-text-size);
-    color: #6c757d;
+    color: var(--desc-color);
 }
 
 .article-meta span {
