@@ -66,13 +66,6 @@ export const links: Link[] = [
     avatar: "https://s21.ax1x.com/2025/07/13/pVlsr8S.jpg",
     // rss: ""
   },
-  // {
-  //   name: "清欲の小窝",
-  //   description: "沙雕网友清欲的碎碎念",
-  //   url: "https://blog.leoo.fun",
-  //   avatar: "https://bu.dusays.com/2024/11/11/6731ad4c16396.jpg",
-  //   rss: "https://blog.leoo.fun/rss.xml"
-  // },
   {
     name: "鈴奈咲桜",
     description: "愛することを忘れないで",
@@ -98,7 +91,7 @@ export const links: Link[] = [
     name: "ElysiumStack",
     description: "不会摄影的设计师不是优秀的旅行家",
     url: "https://www.elysium-stack.cn/",
-    avatar: "https://www.elysium-stack.cn/upload/ee0757e6-ebb4-46d0-a388-660f648653ea.jpg",
+    avatar: "https://elysium-stack.cn/upload/c4d9cffe-2541-40d3-b8b9-85f5827a2dc3.png",
     rss: "https://www.elysium-stack.cn/rss.xml"
   },
   {

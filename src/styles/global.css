@@ -19,6 +19,8 @@
     --info-font-color: #666666;
     --box-synchronism-padding: 0 20px;
 
+    --nav-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
     --width: 980px;            /* 统一宽度 */
     --gap: 16px;               /* 统一间距 */
     --font-title-size: 1.5rem;         /* 统一标题字体大小 */
@@ -47,6 +49,8 @@
     --info-font-color: #777;
     --strong-color: #ffffff;
     --radius: 1rem;
+
+    --nav-box-shadow: rgba(161, 161, 161, 0.02) 0px 1px 3px 0px, rgba(177, 196, 212, 0.15) 0px 0px 0px 1px;
 }
 
 /* 字体定义 */
@@ -335,25 +339,7 @@ body {
     }
 }
 
-/* 定义slide-in动画 */
-@keyframes slide-in {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* 应用slide-in动画的类 */
-.animate-slide-in {
-    animation: slide-in 0.3s ease-out forwards;
-    opacity: 0;
-    /* 初始状态为透明 */
-}
 
 
 

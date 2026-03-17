@@ -1,208 +1,396 @@
 ---
 import { Icon } from "astro-icon/components";
-import { ThemeScript } from "astro-theme-toggle/components";
-import { Toggle } from "astro-theme-toggle/components";
 import { SiteConfig } from "../config.ts";
 const { NavConfig } = SiteConfig;
-import Search from "./Search.astro";
+import "../styles/animation.css";
+import { ThemeScript, Toggle } from "astro-theme-toggle/components";
 ---
 
 <header class="header">
-    <div class="container">
-        <a href="/" class="logo"><h1>{SiteConfig.title}</h1></a>
-        
-        <nav class="nav-container">
-            <ul class="nav-links">
-                {NavConfig.map((navItem) => (
-                    <li>
-                        <a href={navItem.path}>{navItem.name}</a>
+    <div class="Nav-container">
+        <div class="main-nav">
+             <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            <Icon name="tabler:home" class="nav-icon" style="display: none;" />
+                            <span>首页</span>
+                        </a>
+                    </li>
+                {NavConfig.map((item) => (
+                    <li key={item.name} class="nav-item">
+                        <a href={item.path} class="nav-link">
+                            <Icon name={item.icon} class="nav-icon" style="display: none;" />
+                            <span>{item.name}</span>
+                        </a>
                     </li>
                 ))}
             </ul>
-        </nav>
-        
-        <!-- 右侧按钮组：主题切换和导航折叠 -->
-        <div class="header-buttons">
+        </div>
+        <div class="tool-nav">
             <ThemeScript />
-            <Toggle class="theme-toggle" style={{ width: "32px", height: "32px" }} />
-            
-            <!-- 移动端导航折叠按钮 -->
-            <button class="nav-toggle" aria-label="打开导航">
-                <Icon name="tabler:menu-2" />
+            <button class="theme-toggle" aria-label="切换主题">
+                <Toggle class="theme-toggle-icon" />
+            </button>
+            <button class="fold-toggle" aria-label="折叠导航">
+                <Icon name="tabler:align-right-2" />
             </button>
         </div>
     </div>
     
-    <script>
-        // 移动端导航切换逻辑
-        const navToggle = document.querySelector('.nav-toggle');
-        const navContainer = document.querySelector('.nav-container');
-        
-        navToggle?.addEventListener('click', () => {
-            navContainer?.classList.toggle('nav-open');
-        });
-    </script>
-
-    <style>
-        .header {
-            background-color: var(--card-bg);
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .container {
-            padding: 5px;
-            width: 100%;
-            max-width: var(--width);
-            box-sizing: border-box;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header h1 {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--title-color);
-            margin: 0;
-        }
-
-        .logo {
-            text-decoration: none;
-            color: var(--title-color);
-        }
-
-        /* 导航容器 */
-        .nav-container {
-            margin-left: auto;
-            margin-right: 20px;
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .nav-links li a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links li a:hover {
-            color: var(--theme-color);
-        }
-
-        /* 移动端导航切换按钮 */
-        .header-buttons {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            border: 1px solid var(--border-color);
-            background-color: transparent;
-            border-radius: var(--radius);
-            padding: 6px;
-            color: var(--text-color);
-            font-size: 18px;
-            cursor: pointer;
-            line-height: 1;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-toggle:hover {
-            background-color: var(--hover-color);
-            border-color: var(--theme-color);
-        }
-
-        .theme-toggle {
-            border: 1px solid var(--border-color);
-            background-color: transparent;
-            border-radius: var(--radius);
-            padding: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            color: var(--text-color);
-            transition: all 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            background-color: var(--hover-color);
-            border-color: var(--theme-color);
-        }
-
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: flex;
-            }
-
-            .nav-container {
-                position: absolute;
-                top: 110%;
-                right: 15px;
-                left: 0;
-                background-color: var(--header-footer-bg-color);
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                margin-right: 0;
-                flex-direction: column;
-                justify-content: flex-start;
-                box-shadow: 0 3px 5px var(--shadow-color);
-                text-align: center;
-                border: none;
-                width: 100px;
-                border-radius: var(--radius);
-            }
-
-            .nav-container.nav-open {
-                max-height: 250px;
-                border: 1px solid var(--border-color);
-            }
-
-            .nav-links {
-                flex-direction: column;
-                padding: 15px 20px;
-                gap: 10px;
-                width: 100%;
-                box-sizing: border-box;
-            }
-
-            .nav-links li {
-                width: 100%;
-            }
-
-            .nav-links li a {
-                font-size: 16px;
-                width: 100%;
-                display: block;
-                padding: 5px 0;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-        }
-    </style>
+    <!-- 折叠导航栏 -->
+    <nav class="sidebar-nav" id="sidebar-nav">
+        <ul class="sidebar-links">
+            <li class="sidebar-item">
+                <a href="/" class="sidebar-link">
+                    <Icon name="tabler:home" class="sidebar-icon" />
+                    <span>首页</span>
+                </a>
+            </li>
+            {NavConfig.map((item) => (
+                <li key={item.name} class="sidebar-item">
+                    <a href={item.path} class="sidebar-link">
+                        <Icon name={item.icon} class="sidebar-icon" />
+                        <span>{item.name}</span>
+                    </a>
+                </li>
+            ))}
+        </ul>
+    </nav>
+    
+    <!-- 遮罩层 -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
 </header>
+
+<script>
+    // 导入导航栏折叠功能
+    import { initNavFold } from '../utils/navfold.ts';
+
+    // 侧边栏折叠功能
+    const sidebarNav = document.getElementById('sidebar-nav');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+    const foldToggle = document.querySelector('.fold-toggle');
+
+    // 打开侧边栏
+    function openSidebar() {
+        sidebarNav.classList.add('active');
+        sidebarOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // 关闭侧边栏
+    function closeSidebar() {
+        sidebarNav.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // 绑定事件
+    if (foldToggle) {
+        foldToggle.addEventListener('click', openSidebar);
+    }
+
+    if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', closeSidebar);
+    }
+
+    // ESC键关闭侧边栏
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeSidebar();
+        }
+    });
+
+    // 初始化导航栏折叠功能
+    initNavFold();
+
+    // 当前页面导航高亮 - 顶部导航
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath || (href !== '/' && currentPath.startsWith(href))) {
+            link.classList.add('active');
+            const icon = link.querySelector('.nav-icon');
+            if (icon) {
+                icon.style.display = 'inline-block';
+            }
+        }
+    });
+
+    // 侧边栏当前页面高亮
+    const sidebarLinks = document.querySelectorAll('.sidebar-link');
+    sidebarLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath || (href !== '/' && currentPath.startsWith(href))) {
+            link.classList.add('active');
+        }
+    });
+</script>
+
+<style>
+    .header {
+        width: 100%;
+        height: 80px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        box-sizing: border-box;
+        transition: transform 0.3s ease;
+    }
+
+    .header.nav-hidden {
+        transform: translateY(-150%);
+    }
+
+    .Nav-container {
+        width: 100%;
+        max-width: var(--width);
+        padding: 0;
+        box-sizing: border-box;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .main-nav {
+        display: flex;
+        align-items: center;
+        background-color: var(--card-bg);
+        padding: 2px 18px;
+        border-radius: 50px;
+        box-shadow: var(--nav-box-shadow);
+        width: fit-content;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: var(--title-color);
+        font-size: calc(var(--font-text-size) - 1px);
+        transition: color 0.3s ease;
+        padding: 6px 0;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .nav-link:hover {
+        color: var(--theme-color);
+    }
+
+    .nav-link.active {
+        color: var(--theme-color);
+    }
+
+    .nav-link.active .nav-icon {
+        display: inline-block !important;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .nav-icon {
+        font-size: var(--font-text-size);
+        transform: translateY(-0.5px);
+        vertical-align: middle;
+        line-height: 1;
+    }
+
+    .tool-nav {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: fit-content;
+        height: fit-content;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .theme-toggle, .fold-toggle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--card-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: var(--nav-box-shadow);
+    }
+
+
+    /* 默认隐藏折叠按钮 */
+    .fold-toggle {
+        display: none;
+    }
+
+    .theme-toggle-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .theme-toggle svg, .fold-toggle svg {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+    }
+
+    .theme-toggle:hover, .fold-toggle:hover {
+        border-color: var(--theme-color);
+        color: var(--theme-color);
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        .Nav-container {
+            justify-content: flex-start;
+        }
+        
+        .main-nav {
+            margin: 0;
+            margin-left: 0;
+            justify-content: flex-start;
+        }
+        
+        .nav-links {
+            gap: 8px;
+        }
+        
+        /* 隐藏除首页外的所有导航项 */
+        .nav-item:not(:first-child) {
+            display: none;
+        }
+        
+        /* 移动端显示折叠按钮 */
+        .fold-toggle {
+            display: flex;
+        }
+        
+        /* 移动端保持主题切换按钮显示 */
+        .theme-toggle {
+            display: flex;
+        }
+    }
+
+    /* 侧边栏样式 */
+    .sidebar-nav {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 170px;
+        height: 100vh;
+        background-color: var(--card-bg);
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
+        transition: right 0.3s ease;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .sidebar-nav.active {
+        right: 0;
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .sidebar-header {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 30px;
+    }
+
+    .sidebar-close {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+    }
+
+    .sidebar-close:hover {
+        background-color: var(--hover-color);
+    }
+
+    .sidebar-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: calc(100% - 40px);
+        padding-top: 40px;
+    }
+
+    .sidebar-item {
+        margin-bottom: 15px;
+    }
+
+    .sidebar-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 16px;
+        text-decoration: none;
+        color: var(--text-color);
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .sidebar-link:hover {
+        background-color: var(--hover-color);
+    }
+
+    .sidebar-link.active {
+        background-color: rgba(38, 207, 157, 0.15);
+        color: var(--theme-color);
+        font-weight: 500;
+    }
+
+    .sidebar-icon {
+        margin-right: 12px;
+        width: 20px;
+        height: 20px;
+    }
+</style>   

@@ -31,6 +31,7 @@ export interface PostData {
   tags: string[];
   wordCount: number;
   published: string;
+  cover: string;
 }
 
 // 定义文章接口

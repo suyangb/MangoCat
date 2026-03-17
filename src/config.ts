@@ -11,18 +11,18 @@ export const SiteConfig: SiteConfigType = {
     POSTS_PER_PAGE: 8,    // 每页显示的文章数量
     },
   Categories: {
-    '年度总结': { icon: 'tabler:star', color: '#ffae00ff' },
+    '年度总结': { icon: 'tabler:carambola', color: '#ffae00ff' },
     '感言': { icon: 'tabler:heart', color: '#ee0f52ff' },
     '日常': {icon: 'tabler:edit',color: '#c03f99ff'},
     '游戏': {icon: 'tabler:device-gamepad-2',color: '#00da49ff'},
     '技能': {icon: 'tabler:braces', color: '#36bd41ff'}
   },
   NavConfig: [
-    { name: '归档', path: '/archive' },
-    { name: '友链', path: '/link' },
-    { name: '鱼塘', path: '/circle' },
-    { name: '项目', path: '/project' },
-    { name: '关于', path: '/about' },
+    { name: '归档', path: '/archive', icon: 'tabler:archive' },
+    { name: '友链', path: '/link', icon: 'tabler:link' },
+    { name: '鱼塘', path: '/circle', icon: 'tabler:bubble-text' },
+    { name: '项目', path: '/project', icon: 'tabler:layout-kanban' },
+    { name: '关于', path: '/about', icon: 'tabler:user' },
   ],
 }
 
@@ -43,5 +43,5 @@ export const CommentConfig = {
 }
 
 export const DEVELOPER_CONFIG = {
-  THEME_VERSION: '1.7c',
+  THEME_VERSION: '2.0',
 }
