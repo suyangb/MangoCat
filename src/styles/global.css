@@ -6,7 +6,7 @@
     --bg-color: #fafafa;
     --title-color: #161616;
     --desc-color: #606060;
-    --text-color: #2d3541;
+    --text-color: #333333;
     --card-bg: #fff;
     --header-footer-bg-color: #ffffff;
     --footer-color: #6b7280;
@@ -74,7 +74,7 @@ html,
 body {
     padding: 0;
     margin: 0;
-    font-family: 'Satoshi', "InterVariable", "Noto Sans SC-Local", "Noto Sans SC", system-ui, sans-serif;
+    font-family: 'InterVariable', 'Satoshi', "Noto Sans SC-Local", "Noto Sans SC", system-ui, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -218,7 +218,7 @@ body {
 
 .article-title {
     font-size: calc(var(--font-title-size) + 5px);
-    font-weight: bold;
+    font-weight: 500;
     color: var(--title-color);
 
     display: inline-block;
@@ -335,7 +335,7 @@ body {
     }
 
     .article-meta {
-        font-size: calc(var(--font-desc-size) + 2px);
+        font-size: calc(var(--font-desc-size) + 1px);
     }
 }
 

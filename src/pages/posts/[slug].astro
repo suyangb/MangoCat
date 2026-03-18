@@ -36,7 +36,7 @@ const categoryConfig = post.data.category ? SiteConfig.Categories[post.data.cate
 				<div class="article-meta">
 					<span>
 						<Icon name="tabler:clock-hour-4" />
-						{new Date(post.data.published).toISOString().slice(0, 19).replace('T', ' ')}
+					  {new Date(post.data.published).toISOString().slice(0, 10)}
 					</span>
 					{post.data.category && (
 						<span style={{ color: categoryConfig?.color || 'inherit' }}>

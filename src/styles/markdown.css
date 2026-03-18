@@ -1,8 +1,8 @@
 /* Markdown 文章内容基础样式：统一容器样式，抽离公共变量逻辑 */
 .article-content {
-  line-height: 1.8;
+  line-height: 1.7;
   color: var(--text-color);
-  font-size: calc(var(--font-text-size) + 2px);
+  font-size: calc(var(--font-text-size) + 1px);
   margin: 20px 0;
   box-sizing: border-box; /* 盒模型统一，避免padding撑大容器 */
 }
@@ -52,7 +52,7 @@
 
 /* 段落样式：重置默认边距，优化中文两端对齐 */
 .article-content p {
-  margin: 0 0 0.6em 0;
+  margin-bottom: 1em;
   text-align: justify;
   text-justify: inter-character;
 }
@@ -248,7 +248,7 @@
   .article-content {
     font-size: calc(var(--font-text-size) + 1px); /* 基于变量微缩，比PC小1px */
     margin: 15px 0; /* 减小上下外边距，适配小屏留白 */
-    line-height: 1.75; /* 微缩行高，提升小屏阅读效率 */
+    line-height: 1.6; /* 微缩行高，提升小屏阅读效率 */
   }
 
   /* 标题：基于PC端变量字号等比微缩，间距适配 */
