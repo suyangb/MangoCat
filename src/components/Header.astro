@@ -8,6 +8,12 @@ import { ThemeScript, Toggle } from "astro-theme-toggle/components";
 
 <header class="header">
     <div class="Nav-container">
+        <div class="logo-nav">
+            <a href="/" class="logo-link" title="首页">
+                <img src="/favicon.png" alt={SiteConfig.author} class="logo-avatar" />
+                <span class="logo-text">{SiteConfig.author}</span>
+            </a>
+        </div>
         <div class="main-nav">
              <ul class="nav-links">
                     <li class="nav-item">
@@ -158,6 +164,32 @@ import { ThemeScript, Toggle } from "astro-theme-toggle/components";
         position: relative;
     }
 
+    .logo-nav {
+        position: absolute;
+        left: 0;
+        display: none;
+        align-items: center;
+    }
+
+    .logo-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+    }
+    .logo-avatar {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
+
+    .logo-text {
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--title-color);
+        white-space: nowrap;
+    }
+
     .main-nav {
         display: flex;
         align-items: center;
@@ -214,7 +246,7 @@ import { ThemeScript, Toggle } from "astro-theme-toggle/components";
     .tool-nav {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 18px;
         width: fit-content;
         height: fit-content;
         position: absolute;
@@ -224,16 +256,10 @@ import { ThemeScript, Toggle } from "astro-theme-toggle/components";
     }
 
     .theme-toggle, .fold-toggle {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: var(--card-bg);
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: var(--nav-box-shadow);
     }
 
 
@@ -243,19 +269,14 @@ import { ThemeScript, Toggle } from "astro-theme-toggle/components";
     }
 
     .theme-toggle-icon {
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
     }
 
     .theme-toggle svg, .fold-toggle svg {
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
         font-size: 20px;
-    }
-
-    .theme-toggle:hover, .fold-toggle:hover {
-        border-color: var(--theme-color);
-        color: var(--theme-color);
     }
 
     /* 移动端适配 */
@@ -263,19 +284,30 @@ import { ThemeScript, Toggle } from "astro-theme-toggle/components";
         .Nav-container {
             justify-content: flex-start;
         }
-        
+
+        /* 移动端显示 logo-nav */
+        .logo-nav {
+            display: flex;
+            position: relative;
+            left: auto;
+            margin-right: 12px;
+        }
+
+        .logo-link {
+            padding: 2px 10px 2px 2px;
+        }
+
+        .logo-avatar {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+        }
+
+        /* 移动端隐藏 main-nav */
         .main-nav {
-            margin: 0;
-            margin-left: 0;
-            justify-content: flex-start;
-        }
-        
-        .nav-links {
-            gap: 8px;
-        }
-        
-        /* 隐藏除首页外的所有导航项 */
-        .nav-item:not(:first-child) {
             display: none;
         }
         
@@ -325,28 +357,6 @@ import { ThemeScript, Toggle } from "astro-theme-toggle/components";
     .sidebar-overlay.active {
         opacity: 1;
         visibility: visible;
-    }
-
-    .sidebar-header {
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: 30px;
-    }
-
-    .sidebar-close {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 8px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.3s ease;
-    }
-
-    .sidebar-close:hover {
-        background-color: var(--hover-color);
     }
 
     .sidebar-links {
