@@ -28,7 +28,7 @@ export const SiteConfig: SiteConfigType = {
 
 export const ProfileConfig = {
   name: 'Almango',
-  avatar: '/avatar.png',
+  avatar: '/avatar.jpg',
   desc: '精益求精，至臻至善',
   showOnHome: true, // 控制是否在主页显示头像和作者信息
 }
@@ -43,5 +43,5 @@ export const CommentConfig = {
 }
 
 export const DEVELOPER_CONFIG = {
-  THEME_VERSION: '2.0',
+  THEME_VERSION: '2.3a',
 }

@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import PostList from '../components/Postlist.astro';
 
-import Introduction from '../components/Introduction.astro';
+import Topme from '../components/Topme.astro';
 import { ReadingTime } from '../utils/Readtime-Wordcount';
 import { Icon } from "astro-icon/components";
 
@@ -42,14 +42,8 @@ const startIndex = (page - 1) * POSTS_PER_PAGE;
 const paginatedPosts = processedPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
 ---
 <Layout>
-  
-      <!-- 个人介绍区域 -->
-      {ProfileConfig.showOnHome && (
-        <Introduction />
-      )}
-      
-      
-      <PostList posts={paginatedPosts} />
+  <Topme />
+  <PostList posts={paginatedPosts} />
       <!-- 分页导航 -->
       {totalPages > 1 && (
         <div class="pagination">

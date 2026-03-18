@@ -1,10 +1,10 @@
 ---
 title: MD 语法演示
-description: MD 语法演示，这里记录着我今年所经历的一些事，以及对这些事件的感悟与总结。
+description: MD 语法演示
 published: 2026-03-03 22:11:10
 category: 年度总结
-cover: https://bu.dusays.com/2025/12/14/693e49d5e7f25.webp
-tags: ["2025", 总结]
+cover: https://pic.594594.xyz/i/2022/06/07/629e984f11279.jpg
+tags: ["ERROR"]
 slug: 2025assll
 ---
 

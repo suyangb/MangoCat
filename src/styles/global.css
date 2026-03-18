@@ -21,9 +21,9 @@
 
     --nav-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 
-    --width: 980px;            /* 统一宽度 */
+    --width: 720px;            /* 统一宽度 */
     --gap: 16px;               /* 统一间距 */
-    --font-title-size: 1.5rem;         /* 统一标题字体大小 */
+    --font-title-size: 1.2rem;         /* 统一标题字体大小 */
     --font-text-size: 1rem;         /* 统一标准字体大小 */
     --font-desc-size: 0.8rem;         /* 统一信息字体大小 */
     --radius: 1rem;            /* 统一圆角幅度 */
@@ -319,7 +319,7 @@ body {
         padding: 12px 15px;
     }
     .post-title h2 {
-        font-size: calc(var(--font-title-size) - 2px);
+        font-size: var(--font-title-size);
     }
 
     .post-desc p {
