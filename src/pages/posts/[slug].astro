@@ -6,6 +6,7 @@ import { SiteConfig, CommentConfig } from '../../config';
 import Postfooter from '../../components/Postfooter.astro';
 import Comment from '../../components/Comment.astro';
 
+
 // 获取所有文章用于生成静态路径
 export async function getStaticPaths() {
   // 获取所有文章并按发布日期排序（倒序）
@@ -31,22 +32,20 @@ const categoryConfig = post.data.category ? SiteConfig.Categories[post.data.cate
 ---
 <Layout pagetitle={`${post.data.title}`}>
 		<article class="article-card">
-			<header class="article-header">
+			<header class="article-header animate-fade-in-down">
 				<h1 class="article-title">{post.data.title}</h1>
 				<div class="article-meta">
 					<span>
-						<Icon name="tabler:clock-hour-4" />
-					  {new Date(post.data.published).toISOString().slice(0, 10)}
+					  发表于 {new Date(post.data.published).toISOString().slice(0, 10)}
 					</span>
 					{post.data.category && (
 						<span style={{ color: categoryConfig?.color || 'inherit' }}>
-							<Icon name={categoryConfig?.icon || 'tabler:category'} />
 							{post.data.category}
 						</span>
 					)}
 					{post.data.tags.length > 0 && (
 						<span>
-							<Icon name="tabler:tag" />
+							#
 							{post.data.tags.join(' & ')}
 						</span>
 					)}
