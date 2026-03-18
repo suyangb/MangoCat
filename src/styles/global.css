@@ -6,7 +6,7 @@
     --bg-color: #fafafa;
     --title-color: #161616;
     --desc-color: #606060;
-    --text-color: #333333;
+    --text-color: #202020;
     --card-bg: #fff;
     --header-footer-bg-color: #ffffff;
     --footer-color: #6b7280;
@@ -74,7 +74,7 @@ html,
 body {
     padding: 0;
     margin: 0;
-    font-family: 'InterVariable', 'Satoshi', "Noto Sans SC-Local", "Noto Sans SC", system-ui, sans-serif;
+    font-family: 'InterVariable', "Noto Sans SC-Local", "Noto Sans SC", system-ui, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -134,7 +134,7 @@ body {
 
 .post-title h2 {
     font-size: var(--font-title-size);
-    font-weight: bold;
+    font-weight: 500;
     color: var(--title-color);
     margin: 0;
     line-height: 1.3;
