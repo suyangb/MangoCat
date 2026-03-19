@@ -16,6 +16,9 @@
 .markdown-body h6 {
   color: var(--title-color);
   border-bottom-color: var(--border-color);
+  border-bottom: none !important;
+  font-weight: 500;
+  line-height: 1;
 }
 
 .markdown-body a {
@@ -25,6 +28,14 @@
 .markdown-body a:hover {
   color: var(--theme-color);
   opacity: 0.8;
+}
+
+.markdown-body img {
+  border-radius: var(--radius);
+}
+
+.markdown-body b, .markdown-body strong {
+   color: var(--strong-color);
 }
 
 .markdown-body code {
@@ -38,22 +49,36 @@
 }
 
 .markdown-body blockquote {
-  border-left-color: var(--theme-color);
+  border-left: 5px solid var(--theme-color);
+  border-radius: 5px var(--radius) var(--radius) 5px;
   color: var(--desc-color);
   background-color: var(--card-bg);
+  padding: 10px 16px;
+  
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  width: 100%;
 }
 
 .markdown-body table th,
 .markdown-body table td {
-  border-color: var(--border-color);
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
 }
 
 .markdown-body table th {
-  background-color: var(--card-bg);
+  background-color: rgba(128, 128, 128, 0.1);
+  font-weight: 600;
+}
+
+.markdown-body table tr {
+  background-color: transparent;
 }
 
 .markdown-body table tr:nth-child(2n) {
-  background-color: var(--card-bg);
+  background-color: rgba(128, 128, 128, 0.05);
 }
 
 .markdown-body hr {

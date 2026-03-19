@@ -1,12 +1,173 @@
 ---
-import AboutPage  from '../content/about.md';
-import Layout from '../layouts/Layout.astro';
+import AboutPage from "../content/about.md";
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+
+// 技术栈列表
+const skills = [
+    { icon: "devicon:html5", name: "HTML5" },
+    { icon: "devicon:css3", name: "CSS3" },
+    { icon: "devicon:javascript", name: "JavaScript" },
+    { icon: "devicon:typescript", name: "TypeScript" },
+    { icon: "devicon:nodejs", name: "Node.js" },
+    { icon: "devicon:astro", name: "Astro" },
+    { icon: "devicon:python", name: "Python" },
+    { icon: "devicon:csharp", name: "C#" },
+    { icon: "devicon:cplusplus", name: "C++" },
+    { icon: "devicon:vuejs", name: "Vue" },
+    { icon: "devicon:dart", name: "Dart" },
+];
+
+// 工具列表
+const tools = [
+    { icon: "devicon:windows11", name: "Windows" },
+    { icon: "devicon:android", name: "Android" },
+    { icon: "devicon:vscode", name: "VS Code" },
+    { icon: "devicon:visualstudio", name: "Visual Studio" },
+    { icon: "devicon:chrome", name: "Chrome" },
+    { icon: "devicon:git", name: "Git" },
+    { icon: "devicon:github", name: "GitHub" },
+    { icon: "devicon:vercel", name: "Vercel" },
+    { icon: "devicon:pnpm", name: "pnpm" },
+
+    { icon: "devicon:photoshop", name: "Photoshop" },
+];
 ---
 
 <Layout>
-    <h1 class="text-3xl font-bold" style="color: var(--title-color);">关于</h1>
-    <div class="article-content animate-slide-in"> 
-        
-        <AboutPage />
+    <h1
+        class="text-3xl font-bold text-center"
+        style="color: var(--title-color);"
+    >
+        关于
+    </h1>
+    <p class="about-subtitle text-center mb-[25px]">关于我是谁？</p>
+    <!-- <AboutPage /> -->
+    <div class="about-content">
+        <div class="about-introduction">
+            <p>你好，欢迎来到我的博客。</p>
+            <p>我是业余前端爱好者，喜欢折腾前端设计。在这里我会分享我的生活日常和学习经验。</p>
+            <p>爱好打游戏、睡觉、听音乐、<del>运动</del>、设计、看番...</p>
+            <b>MBTI鉴定为：<span>INTJ</span></b>
+        </div>
+
+        <div class="about-section">
+            <h2 class="section-title">技术栈</h2>
+            <div class="about-skill">
+                {
+                    skills.map((skill) => (
+                        <div class="skill-item">
+                            <Icon name={skill.icon} class="skill-icon" />
+                            <span>{skill.name}</span>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2 class="section-title">常用工具</h2>
+            <div class="about-tool">
+                {
+                    tools.map((tool) => (
+                        <div class="tool-item">
+                            <Icon name={tool.icon} class="tool-icon" />
+                            <span>{tool.name}</span>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+         <div class="about-section">
+            <h2 class="section-title">关于网站</h2>
+            <div class="about-introduction">
+            <p>框架与主题： Astro & MangoCat</p>
+            <p>构建与部署： Github + Vercel</p>
+            <p>这不仅仅是我的博客，更是我的虚拟小窝，对生活的倾诉或是对技术的探索，我会毫不留情的记录在此。</p>
+            <p>如果你对本网站的内容有任何问题或建议，欢迎随时联系我，我将在第一时间处理。</p>
+        </div>
+        </div>
     </div>
 </Layout>
+
+<style>
+    .about-content {
+        max-width: var(--width);
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .about-introduction {
+        margin-bottom: 40px;
+        color: var(--text-color);
+        line-height: 1.8;
+    }
+
+    .about-introduction p {
+        margin: 10px 0;
+    }
+
+    .about-introduction span {
+        color: var(--theme-color);
+        font-weight: 600;
+    }
+
+    .about-section {
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        font-size: var(--font-title-size);
+        color: var(--title-color);
+        margin-bottom: 12px;
+    }
+
+    .about-skill,
+    .about-tool {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--gap);
+    }
+
+    .skill-item,
+    .tool-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 12px;
+        background-color: var(--card-bg);
+        border-radius: var(--radius);
+        border: 1px solid var(--border-color);
+        cursor: pointer;
+    }
+
+    .skill-icon,
+    .tool-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .skill-item span,
+    .tool-item span {
+        color: var(--text-color);
+        font-size: var(--font-desc-size);
+    }
+
+    @media (max-width: 768px) {
+        .about-skill,
+        .about-tool {
+            gap: 10px;
+        }
+
+        .skill-item,
+        .tool-item {
+            padding: 6px 10px;
+        }
+
+        .skill-icon,
+        .tool-icon {
+            width: 16px;
+            height: 16px;
+        }
+    }
+</style>

@@ -4,6 +4,8 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { ReadingTime } from '../utils/Readtime-Wordcount';
 
+const Page = "归档"
+
 // 读取所有文章数据
 const posts = await getCollection('posts', (post) => post.data.draft !== true);
 
@@ -56,8 +58,8 @@ for (const yearData of sortedYears) {
 ---
 <Layout pagetitle={`归档 - ${SiteConfig.title}`}>
   <div class="archive-container">
-    <h1 class="text-3xl font-bold">归档</h1>
-    <p class="archive-subtitle">共 {processedPosts.length} 篇文章</p>
+    <h1 class="text-3xl font-bold text-center">{Page}</h1>
+    <p class="archive-subtitle text-center">共 {processedPosts.length} 篇文章</p>
     
     <div class="archive-content">
       {sortedYears.map((yearData) => (
@@ -98,7 +100,7 @@ for (const yearData of sortedYears) {
 
   
   .archive-subtitle {
-    font-size: calc(var(--font-title-size) - 5px);
+    font-size: calc(var(--font-title-size) - 4px);
     color: var(--text-color);
     margin-bottom: 25px;
   }

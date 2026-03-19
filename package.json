@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.15",
+    "@iconify-json/devicon": "^1.2.61",
     "@tailwindcss/vite": "^4.1.17",
     "astro": "^5.18.0",
     "astro-expressive-code": "^0.41.3",

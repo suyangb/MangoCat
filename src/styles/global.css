@@ -2,7 +2,7 @@
 /* @import 'simple-tips/index.css'; */
 /* 定义亮色主题的CSS变量 */
 :root {
-    --theme-color: #26cf9d;
+    --theme-color: #3ecea3;
     --bg-color: #fafafa;
     --title-color: #161616;
     --desc-color: #606060;
@@ -17,7 +17,6 @@
     --shadow-color: rgba(0, 0, 0, 0.05);
     --info-bg-color: #f3f3f3;
     --info-font-color: #666666;
-    --code-bg: #f6f8fa;
     --box-synchronism-padding: 0 20px;
 
     --nav-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
@@ -48,8 +47,7 @@
     --shadow-color: rgba(44, 44, 44, 0.3);
     --info-bg-color: #292933;
     --info-font-color: #777;
-    --code-bg: #161b22;
-    --strong-color: #ffffff;
+    --strong-color: #d1d1d1;
     --radius: 1rem;
 
     --nav-box-shadow: rgba(161, 161, 161, 0.02) 0px 1px 3px 0px, rgba(177, 196, 212, 0.15) 0px 0px 0px 1px;
@@ -282,10 +280,9 @@ body {
 }
 
 .article-title {
-    font-size: calc(var(--font-title-size) + 8px);
+    font-size: calc(var(--font-title-size) + 6px) !important;
     font-weight: 500;
     color: var(--title-color);
-
     display: inline-block;
 }
 
@@ -392,7 +389,7 @@ body {
     }
 
     .article-title {
-        font-size: calc(var(--font-title-size) + 5px);
+        font-size: calc(var(--font-title-size) + 4px) !important;
     }
 
     .article-meta {

@@ -7,8 +7,8 @@ import Fishpond from '../components/Fishpond.astro';
 ---
 <Layout pagetitle={`鱼塘 - ${SiteConfig.title}`}>
   <div class="circle-container">
-    <h1 class="text-3xl font-bold">鱼塘（beta）</h1>
-    <p class="circle-subtitle">看看朋友们在干嘛</p>
+    <h1 class="text-3xl font-bold text-center">鱼塘</h1>
+    <p class="circle-subtitle text-center">看看朋友们在干嘛</p>
     
     <div class="circle-content">
       <Fishpond />
@@ -23,7 +23,7 @@ import Fishpond from '../components/Fishpond.astro';
   }
   
   .circle-subtitle {
-    font-size: 1.2rem;
+    font-size: calc(var(--font-title-size) - 4px);
     color: var(--text-color);
     margin-bottom: 25px;
   }

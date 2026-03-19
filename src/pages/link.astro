@@ -11,8 +11,8 @@ import { links } from '../data/links.ts';
 
 <Layout pagetitle={`友链 - ${SiteConfig.title}`}>
   <div class="links-container">
-    <h1 class="text-3xl font-bold" style="color: var(--title-color);">友链</h1>
-    <p class="links-subtitle">与各位博主无限进步</p>
+    <h1 class="text-3xl font-bold text-center" style="color: var(--title-color);">友链</h1>
+    <p class="links-subtitle text-center">与各位博主无限进步</p>
     
     <div class="links-grid">
       {links.map((link, index) => (
@@ -32,7 +32,6 @@ import { links } from '../data/links.ts';
         </div>
       ))}
     </div>
-    <LinkPage />
     <!-- 评论区 -->
     <Comment />
   </div>
@@ -45,7 +44,7 @@ import { links } from '../data/links.ts';
   }
   
   .links-subtitle {
-    font-size: calc(var(--font-title-size) - 5px);
+    font-size: calc(var(--font-title-size) - 4px);
     color: var(--text-color);
     margin-bottom: 25px;
   }
