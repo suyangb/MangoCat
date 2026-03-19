@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 import { SiteConfig } from "../config.ts";
 const { NavConfig } = SiteConfig;
 import "../styles/animation.css";
-import { ThemeScript, Toggle } from "astro-theme-toggle/components";
+import { Toggle } from "astro-theme-toggle/components";
 ---
 
 <header class="header">
@@ -33,7 +33,6 @@ import { ThemeScript, Toggle } from "astro-theme-toggle/components";
             </ul>
         </div>
         <div class="tool-nav">
-            <ThemeScript />
             <button class="theme-toggle" aria-label="切换主题">
                 <Toggle class="theme-toggle-icon" />
             </button>
