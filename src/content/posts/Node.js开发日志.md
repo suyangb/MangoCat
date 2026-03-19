@@ -1,8 +1,6 @@
 ---
 title: Node.JS Express
 published: 2025-03-08 22:35:50             # 设置发布时间（默认不设）
-#cover: https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/cover/js.png        # 设置文章封面
-top_img: false
 tags: [nodejs]                               # 添加分类
 category: 学习笔记
 slug: "70c2f689"

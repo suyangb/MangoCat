@@ -7,6 +7,7 @@ import Postfooter from '../../components/Postfooter.astro';
 import Comment from '../../components/Comment.astro';
 
 
+
 // 获取所有文章用于生成静态路径
 export async function getStaticPaths() {
   // 获取所有文章并按发布日期排序（倒序）
@@ -28,7 +29,7 @@ const { post, prevPost, nextPost } = Astro.props;
 const { Content } = await post.render();
 ---
 <Layout pagetitle={`${post.data.title}`}>
-		<article class="article-card">
+		<article class="markdown-body">
 			<header class="article-header animate-fade-in-down" style={post.data.cover ? `background-image: url(${post.data.cover})` : undefined}>
 				<div class="article-header-content">
 					<h1 class="article-title">{post.data.title}</h1>

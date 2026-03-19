@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import expressiveCode from 'astro-expressive-code';
+// import expressiveCode from 'astro-expressive-code';
 import remarkBreaks from 'remark-breaks';
 import icon from 'astro-icon';
 import tailwindcss from '@tailwindcss/vite';
@@ -12,12 +12,12 @@ export default defineConfig({
     gfm: true,
   },
   integrations: [
-    expressiveCode({
-      themes: ['one-light', 'andromeeda'],
-      themeCssSelector: (theme) => 
-        theme.name === 'andromeeda' ? '[data-theme="dark"]' : '[data-theme="light"]',
-      // 修正：plugins数组仅放插件实例，内置插件（copy-button、language-badge）默认启用或需安装对应包
-    }),
+    // expressiveCode({
+    //   themes: ['one-light', 'andromeeda'],
+    //   themeCssSelector: (theme) => 
+    //     theme.name === 'andromeeda' ? '[data-theme="dark"]' : '[data-theme="light"]',
+    //   // 修正：plugins数组仅放插件实例，内置插件（copy-button、language-badge）默认启用或需安装对应包
+    // }),
     icon(), // astro-icon 集成配置正确
   ],
 

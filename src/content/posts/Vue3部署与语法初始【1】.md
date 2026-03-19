@@ -1,7 +1,6 @@
 ---
 title: Vue3部署与基本语法实例【1】
 published: 2025-02-14 18:51:00
-cover: img/cover/vue.png
 top_img: false
 tags: [Vue3]
 category: 学习笔记

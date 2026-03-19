@@ -17,6 +17,7 @@
     --shadow-color: rgba(0, 0, 0, 0.05);
     --info-bg-color: #f3f3f3;
     --info-font-color: #666666;
+    --code-bg: #f6f8fa;
     --box-synchronism-padding: 0 20px;
 
     --nav-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
@@ -47,6 +48,7 @@
     --shadow-color: rgba(44, 44, 44, 0.3);
     --info-bg-color: #292933;
     --info-font-color: #777;
+    --code-bg: #161b22;
     --strong-color: #ffffff;
     --radius: 1rem;
 
@@ -227,17 +229,18 @@ body {
     display: flex;
     align-items: flex-end;
     padding: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
-.article-header::before {
+/* 有封面时的渐变遮罩 */
+.article-header[style*="background-image"]::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
     border-radius: var(--radius);
     pointer-events: none;
 }
@@ -246,19 +249,36 @@ body {
     position: relative;
     z-index: 1;
     width: 100%;
+    text-align: center;
 }
 
-.article-header-content .article-title {
+/* 有封面时的白色文字 */
+.article-header[style*="background-image"] .article-header-content .article-title {
     color: #fff;
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-.article-header-content .article-meta {
+.article-header[style*="background-image"] .article-header-content .article-meta {
+    color: rgba(255,255,255,0.9);
+    justify-content: center;
+}
+
+.article-header[style*="background-image"] .article-header-content .article-meta span {
     color: rgba(255,255,255,0.9);
 }
 
+/* 无封面时的默认文字颜色 */
+.article-header-content .article-title {
+    color: var(--title-color);
+}
+
+.article-header-content .article-meta {
+    color: var(--desc-color);
+    justify-content: center;
+}
+
 .article-header-content .article-meta span {
-    color: rgba(255,255,255,0.9);
+    color: var(--text-color);
 }
 
 .article-title {

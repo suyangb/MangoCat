@@ -1,362 +1,66 @@
-/* Markdown 文章内容基础样式：统一容器样式，抽离公共变量逻辑 */
-.article-content {
-  line-height: 1.7;
+/* 基础设置 */
+.markdown-body {
+  background-color: transparent !important;
+}
+
+/* 亮色主题 - 使用 CSS 变量 */
+.markdown-body {
   color: var(--text-color);
-  font-size: calc(var(--font-text-size) + 1px);
-  margin: 20px 0;
-  box-sizing: border-box; /* 盒模型统一，避免padding撑大容器 */
 }
 
-/* 标题通用样式：抽离公共属性，减少重复代码 */
-.article-content h1,
-.article-content h2,
-.article-content h3,
-.article-content h4,
-.article-content h5,
-.article-content h6 {
-  font-weight: 500;
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
   color: var(--title-color);
-  position: relative;
-  margin-block-start: 0; /* 重置浏览器默认边距 */
-  margin-block-end: 0;
+  border-bottom-color: var(--border-color);
 }
 
-/* 各级标题个性化样式：间距/字号/边框分层设计，基于变量计算 */
-.article-content h1 {
-  font-size: calc(var(--font-title-size) + 4px);
-  font-weight: 700;
-  margin: 1.0em 0 0.4em;
-  padding-bottom: 0.3em;
-}
-.article-content h2 {
-  font-size: calc(var(--font-title-size) + 2px);
-  margin: 0.9em 0 0.4em;
-  padding-bottom: 0.2em;
-}
-.article-content h3 {
-  font-size: var(--font-title-size);
-  margin: 0.8em 0 0.3em;
-}
-.article-content h4 {
-  font-size: calc(var(--font-title-size) - 2px);
-  margin: 0.7em 0 0.3em;
-}
-.article-content h5 {
-  font-size: calc(var(--font-title-size) - 4px);
-  margin: 0.6em 0 0.2em;
-}
-.article-content h6 {
-  font-size: calc(var(--font-title-size) - 6px);
-  margin: 0.6em 0 0.2em;
-}
-
-/* 段落样式：重置默认边距，优化中文两端对齐 */
-.article-content p {
-  margin-bottom: 1em;
-  text-align: justify;
-  text-justify: inter-character;
-}
-
-/* 链接样式：简化过渡，优化下划线，触摸交互适配 */
-.article-content a {
-  text-decoration-line: underline;    /* 显示下划线 */
-  text-decoration-style: dashed;      /* 下划线设为虚线 */
-  text-decoration-color: var(--theme-color); /* 下划线颜色（可选，默认继承文字色） */
-  text-underline-offset: 5px;         /* 下划线与文字的偏移量 */
-  transition: opacity 0.2s ease;
-  -webkit-tap-highlight-color: transparent; /* 去除移动端点击高亮 */
-  /* 可选：兼容旧版浏览器（如 Safari < 12.1） */
-}
-.article-content a:hover,
-.article-content a:active { /* 增加active，适配移动端触摸 */
-  opacity: 0.8;
+.markdown-body a {
   color: var(--theme-color);
 }
 
-/* 列表基础样式：统一ul/ol，重置默认间距 */
-.article-content ul,
-.article-content ol {
-  margin: 0 0 0.6em 0;
-  padding-left: 2em;
-  box-sizing: border-box;
-}
-.article-content ul {
-  list-style-type: disc;
-}
-.article-content ol {
-  list-style-type: decimal;
+.markdown-body a:hover {
+  color: var(--theme-color);
+  opacity: 0.8;
 }
 
-/* 列表项样式：统一行间距，避免嵌套拥挤 */
-.article-content li {
-  margin: 0.3em 0;
-  line-height: 1.7;
-}
-
-/* 嵌套列表：精简间距，优化嵌套层级 */
-.article-content ul ul,
-.article-content ul ol,
-.article-content ol ul,
-.article-content ol ol {
-  margin: 0.3em 0 0.3em 1.2em;
-  padding: 0;
-}
-
-/* 行内代码样式：基于变量定义字号，提升辨识度 */
-.article-content code {
-  background-color: var(--info-bg-color);
+.markdown-body code {
+  background-color: var(--code-bg);
   color: var(--text-color);
-  padding: 0 0.5em;
-  font-family: 'AlimamaFangYuanTi', "InterVariable", "Noto Sans SC-Local", "Noto Sans SC", system-ui, sans-serif;
-  font-size: var(--font-text-size);
-  box-sizing: border-box;
-  border: 1px solid var(--border-color);
-  border-radius: calc(var(--radius) - 8px);
 }
 
-/* 代码块样式：独立设计，优化滚动和内边距 */
-.article-content pre {
-  background-color: var(--bg-color, #fff);
-  border: 1px solid var(--border-color, #e5e7eb);
-  border-radius: var(--radius, 4px);
-  padding: 1em;
-  margin: 0.6em 0;
-  overflow-x: auto;
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-  font-size: calc(var(--font-text-size) + 2px);
-  line-height: 1.5;
-  box-sizing: border-box;
-  -webkit-overflow-scrolling: touch; /* 移动端代码块滚动更顺滑 */
-}
-.article-content pre code {
-  background-color: transparent;
-  padding: 0;
-  border-radius: 0;
-  font-family: 'SFMono-Regular', 'Consolas', 'Monaco', 'Courier New', monospace;
-  white-space: pre;
-  box-shadow: none;
-}
-
-/* 引用样式：优化内边距，基于变量定字号，增加背景 */
-.article-content blockquote {
-  color: var(--desc-color);
-  margin: 0.6em 0;
-  padding: 0.6em 1em;
-  border-left: 5px solid var(--theme-color);
-  font-size: calc(var(--font-text-size) + 2px);
-  box-sizing: border-box;
-}
-.article-content blockquote p {
-  margin: 0;
-  text-align: left;
-}
-
-/* 表格样式：优化边框和内边距，提升行悬停体验 */
-.article-content table {
-  width: 100%;
-  margin: 0.6em 0;
-  border: 1px solid var(--border-color);
+.markdown-body pre {
+  background-color: var(--code-bg);
   border-radius: var(--radius);
-  overflow: hidden;
-  box-sizing: border-box;
-}
-.article-content table th,
-.article-content table td {
-  border: 1px solid var(--border-color);
-  padding: 0.5em 0.8em;
-  text-align: left;
-  box-sizing: border-box;
-}
-.article-content table th {
-  color: var(--title-color);
-}
-/* 表格行悬停：柔和背景，增加过渡，移动端触摸适配 */
-.article-content table tr:hover,
-.article-content table tr:active {
-  background-color: var(--hover-color);
-  transition: background-color 0.2s ease;
 }
 
-/* 图片样式：优化间距，居中显示，适配响应式 */
-.article-content img {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--radius, 4px);
-  margin: 1em auto;
-  display: block;
-  object-fit: contain;
+.markdown-body blockquote {
+  border-left-color: var(--theme-color);
+  color: var(--desc-color);
+  background-color: var(--card-bg);
 }
 
-/* 水平线样式：优化颜色，适配变量，统一间距 */
-.article-content hr {
-  border: 0;
-  height: 1px;
-  background-color: var(--hr-color, #e9ecef);
-  margin: 2em 0;
-  width: 100%;
-  box-sizing: border-box;
+.markdown-body table th,
+.markdown-body table td {
+  border-color: var(--border-color);
 }
 
-/* 内联图标样式：统一对齐，避免偏移 */
-.article-content svg {
-  width: 16px;
-  height: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-  flex-shrink: 0;
-  margin: 0 2px;
-}
-/* 第三方代码块样式：移除阴影 */
-.expressive-code .frame {
-  box-shadow: none !important;
-  padding: 0.5em 0;
+.markdown-body table th {
+  background-color: var(--card-bg);
 }
 
-/* 任务列表：优化复选框定位，修复对齐问题，触摸交互适配 */
-.article-content ul.task-list {
-  list-style-type: none;
-  padding-left: 1.8em;
-}
-.article-content ul.task-list li {
-  position: relative;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent; /* 去除移动端点击高亮 */
-}
-.article-content ul.task-list li input[type="checkbox"] {
-  position: absolute;
-  left: -1.8em;
-  top: 0.2em;
-  width: 14px;
-  height: 14px;
-  cursor: pointer;
-  -webkit-appearance: none; /* 重置复选框样式，提升移动端兼容性 */
-  appearance: none;
+.markdown-body table tr:nth-child(2n) {
+  background-color: var(--card-bg);
 }
 
-/* 粗体样式：变量兜底，避免无定义时失效 */
-.article-content strong {
-  color: var(--strong-color, #333);
-  font-weight: 700;
+.markdown-body hr {
+  border-color: var(--border-color);
 }
 
-
-
-/* 响应式设计：768px断点（平板/手机横屏），全变量计算，无固定值 */
-@media (max-width: 768px) {
-  .article-content {
-    font-size: calc(var(--font-text-size) + 1px); /* 基于变量微缩，比PC小1px */
-    margin: 15px 0; /* 减小上下外边距，适配小屏留白 */
-    line-height: 1.6; /* 微缩行高，提升小屏阅读效率 */
-  }
-
-  /* 标题：基于PC端变量字号等比微缩，间距适配 */
-  .article-content h1 {
-    font-size: calc(var(--font-title-size) + 3px);
-    margin: 0.9em 0 0.3em;
-    padding-bottom: 0.25em;
-  }
-  .article-content h2 {
-    font-size: calc(var(--font-title-size) + 1px);
-    margin: 0.8em 0 0.3em;
-    padding-bottom: 0.15em;
-  }
-  .article-content h3 {
-    font-size: calc(var(--font-title-size) - 1px);
-    margin: 0.7em 0 0.25em;
-  }
-  .article-content h4 {
-    font-size: calc(var(--font-title-size) - 3px);
-    margin: 0.6em 0 0.25em;
-  }
-  .article-content h5 {
-    font-size: calc(var(--font-title-size) - 5px);
-    margin: 0.5em 0 0.2em;
-  }
-  .article-content h6 {
-    font-size: calc(var(--font-title-size) - 7px);
-    margin: 0.5em 0 0.2em;
-  }
-
-  /* 列表：减小缩进，适配小屏视野 */
-  .article-content ul,
-  .article-content ol {
-    padding-left: 1.5em;
-    margin: 0 0 0.5em 0;
-  }
-  /* 嵌套列表：进一步精简间距，避免层级过多拥挤 */
-  .article-content ul ul,
-  .article-content ul ol,
-  .article-content ol ul,
-  .article-content ol ol {
-    margin: 0.2em 0 0.2em 1em;
-  }
-  .article-content li {
-    margin: 0.25em 0;
-    line-height: 1.65;
-  }
-
-  /* 代码块：小屏适配，优化内边距和字号，滚动更顺滑 */
-  .article-content pre {
-    padding: 0.8em;
-    font-size: var(--font-text-size); /* 基于基础文本变量，无额外增加 */
-    line-height: 1.45;
-    border-radius: calc(var(--radius, 4px) - 1px); /* 微缩圆角，更适配小屏 */
-  }
-  /* 行内代码：小屏微缩内边距 */
-  .article-content code {
-    padding: 0px 0.5em;
-    border: 1px solid var(--border-color);
-    border-radius: calc(var(--radius, 4px) - 8px);
-  }
-
-  /* 引用：小屏精简内边距，字号微缩 */
-  .article-content blockquote {
-    padding: 0.5em 0.8em;
-    font-size: var(--font-text-size);
-    border-left-width: 4px; /* 减细左侧边框，适配小屏 */
-    margin: 0.5em 0;
-  }
-
-  /* 表格：小屏优化内边距，提升触摸点击区域 */
-  .article-content table th,
-  .article-content table td {
-    padding: 0.4em 0.6em;
-    font-size: calc(var(--font-text-size) - 1px); /* 表格文字微缩，避免换行过多 */
-  }
-  /* 表格行悬停：提升背景色对比度，适配小屏视觉 */
-  .article-content table tr:hover {
-    background-color: var(--hover-color);
-  }
-
-  /* 图片：减小上下外边距，适配小屏 */
-  .article-content img {
-    margin: 0.8em auto;
-    border-radius: calc(var(--radius) - 1px);
-  }
-
-  /* 水平线：减小上下间距，适配小屏留白 */
-  .article-content hr {
-    margin: 1.5em 0;
-  }
-
-  /* 任务列表：小屏适配缩进和复选框定位 */
-  .article-content ul.task-list {
-    padding-left: 1.5em;
-  }
-  .article-content ul.task-list li input[type="checkbox"] {
-    left: -1.5em;
-    top: 0.15em;
-    width: 15px;
-    height: 15px; /* 增大复选框，提升移动端触摸体验 */
-  }
-
-  /* 内联图标：小屏微缩尺寸，避免占比过大 */
-  .article-content svg {
-    width: 14px;
-    height: 14px;
-    margin: 0 1px;
-  }
+.markdown-body .highlight pre,
+.markdown-body pre {
+  background-color: var(--code-bg);
 }
-
