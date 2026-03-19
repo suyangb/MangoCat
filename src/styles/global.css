@@ -220,7 +220,7 @@ body {
 
 .article-header {
     position: relative;
-    min-height: 300px;
+    min-height: 200px;
     border-radius: var(--radius);
     background-size: cover;
     background-position: center;
