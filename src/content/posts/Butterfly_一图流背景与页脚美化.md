@@ -2,13 +2,8 @@
 title: Butterfly_一图流背景与页脚美化
 published: 2024-10-03 13:20:03
 pinned: false
-cover: false         # 设置文章封面
 tags: [Hexo,Butterfly,美化]                                 # 添加分类
 category: 魔改
-
-description: 将文章封面与背景于一体，让页脚显示更高档。
-swiper_index: 3 #置顶轮播图顺序，非负整数，数字越大越靠前
-draft: false
 slug: "902acb75"
 ---
 

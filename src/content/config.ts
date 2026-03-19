@@ -8,7 +8,7 @@ const postsCollection = defineCollection({
     updated: z.string().optional(),
     tags: z.array(z.string()).default([]),
     category: z.string().optional(),
-    image: z.string().optional(),
+    cover: z.string().optional(),
     draft: z.boolean().default(false),
     lang: z.enum(['zh-CN', 'en']).default('zh-CN'),
     slug: z.string().optional(),

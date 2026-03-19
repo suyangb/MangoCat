@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
-import { SiteConfig, CommentConfig } from '../../config';
+import { CommentConfig } from '../../config';
 import Postfooter from '../../components/Postfooter.astro';
 import Comment from '../../components/Comment.astro';
 
@@ -26,29 +26,28 @@ export async function getStaticPaths() {
 // 接收文章数据
 const { post, prevPost, nextPost } = Astro.props;
 const { Content } = await post.render();
-
-// 获取分类配置
-const categoryConfig = post.data.category ? SiteConfig.Categories[post.data.category] : null;
 ---
 <Layout pagetitle={`${post.data.title}`}>
 		<article class="article-card">
-			<header class="article-header animate-fade-in-down">
-				<h1 class="article-title">{post.data.title}</h1>
-				<div class="article-meta">
-					<span>
-					  发表于 {new Date(post.data.published).toISOString().slice(0, 10)}
-					</span>
-					{post.data.category && (
-						<span style={{ color: categoryConfig?.color || 'inherit' }}>
-							{post.data.category}
-						</span>
-					)}
-					{post.data.tags.length > 0 && (
+			<header class="article-header animate-fade-in-down" style={post.data.cover ? `background-image: url(${post.data.cover})` : undefined}>
+				<div class="article-header-content">
+					<h1 class="article-title">{post.data.title}</h1>
+					<div class="article-meta">
 						<span>
-							#
-							{post.data.tags.join(' & ')}
+						  发表于 {new Date(post.data.published).toISOString().slice(0, 10)}
+						</span>
+						{post.data.category && (
+						<span>
+							 {post.data.category}
 						</span>
 					)}
+						{post.data.tags.length > 0 && (
+							<span>
+								#
+								{post.data.tags.join(' & ')}
+							</span>
+						)}
+					</div>
 				</div>
 			</header>
 			<div class="article-content animate-slide-in">
