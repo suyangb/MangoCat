@@ -11,7 +11,6 @@ export async function GET(context) {
     .sort((a, b) => {
       const dateA = new Date(a.data.published);
       const dateB = new Date(b.data.published);
-      // 处理无效日期，避免排序异常
       if (isNaN(dateA.getTime())) return 1;
       if (isNaN(dateB.getTime())) return -1;
       return dateB - dateA; 

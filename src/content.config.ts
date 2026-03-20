@@ -14,6 +14,7 @@ const posts = defineCollection({
     cover: z.string().optional(),
     lang: z.enum(['zh-CN', 'en']).default('zh-CN'),
     id: z.string().optional(),
+    // origin: z.string().optional(),
   }),
 });
 

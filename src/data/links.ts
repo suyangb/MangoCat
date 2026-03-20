@@ -36,6 +36,13 @@ export const links: Link[] = [
     rss: "https://saneko.me/rss.xml"
   },
   {
+    name: "鈴奈咲桜",
+    description: "愛することを忘れないで",
+    url: "https://blog.sakura.ink",
+    avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=2731443459&spec=5",
+    rss: "https://blog.sakura.ink/rss.xml"
+  },
+  {
     name: "卿以君歌",
     description: "幻术的世界有什么不好？",
     url: "https://www.mekimto.cn/",
@@ -65,13 +72,6 @@ export const links: Link[] = [
     url: "https://www.hydsb0.com",
     avatar: "https://s21.ax1x.com/2025/07/13/pVlsr8S.jpg",
     // rss: ""
-  },
-  {
-    name: "鈴奈咲桜",
-    description: "愛することを忘れないで",
-    url: "https://blog.sakura.ink",
-    avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=2731443459&spec=5",
-    rss: "https://blog.sakura.ink/rss.xml"
   },
   {
     name: "JustPureH2O",
@@ -109,16 +109,16 @@ export const links: Link[] = [
     rss: "https://mccsjs.eu.org/rss.xml"
   },
   {
-    name: "萧北",
-    description: "拥抱变化，享受过程",
-    url: "https://xn--djrr55i.top/",
-    avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=3790300010&spec=5",
-    rss: "https://xn--djrr55i.top/rss.xml"
-  },
-  {
     name: "Nebula Blog",
     description: "Nebula.SYS",
     url: "https://www.996icu.eu.org/",
     avatar: "https://img.scdn.io/i/692d847f79589_1764590719.webp",
+  },
+  {
+    name: "Meorion",
+    description: "去码头整点薯条🍟",
+    url: "https://blog.meorion.moe",
+    avatar: "https://gravatar.meorion.moe/avatar/me",
+    rss: "https://gravatar.meorion.moe/avatar/me"
   }
 ];

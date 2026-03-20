@@ -1,6 +1,9 @@
 /* 基础设置 */
 .markdown-body {
   background-color: transparent !important;
+  font-family: var(--font-family);
+  font-size: var(--font-text-size);
+  line-height: 1.75;
 }
 
 /* 亮色主题 - 使用 CSS 变量 */
@@ -17,18 +20,17 @@
   color: var(--title-color);
   border-bottom-color: var(--border-color);
   border-bottom: none !important;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1;
 }
 
 .markdown-body a {
-  color: var(--theme-color);
+  color: var(--title-color);
+  font-weight: 500;
+  text-decoration: underline;
+  padding: 0 4px;
 }
 
-.markdown-body a:hover {
-  color: var(--theme-color);
-  opacity: 0.8;
-}
 
 .markdown-body img {
   border-radius: var(--radius);
@@ -49,12 +51,11 @@
 }
 
 .markdown-body blockquote {
-  border-left: 3px solid var(--theme-color);
-  border-radius: 0px var(--radius) var(--radius) 0px;
-  color: var(--desc-color);
-  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  border: 2px dashed var(--border-color);
   padding: 10px 16px;
-  
+  color: var(--text-color);
+  background-color: rgba(255, 243, 190, 0.1);
 }
 
 .markdown-body table {
@@ -88,4 +89,32 @@
 .markdown-body .highlight pre,
 .markdown-body pre {
   background-color: var(--code-bg);
+}
+
+/* 列表样式 */
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body ul {
+  list-style-type: disc;
+}
+
+.markdown-body ol {
+  list-style-type: decimal;
+}
+
+.markdown-body li {
+  margin: 0.25em 0;
+  color: var(--text-color);
+}
+
+
+.markdown-body li > ul,
+.markdown-body li > ol {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
 }

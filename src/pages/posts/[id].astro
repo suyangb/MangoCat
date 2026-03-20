@@ -25,22 +25,20 @@ const { post, prevPost, nextPost } = Astro.props;
 const { Content } = await render(post);
 ---
 <Layout pagetitle={`${post.data.title}`}>
-		<article class="markdown-body">
+		<article class="article">
 			<header class="article-header animate-fade-in-down" style={post.data.cover ? `background-image: url(${post.data.cover})` : undefined}>
 				<div class="article-header-content">
 					<h1 class="article-title">{post.data.title}</h1>
 					<div class="article-meta">
 						<span>
-						  发表于 {new Date(post.data.published).toISOString().slice(0, 10)}
+						  发表于 {new Date(post.data.published).toISOString().slice(0, 10)} 
 						</span>
-						{post.data.category && (
-						<span>{post.data.category}
-						</span>)}
-						{post.data.tags.length > 0 && (<span>#{post.data.tags.join(' & ')}</span>)}
+						{post.data.tags.length > 0 && (<span># {post.data.tags.join(' & ')}</span>)}
+						 {post.data.category && (<span>分类 {post.data.category}</span>)}
 					</div>
 				</div>
 			</header>
-			<div class="article-content animate-slide-in">
+			<div class="markdown-body  animate-slide-in">
 				<Content/>
 			</div>
 			<!-- 使用Postfooter组件 -->
