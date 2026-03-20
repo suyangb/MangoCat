@@ -5,12 +5,19 @@ export const SiteConfig: SiteConfigType = {
   title: 'Almango',
   author: 'Almango',
   favicon: '/favicon.png',
-  desc: '天真永不消逝，浪漫至死不渝',
+  subtitle: '天真永不消逝，浪漫至死不渝',
   siteUrl: 'https://blog.almango.cn',
   createTime: '2024-01-23',
   PaginationConfig: {
     POSTS_PER_PAGE: 8,    // 每页显示的文章数量
-    },
+  },
+
+  SiteStyleConfig: {
+  themeColor: '#1890ff', // 主色调
+  fontFamily: 'Inter, sans-serif', // 字体
+  borderRadius: '12px', // 圆角
+},
+  
   Categories: {
     '年度总结': { icon: 'tabler:carambola', color: '#ffae00ff' },
     '感言': { icon: 'tabler:heart', color: '#ee0f52ff' },
@@ -43,5 +50,5 @@ export const CommentConfig = {
 }
 
 export const DEVELOPER_CONFIG = {
-  THEME_VERSION: '4.0a',
+  THEME_VERSION: '4.1',
 }

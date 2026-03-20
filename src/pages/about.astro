@@ -2,7 +2,7 @@
 import AboutPage from "../content/about.md";
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
-import { SiteConfig } from "../config";
+import { SiteConfig ,ProfileConfig } from "../config";
 import { Picture } from "astro:assets";
 
 // 计算网站运营时间
@@ -53,16 +53,21 @@ const tools = [
 
 <Layout>
     <h1 class="text-3xl font-bold text-center" style="color: var(--title-color);">关于</h1>
-    <p class="about-subtitle text-center mb-[25px]">关于我是谁？</p>
+    <p class="about-subtitle text-center mb-[25px]">关于我是谁</p>
     <!-- <AboutPage /> -->
     <div class="about-content animate-slide-in">
         <div class="about-introduction">
-            <p>你好🌹，我是啊芒果，欢迎来到我的博客。</p>
+            <p>你好，我是啊芒果，欢迎来到我的博客。</p>
             <p>我是个业余前端爱好者，喜欢折腾前端设计和折腾各种小项目。</p>
             <p>爱好打游戏、💤睡觉、🎵听音乐、<del>运动</del>、设计、看番、拍摄、遛猫......</p>
             <p>认为世界上最好吃的食物是：🍨冰激凌、🥭芒果</p>
-            <p>座右铭：<span>“{SiteConfig.desc}”</span></p>
-            <b>MBTI鉴定为：<span style="color: var(--theme-color); font-weight: 600;">INTJ</span></b>
+            <p>座右铭：<span>“{ProfileConfig.desc}”</span></p>
+            <b>MBTI鉴定为：<span style="color: var(--theme-color); font-weight: 600;">
+                <a href="https://www.16personalities.com/ch/infj-人格" target="_blank">
+                    NFJ-T
+                </a>
+            </span>
+        </b>
 
         </div>
         <div class="about-section">

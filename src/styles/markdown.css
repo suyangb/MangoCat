@@ -40,7 +40,7 @@
 
 .markdown-body code {
   background-color: var(--code-bg);
-  color: var(--text-color);
+  border: 1px solid var(--border-color);
 }
 
 .markdown-body pre {
@@ -49,8 +49,8 @@
 }
 
 .markdown-body blockquote {
-  border-left: 5px solid var(--theme-color);
-  border-radius: 5px var(--radius) var(--radius) 5px;
+  border-left: 3px solid var(--theme-color);
+  border-radius: 0px var(--radius) var(--radius) 0px;
   color: var(--desc-color);
   background-color: var(--card-bg);
   padding: 10px 16px;
