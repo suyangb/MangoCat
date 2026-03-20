@@ -22,7 +22,7 @@ export async function GET(context) {
     return {
       link: fullLink,
       title: post.data.title,
-      description: post.data.description,
+      description: post.data.description || '',
       pubDate: pubDate,
       author: SiteConfig.author,
       // 可以考虑添加content字段提供完整内容
