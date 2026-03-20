@@ -17,7 +17,7 @@ export async function GET(context) {
     const pubDate = new Date(post.data.published).toUTCString();
     
     // 使用完整URL
-    const fullLink = `${context.site.href}posts/${post.slug}/`;
+    const fullLink = `${context.site.href}posts/${post.data.id || post.id}/`;
     
     return {
       link: fullLink,

@@ -74,8 +74,8 @@ for (const yearData of sortedYears) {
               const postDate = new Date(post.data.published);
               const monthDay = postDate.toISOString().substring(5, 10); // 提取月日部分 (MM-DD)
               return (
-                <div class="archive-post-item animate-slide-in" key={post.slug} style={{ animationDelay: `${post.animationIndex * 0.05}s` }}>
-                  <a href={`/posts/${post.slug}`} class="archive-post-link ">
+                <div class="archive-post-item animate-slide-in" key={post.data.id || post.id} style={{ animationDelay: `${post.animationIndex * 0.05}s` }}>
+                  <a href={`/posts/${post.data.id || post.id}`} class="archive-post-link ">
                     <span class="archive-post-date">
                       {monthDay}
                     </span>

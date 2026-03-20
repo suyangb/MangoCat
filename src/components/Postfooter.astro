@@ -29,13 +29,13 @@ const { post, prevPost, nextPost } = Astro.props;
 <!-- 上下篇文章导航 -->
 <div class="nav-container">
 {nextPost && (
-  <a href={`/posts/${nextPost.slug}`} class="nav-link prev-post">
+  <a href={`/posts/${nextPost.data.id || nextPost.id}`} class="nav-link prev-post">
     <h3><Icon name="tabler:chevron-left" />上一篇</h3>
     <span>{nextPost.data.title}</span>
   </a>
 )}
 {prevPost && (
-  <a href={`/posts/${prevPost.slug}`} class="nav-link next-post">
+  <a href={`/posts/${prevPost.data.id || prevPost.id}`} class="nav-link next-post">
     <h3>下一篇<Icon name="tabler:chevron-right" /></h3>
     <span>{prevPost.data.title}</span>
   </a>

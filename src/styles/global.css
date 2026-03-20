@@ -238,7 +238,8 @@ body {
     background-position: center;
     display: flex;
     align-items: flex-end;
-    padding: 30px;
+    padding: 30px 10px;
+    
     margin-bottom: 40px;
 }
 
@@ -296,6 +297,8 @@ body {
     font-weight: 500;
     color: var(--title-color);
     display: inline-block;
+    line-height: 1.5 !important;
+    margin-bottom: 10px !important;
 }
 
 .article-meta {

@@ -36,6 +36,6 @@ export interface PostData {
 
 // 定义文章接口
 export interface Post {
-  slug: string;
+  id: string;
   data: PostData;
 }

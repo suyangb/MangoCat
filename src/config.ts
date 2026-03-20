@@ -7,6 +7,7 @@ export const SiteConfig: SiteConfigType = {
   favicon: '/favicon.png',
   desc: '天真永不消逝，浪漫至死不渝',
   siteUrl: 'https://blog.almango.cn',
+  createTime: '2024-01-23',
   PaginationConfig: {
     POSTS_PER_PAGE: 8,    // 每页显示的文章数量
     },
@@ -29,8 +30,7 @@ export const SiteConfig: SiteConfigType = {
 export const ProfileConfig = {
   name: 'Almango',
   avatar: '/avatar.jpg',
-  desc: '精益求精，至臻至善',
-  showOnHome: true, // 控制是否在主页显示头像和作者信息
+  desc: '天真永不消逝，浪漫至死不渝',
 }
 
 export const CommentConfig = {
@@ -43,5 +43,5 @@ export const CommentConfig = {
 }
 
 export const DEVELOPER_CONFIG = {
-  THEME_VERSION: '4.0',
+  THEME_VERSION: '4.0a',
 }

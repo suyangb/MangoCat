@@ -51,8 +51,19 @@ const projects = [
   <div class="projects-container">
     <h1 class="text-3xl font-bold text-center" style="color: var(--title-color);">项目</h1>
     <p class="projects-subtitle text-center">我的开源项目</p>
-
+    <div class='projects-chart'>
+      <div class="projects-title">
+        <h2>GitHub 贡献图</h2>
+      </div>
+      <div class="chart-container">
+        <img src={`https://ghchart.rshah.org/${SiteConfig.author}`} alt="GitHub 项目图表" />
+      </div>
+      <div class="chart-footer">
+        <span class="chart-hint">过去一年的代码贡献记录</span>
+      </div>
+    </div>
     <div class="projects-grid">
+      <h2 class="projects-title">项目展示</h2>
       {projects.map((project, index) => (
         <div class="project-card animate-slide-in" style={{ animationDelay: `${index * 0.1}s` }} data-key={project.name}>
           {project.githubUrl ? (
@@ -194,13 +205,73 @@ const projects = [
     max-width: var(--width);
     margin: 0 auto;
   }
-  
+
   .projects-subtitle {
     font-size: calc(var(--font-title-size) - 4px);
     color: var(--text-color);
     margin-bottom: 25px;
   }
-  
+
+  /* GitHub 贡献图样式 */
+  .projects-chart {
+    margin-bottom: 40px;
+  }
+
+  .projects-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    grid-column: 1 / -1;
+    font-size: var(--font-title-size);
+    color: var(--title-color);
+    font-weight: 500;
+  }
+
+  .chart-header h2 {
+    font-size: var(--font-title-size);
+    color: var(--title-color);
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .chart-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--theme-color);
+  }
+
+  .chart-container {
+    overflow-x: auto;
+    text-align: center;
+    margin-top: var(--gap);
+  }
+
+  .chart-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .chart-footer {
+    display: flex;
+    margin-top: 12px;
+  }
+
+  .chart-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--desc-color);
+  }
+
+  .chart-hint svg {
+    width: 16px;
+    height: 16px;
+    color: var(--theme-color);
+  }
+
+
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

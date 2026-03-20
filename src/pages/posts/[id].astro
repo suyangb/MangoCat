@@ -1,21 +1,17 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import { Icon } from 'astro-icon/components';
-import { CommentConfig } from '../../config';
 import Postfooter from '../../components/Postfooter.astro';
 import Comment from '../../components/Comment.astro';
 
 
-
-// 获取所有文章用于生成静态路径
 export async function getStaticPaths() {
   // 获取所有文章并按发布日期排序（倒序）
-  const posts = await getCollection('posts', (post) => post.data.draft !== true);
+  const posts = await getCollection('posts');
   posts.sort((a, b) => new Date(b.data.published).getTime() - new Date(a.data.published).getTime());
   
   return posts.map((post, index) => ({
-    params: { slug: post.slug },
+    params: { id: post.data.id || post.id },
     props: {
       post,
       prevPost: index < posts.length - 1 ? posts[index + 1] : null, // 上一篇（更早的文章）
@@ -26,7 +22,7 @@ export async function getStaticPaths() {
 
 // 接收文章数据
 const { post, prevPost, nextPost } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 <Layout pagetitle={`${post.data.title}`}>
 		<article class="markdown-body">
@@ -38,16 +34,9 @@ const { Content } = await post.render();
 						  发表于 {new Date(post.data.published).toISOString().slice(0, 10)}
 						</span>
 						{post.data.category && (
-						<span>
-							 {post.data.category}
-						</span>
-					)}
-						{post.data.tags.length > 0 && (
-							<span>
-								#
-								{post.data.tags.join(' & ')}
-							</span>
-						)}
+						<span>{post.data.category}
+						</span>)}
+						{post.data.tags.length > 0 && (<span>#{post.data.tags.join(' & ')}</span>)}
 					</div>
 				</div>
 			</header>

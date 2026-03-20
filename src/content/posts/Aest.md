@@ -3,7 +3,6 @@ title: MD 语法演示
 description: MD 语法演示
 published: 2026-03-03 22:11:10
 category: 年度总结
-cover: https://pic.594594.xyz/i/2022/06/07/629e984f11279.jpg
 tags: ["ERROR"]
 slug: 2025assll
 ---
@@ -22,9 +21,8 @@ slug: 2025assll
 
 > 我是一个引用
 
-
-
-![图片描述](http://localhost:4321/avatar.png)
+> [!CAUTION]
+> 部署前必须完成项目个性化配置与内容修改，不得将我的信息用于你的网站图标/名称，严禁将项目内我的文章以你的名义重新发布至公开环境。
 
 4. 我是一个`行内代码`
 

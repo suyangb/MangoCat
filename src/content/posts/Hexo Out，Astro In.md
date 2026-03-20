@@ -1,15 +1,11 @@
 ---
 title: Hexo Out，Astro In！！！
 published: 2025-08-22
-pinned: false
 description: 关于我退出了Hexo，转而加入了Astro这个更有权威的圈子。
+cover: https://astro.build/_astro/whats-new-shared.-IVrxKgH_Z1kLoVC.webp?dpl=69bc2940a0d80600086711cc
 tags: [Astro]
 category: 日常
-licenseName: "CC BY 4.0"
-author: Almango
-sourceLink: "https://github.com/emn178/markdown"
-draft: false
-slug: "58674a56"
+id: "58674a56"
 ---
 
 

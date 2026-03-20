@@ -2,6 +2,23 @@
 import AboutPage from "../content/about.md";
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
+import { SiteConfig } from "../config";
+import { Picture } from "astro:assets";
+
+// 计算网站运营时间
+const createTime = new Date(SiteConfig.createTime);
+const now = new Date();
+const diffTime = now.getTime() - createTime.getTime();
+const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+const diffYears = Math.floor(diffDays / 365);
+const remainingDays = diffDays % 365;
+
+let runtimeText = "";
+if (diffYears > 0) {
+    runtimeText = `${diffYears}年${remainingDays}天`;
+} else {
+    runtimeText = `${diffDays}天`;
+}
 
 // 技术栈列表
 const skills = [
@@ -35,22 +52,19 @@ const tools = [
 ---
 
 <Layout>
-    <h1
-        class="text-3xl font-bold text-center"
-        style="color: var(--title-color);"
-    >
-        关于
-    </h1>
+    <h1 class="text-3xl font-bold text-center" style="color: var(--title-color);">关于</h1>
     <p class="about-subtitle text-center mb-[25px]">关于我是谁？</p>
     <!-- <AboutPage /> -->
-    <div class="about-content">
+    <div class="about-content animate-slide-in">
         <div class="about-introduction">
-            <p>你好，欢迎来到我的博客。</p>
-            <p>我是业余前端爱好者，喜欢折腾前端设计。在这里我会分享我的生活日常和学习经验。</p>
-            <p>爱好打游戏、睡觉、听音乐、<del>运动</del>、设计、看番...</p>
-            <b>MBTI鉴定为：<span>INTJ</span></b>
-        </div>
+            <p>你好🌹，我是啊芒果，欢迎来到我的博客。</p>
+            <p>我是个业余前端爱好者，喜欢折腾前端设计和折腾各种小项目。</p>
+            <p>爱好打游戏、💤睡觉、🎵听音乐、<del>运动</del>、设计、看番、拍摄、遛猫......</p>
+            <p>认为世界上最好吃的食物是：🍨冰激凌、🥭芒果</p>
+            <p>座右铭：<span>“{SiteConfig.desc}”</span></p>
+            <b>MBTI鉴定为：<span style="color: var(--theme-color); font-weight: 600;">INTJ</span></b>
 
+        </div>
         <div class="about-section">
             <h2 class="section-title">技术栈</h2>
             <div class="about-skill">
@@ -66,7 +80,7 @@ const tools = [
         </div>
 
         <div class="about-section">
-            <h2 class="section-title">常用工具</h2>
+            <h2 class="section-title">开发工具</h2>
             <div class="about-tool">
                 {
                     tools.map((tool) => (
@@ -81,10 +95,12 @@ const tools = [
          <div class="about-section">
             <h2 class="section-title">关于网站</h2>
             <div class="about-introduction">
-            <p>框架与主题： Astro & MangoCat</p>
-            <p>构建与部署： Github + Vercel</p>
-            <p>这不仅仅是我的博客，更是我的虚拟小窝，对生活的倾诉或是对技术的探索，我会毫不留情的记录在此。</p>
+            <p>框架与主题： <a href="https://astro.build/" target="_blank">Astro</a> & <a href="https://github.com/almango/MangoCat" target="_blank">MangoCat</a></p>
+            <p>构建与部署： <a href="https://github.com/" target="_blank">GitHub</a> + <a href="https://vercel.com/" target="_blank">Vercel</a></p>
+            <p>本站已默默运行了 <span class="runtime">{runtimeText}</span></p>
+            <p>这不仅仅是我的博客，更是我的虚拟小窝，对生活的倾诉、技术的思考与实践，我都认真记录于此。</p>
             <p>如果你对本网站的内容有任何问题或建议，欢迎随时联系我，我将在第一时间处理。</p>
+            <p>邮箱：<span>sliveralmango@outlook.com</span></p> 
         </div>
         </div>
     </div>
@@ -92,9 +108,7 @@ const tools = [
 
 <style>
     .about-content {
-        max-width: var(--width);
         margin: 0 auto;
-        padding: 0 20px;
     }
 
     .about-introduction {
@@ -106,12 +120,6 @@ const tools = [
     .about-introduction p {
         margin: 10px 0;
     }
-
-    .about-introduction span {
-        color: var(--theme-color);
-        font-weight: 600;
-    }
-
     .about-section {
         margin-bottom: 40px;
     }
@@ -152,7 +160,10 @@ const tools = [
         color: var(--text-color);
         font-size: var(--font-desc-size);
     }
-
+    .runtime {
+        color: var(--title-color) !important;
+        font-weight: 500;
+    }
     @media (max-width: 768px) {
         .about-skill,
         .about-tool {

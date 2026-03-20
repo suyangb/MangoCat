@@ -41,7 +41,7 @@ const processedPosts = posts.map((post: Post, index: number) => ({
 })) as (PostWithCategoryConfig & { animationIndex: number })[];
 ---
 {    processedPosts.map((post: (PostWithCategoryConfig & { animationIndex: number })) => (
-        <a href={`/posts/${post.slug}`}class="post-card animate-slide-in" style={`animation-delay: ${post.animationIndex * 0.05}s`} >
+        <a href={`/posts/${post.data.id || post.id}`}class="post-card animate-slide-in" style={`animation-delay: ${post.animationIndex * 0.05}s`} >
             <div class="post-content">
                 <div class="post-title">
                     <h2>{post.data.title}</h2>
