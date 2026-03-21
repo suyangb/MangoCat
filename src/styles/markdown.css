@@ -1,3 +1,8 @@
+
+
+
+
+
 /* 基础设置 */
 .markdown-body {
   background-color: transparent !important;
@@ -41,8 +46,7 @@
 }
 
 .markdown-body code {
-  background-color: var(--code-bg);
-  border: 1px solid var(--border-color);
+  
 }
 
 .markdown-body pre {
@@ -55,7 +59,6 @@
   border: 2px dashed var(--border-color);
   padding: 10px 16px;
   color: var(--text-color);
-  background-color: rgba(255, 243, 190, 0.1);
 }
 
 .markdown-body table {

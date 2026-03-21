@@ -26,7 +26,12 @@ const { Content } = await render(post);
 ---
 <Layout pagetitle={`${post.data.title}`}>
 		<article class="article">
-			<header class="article-header animate-fade-in-down" style={post.data.cover ? `background-image: url(${post.data.cover})` : undefined}>
+			<header class={`article-header animate-fade-in-down ${!post.data.cover ? 'no-cover' : ''}`}>
+				{post.data.cover && (
+					<div class="article-cover">
+						<img src={post.data.cover} alt={post.data.title} />
+					</div>
+				)}
 				<div class="article-header-content">
 					<h1 class="article-title">{post.data.title}</h1>
 					<div class="article-meta">

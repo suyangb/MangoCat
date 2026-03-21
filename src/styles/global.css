@@ -6,7 +6,7 @@
     --bg-color: #fafafa;
     --title-color: #161616;
     --desc-color: #5f656d;
-    --text-color: #2a273f;
+    --text-color: #35314d;
     --card-bg: #fff;
     --header-footer-bg-color: #ffffff;
     --footer-color: #6b7280;
@@ -26,7 +26,7 @@
     --font-title-size: 1.2rem;         /* 统一标题字体大小 */
     --font-text-size: 1rem;         /* 统一标准字体大小 */
     --font-desc-size: 0.8rem;         /* 统一信息字体大小 */
-    --font-family: 'system-ui, sans-serif';
+    --font-family: 'sans-serif';
     --radius: 1rem;            /* 统一圆角幅度 */
 }
 
@@ -226,62 +226,50 @@ body {
 } */
 
 .article-header {
-    position: relative;
-    min-height: 200px;
-    border-radius: var(--radius);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 10px;
-    
     margin-bottom: 40px;
 }
 
-/* 有封面时的渐变遮罩 */
-.article-header[style*="background-image"]::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+.article-cover {
+    margin-bottom: 20px;
     border-radius: var(--radius);
-    pointer-events: none;
+    overflow: hidden;
+     box-sizing: border-box; /* 内边距/边框计入宽高，避免撑开 */
+}
+
+.article-cover img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--radius);
+    max-height: 230px;
+
 }
 
 .article-header-content {
     position: relative;
     z-index: 1;
     width: 100%;
-    text-align: center;
 }
 
-/* 有封面时的白色文字 */
-.article-header[style*="background-image"] .article-header-content .article-title {
-    color: #fff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+/* 无封面时PC端居中 */
+@media (min-width: 769px) {
+    .article-header.no-cover .article-header-content {
+        padding: 50px 0;
+        text-align: center;
+    }
+    .article-header.no-cover .article-header-content .article-meta {
+        justify-content: center;
+    }
 }
 
-.article-header[style*="background-image"] .article-header-content .article-meta {
-    color: rgba(255,255,255,0.9);
-    justify-content: center;
-}
-
-.article-header[style*="background-image"] .article-header-content .article-meta span {
-    color: rgba(255,255,255,0.9);
-}
-
-/* 无封面时的默认文字颜色 */
+/* 文章头部标题和元信息样式 */
 .article-header-content .article-title {
     color: var(--title-color);
 }
 
 .article-header-content .article-meta {
     color: var(--desc-color);
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .article-header-content .article-meta span {
