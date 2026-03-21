@@ -87,9 +87,8 @@ import { links } from '../data/links.ts';
   .link-avatar {
     width: 48px;
     height: 48px;
-    border-radius: var(--radius);
+    border-radius: 50%;
     object-fit: cover;
-    border: 1px solid var(--border-color);
   }
   
   .link-info {
@@ -106,7 +105,7 @@ import { links } from '../data/links.ts';
   
   .link-name {
     font-size: var(--font-text-size);
-    font-weight: 600;
+    font-weight: 500;
     color: var(--title-color);
     margin: 0;
     white-space: nowrap;
@@ -122,7 +121,7 @@ import { links } from '../data/links.ts';
   }
   
   .link-description {
-    font-size: calc(var(--font-text-size) - 1px);
+    font-size: var(--font-desc-size);
     color: var(--text-color);
     margin: 0;
     overflow: hidden;
@@ -151,7 +150,7 @@ import { links } from '../data/links.ts';
     }
     
     .link-name {
-      font-size: calc(var(--font-text-size) + 1px);
+      font-size: var(--font-text-size);
     }
     
     .link-description {

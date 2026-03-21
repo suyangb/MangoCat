@@ -15,6 +15,13 @@ export const links: Link[] = [
     rss: "https://blog.zhheo.com/atom.xml"
   },
   {
+    name: "纸鹿本鹿",
+    description: "纸鹿至麓不知路，支炉制露不止漉",
+    url: "https://blog.zhilu.site/",
+    avatar: "https://www.zhilu.site/api/avatar.png",
+    rss: "https://blog.zhilu.site/atom.xml"
+  },
+  {
     name: "定の栈",
     description: "LINK START!",
     url: "https://blog.saop.cc/",
@@ -120,5 +127,26 @@ export const links: Link[] = [
     url: "https://blog.meorion.moe",
     avatar: "https://gravatar.meorion.moe/avatar/me",
     rss: "https://blog.meorion.moe/rss.xml"
+  },
+  {
+    name: "朝瓜夕拾",
+    description: "去码头整点薯条🍟",
+    url: "https://yuubari.cn",
+    avatar: "https://yuubari.cn/upload/3628985i.png",
+    rss: "https://yuubari.cn/rss.xml"
+  },
+  {
+    name: "Kegongtang",
+    description: "Blogger / Technophile / Student",
+    url: "https://kegongteng.cn/",
+    avatar: "https://weavatar.com/avatar/0b01396273cca253aa6876c020449b655a9cc12e75f921b38ac088569e814b5e",
+    rss: "https://kegongteng.cn/atom",
+  },
+  {
+    name: "AirTouch",
+    description: "Stay Hungry, Stay Foolish",
+    url: "https://www.xsl.im/",
+    avatar: "https://www.xsl.im/avatar.webp",
+    rss: "https://www.xsl.im/atom.xml"
   }
 ];

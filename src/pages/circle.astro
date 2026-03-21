@@ -16,6 +16,7 @@ interface ArticleWithSource extends Article {
 const LIMIT = 20;
 const TIMEOUT = 5000;
 const BATCH_SIZE = 3;
+// const RSS_FETCH_COUNT = 30; // 不再使用
 
 // 获取URL模式参数
 let mode: 'time' | 'random' = 'time';
@@ -31,49 +32,92 @@ const rssLinks = links.filter(link => link.rss?.trim());
 async function fetchArticles(): Promise<ArticleWithSource[]> {
   const allArticles: ArticleWithSource[] = [];
   
-  for (let i = 0; i < rssLinks.length; i += BATCH_SIZE) {
-    const batch = rssLinks.slice(i, i + BATCH_SIZE);
-    const results = await Promise.all(
-      batch.map(async link => {
-        try {
-          const articles = await Promise.race([
-            parseRss(link.rss!),
-            new Promise<never>((_, reject) => 
-              setTimeout(() => reject(new Error('timeout')), TIMEOUT)
-            )
-          ]);
-          
-          return articles
-            .filter(a => a.title !== '加载失败')
-            .slice(0, 5)
-            .map(a => ({
-              ...a,
-              sourceName: link.name,
-              sourceAvatar: link.avatar,
-              sourceUrl: link.url,
-              publishTimeTimestamp: new Date(a.publishTime).getTime() || 0
-            }));
-        } catch {
-          return [];
-        }
-      })
-    );
-    allArticles.push(...results.flat());
-  }
-  
-  // 按模式处理
   if (mode === 'time') {
+    // 时间模式：获取所有源的前5篇，按时间排序取前20
+    for (let i = 0; i < rssLinks.length; i += BATCH_SIZE) {
+      const batch = rssLinks.slice(i, i + BATCH_SIZE);
+      const results = await Promise.all(
+        batch.map(async link => {
+          try {
+            const articles = await Promise.race([
+              parseRss(link.rss!),
+              new Promise<never>((_, reject) => 
+                setTimeout(() => reject(new Error('timeout')), TIMEOUT)
+              )
+            ]);
+            return articles
+              .filter(a => a.title !== '加载失败')
+              .slice(0, 5)
+              .map(a => ({
+                ...a,
+                sourceName: link.name,
+                sourceAvatar: link.avatar,
+                sourceUrl: link.url,
+                publishTimeTimestamp: new Date(a.publishTime).getTime() || 0
+              }));
+          } catch {
+            return [];
+          }
+        })
+      );
+      allArticles.push(...results.flat());
+    }
     return allArticles
       .sort((a, b) => b.publishTimeTimestamp - a.publishTimeTimestamp)
       .slice(0, LIMIT);
   }
   
-  // 随机模式：Fisher-Yates洗牌
-  for (let i = allArticles.length - 1; i > 0; i--) {
+  // ========== 随机模式：随机挑选源，每个源从最近5篇中随机选1篇 ==========
+  // 1. 随机打乱 RSS 源顺序
+  const shuffledSources = [...rssLinks];
+  for (let i = shuffledSources.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [allArticles[i], allArticles[j]] = [allArticles[j], allArticles[i]];
+    [shuffledSources[i], shuffledSources[j]] = [shuffledSources[j], shuffledSources[i]];
   }
-  return allArticles.slice(0, LIMIT);
+
+  const selectedArticles: ArticleWithSource[] = [];
+  for (const link of shuffledSources) {
+    if (selectedArticles.length >= LIMIT) break;
+
+    try {
+      const articles = await Promise.race([
+        parseRss(link.rss!),
+        new Promise<never>((_, reject) => 
+          setTimeout(() => reject(new Error('timeout')), TIMEOUT)
+        )
+      ]);
+
+      // 过滤无效文章，取前5篇
+      const validArticles = articles
+        .filter(a => a.title !== '加载失败')
+        .slice(0, 5);
+
+      if (validArticles.length === 0) continue;
+
+      // 随机选一篇
+      const randomIndex = Math.floor(Math.random() * validArticles.length);
+      const article = validArticles[randomIndex];
+
+      selectedArticles.push({
+        ...article,
+        sourceName: link.name,
+        sourceAvatar: link.avatar,
+        sourceUrl: link.url,
+        publishTimeTimestamp: new Date(article.publishTime).getTime() || 0
+      });
+    } catch {
+      // 单个源失败则跳过
+      continue;
+    }
+  }
+
+  // 再次打乱顺序，使展示随机
+  for (let i = selectedArticles.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [selectedArticles[i], selectedArticles[j]] = [selectedArticles[j], selectedArticles[i]];
+  }
+
+  return selectedArticles;
 }
 
 const articles = await fetchArticles();
@@ -131,18 +175,6 @@ const articles = await fetchArticles();
     document.querySelectorAll('.mode-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.mode === mode);
     });
-    
-    // 随机模式：客户端重新打乱
-    if (mode === 'random') {
-      const container = document.getElementById('articles-container');
-      if (!container) return;
-      
-      const items = Array.from(container.querySelectorAll('.circle-post-item'));
-      items.sort(() => Math.random() - 0.5).forEach((item, i) => {
-        item.style.animationDelay = `${i * 0.05}s`;
-        container.appendChild(item);
-      });
-    }
   })();
 </script>
 
@@ -150,14 +182,6 @@ const articles = await fetchArticles();
   .circle-container {
     max-width: var(--width);
     margin: 0 auto;
-  }
-  
-  .page-title {
-    font-size: var(--font-title-size);
-    font-weight: 600;
-    color: var(--title-color);
-    text-align: center;
-    margin-bottom: 10px;
   }
   
   .circle-subtitle {

@@ -75,7 +75,7 @@ const { post, prevPost, nextPost } = Astro.props;
 .info-label {
     font-size: calc(var(--font-text-size) + 2px);
     color: var(--title-color);
-    font-weight: 600;
+    font-weight: var(--font-weight);
     margin-bottom: 4px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -139,7 +139,7 @@ const { post, prevPost, nextPost } = Astro.props;
     font-size: 12px;
     color: var(--info-font-color);
     margin: 0 0 5px 0;
-    font-weight: 600;
+    font-weight: var(--font-weight);
     display: flex;
     align-items: center;
     gap: 8px;
