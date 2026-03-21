@@ -26,6 +26,7 @@
     --font-title-size: 1.2rem;         /* 统一标题字体大小 */
     --font-text-size: 1rem;         /* 统一标准字体大小 */
     --font-desc-size: 0.8rem;         /* 统一信息字体大小 */
+    --padding: 12px;
     --font-family: 'sans-serif';
     --radius: 1rem;            /* 统一圆角幅度 */
 }
