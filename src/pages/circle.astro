@@ -123,25 +123,27 @@ const articles = await fetchArticles();
 </Layout>
 
 <script>
-  const url = new URL(window.location.href);
-  const mode = url.searchParams.get('mode') || 'time';
-  
-  // 更新按钮状态
-  document.querySelectorAll('.mode-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.mode === mode);
-  });
-  
-  // 随机模式：客户端重新打乱
-  if (mode === 'random') {
-    const container = document.getElementById('articles-container');
-    if (!container) return;
+  (function() {
+    const url = new URL(window.location.href);
+    const mode = url.searchParams.get('mode') || 'time';
     
-    const items = Array.from(container.querySelectorAll('.circle-post-item'));
-    items.sort(() => Math.random() - 0.5).forEach((item, i) => {
-      item.style.animationDelay = `${i * 0.05}s`;
-      container.appendChild(item);
+    // 更新按钮状态
+    document.querySelectorAll('.mode-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.mode === mode);
     });
-  }
+    
+    // 随机模式：客户端重新打乱
+    if (mode === 'random') {
+      const container = document.getElementById('articles-container');
+      if (!container) return;
+      
+      const items = Array.from(container.querySelectorAll('.circle-post-item'));
+      items.sort(() => Math.random() - 0.5).forEach((item, i) => {
+        item.style.animationDelay = `${i * 0.05}s`;
+        container.appendChild(item);
+      });
+    }
+  })();
 </script>
 
 <style>
