@@ -47,6 +47,9 @@ importers:
       twikoo:
         specifier: ^1.6.44
         version: 1.6.44
+      xmldom:
+        specifier: ^0.6.0
+        version: 0.6.0
     devDependencies:
       '@iconify-json/tabler':
         specifier: ^1.2.27
@@ -1964,6 +1967,10 @@ packages:
 
   wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
+
+  xmldom@0.6.0:
+    resolution: {integrity: sha512-iAcin401y58LckRZ0TkI4k0VSM1Qg0KGSc3i8rU+xrxe19A/BN1zHyVSJY7uoutVlaTSzYyk/v5AmkewAP7jtg==}
+    engines: {node: '>=10.0.0'}
 
   xxhash-wasm@1.1.0:
     resolution: {integrity: sha512-147y/6YNh+tlp6nd/2pWq38i9h6mz/EuQ6njIrmW8D1BS5nCqs0P6DG+m6zTGnNz5I+uhZ0SHxBs9BsPrwcKDA==}
@@ -4332,6 +4339,8 @@ snapshots:
   which-pm-runs@1.1.0: {}
 
   wrappy@1.0.2: {}
+
+  xmldom@0.6.0: {}
 
   xxhash-wasm@1.1.0: {}
 

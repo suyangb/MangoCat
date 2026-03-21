@@ -78,7 +78,7 @@ export const links: Link[] = [
     description: "穷方圆平直之情，尽规矩准绳之用。",
     url: "https://justpureh2o.cn",
     avatar: "https://img.justpureh2o.cn/image/667f85b1d9c307b7e9ef9f2c.jpg",
-    rss: "https://justpureh2o.cn/atom.xml"
+    rss: "https://justpureh2o.cn/rss.xml"
   },
   {
     name: "bbb-lsy07",
@@ -119,6 +119,6 @@ export const links: Link[] = [
     description: "去码头整点薯条🍟",
     url: "https://blog.meorion.moe",
     avatar: "https://gravatar.meorion.moe/avatar/me",
-    rss: "https://gravatar.meorion.moe/avatar/me"
+    rss: "https://blog.meorion.moe/rss.xml"
   }
 ];

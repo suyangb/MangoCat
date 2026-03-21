@@ -233,7 +233,8 @@ body {
     margin-bottom: 20px;
     border-radius: var(--radius);
     overflow: hidden;
-     box-sizing: border-box; /* 内边距/边框计入宽高，避免撑开 */
+    box-sizing: border-box; /* 内边距/边框计入宽高，避免撑开 */
+    max-height: 230px;
 }
 
 .article-cover img {
@@ -241,8 +242,6 @@ body {
     object-fit: cover;
     display: block;
     border-radius: var(--radius);
-    max-height: 230px;
-
 }
 
 .article-header-content {

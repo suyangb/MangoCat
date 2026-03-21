@@ -21,7 +21,8 @@
     "rehype-stringify": "^10.0.1",
     "remark-rehype": "^11.1.2",
     "tailwindcss": "^4.1.17",
-    "twikoo": "^1.6.44"
+    "twikoo": "^1.6.44",
+    "xmldom": "^0.6.0"
   },
   "devDependencies": {
     "@iconify-json/tabler": "^1.2.27",
