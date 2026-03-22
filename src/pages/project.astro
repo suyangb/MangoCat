@@ -3,6 +3,8 @@ import { SiteConfig } from '../config.ts';
 import Layout from '../layouts/Layout.astro';
 import { Icon } from "astro-icon/components";
 
+const Page = '项目';
+
 // 语言图标映射
 const languageIcons = {
   'TypeScript': 'tabler:brand-typescript',
@@ -47,10 +49,10 @@ const projects = [
 
 ---
 
-<Layout pagetitle={`项目 - ${SiteConfig.title}`}>
+<Layout pagetitle={`${Page} - ${SiteConfig.title}`}>
   <div class="projects-container">
-    <h1 class="text-3xl font-bold text-center" style="color: var(--title-color);">项目</h1>
-    <p class="projects-subtitle text-center">我的开源项目</p>
+    <h1 class="text-2xl font-bold text-center" style="color: var(--title-color);">{Page}</h1>
+    <p class="text-center mb-[30px]">我的开源项目</p>
     <div class='projects-chart'>
       <div class="projects-title">
         <h2>GitHub 贡献图</h2>
@@ -62,8 +64,8 @@ const projects = [
         <span class="chart-hint">过去一年的代码贡献记录</span>
       </div>
     </div>
+    <h2 class="projects-title">项目展示</h2>
     <div class="projects-grid">
-      <h2 class="projects-title">项目展示</h2>
       {projects.map((project, index) => (
         <div class="project-card animate-slide-in" style={{ animationDelay: `${index * 0.1}s` }} data-key={project.name}>
           {project.githubUrl ? (
@@ -206,12 +208,6 @@ const projects = [
     margin: 0 auto;
   }
 
-  .projects-subtitle {
-    font-size: calc(var(--font-title-size) - 4px);
-    color: var(--text-color);
-    margin-bottom: 25px;
-  }
-
   /* GitHub 贡献图样式 */
   .projects-chart {
     margin-bottom: 40px;
@@ -225,6 +221,7 @@ const projects = [
     font-size: var(--font-title-size);
     color: var(--title-color);
     font-weight: var(--font-weight);
+    margin-bottom: var(--gap);
   }
 
   .chart-header h2 {
@@ -243,7 +240,6 @@ const projects = [
   .chart-container {
     overflow-x: auto;
     text-align: center;
-    margin-top: var(--gap);
   }
 
   .chart-container img {
@@ -276,7 +272,6 @@ const projects = [
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--gap);
-    margin-bottom: 40px;
   }
   
   .project-card {

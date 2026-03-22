@@ -29,7 +29,9 @@ const { Content } = await render(post);
 			<header class={`article-header ${!post.data.cover ? 'no-cover' : ''}`}>
 				{post.data.cover && (
 					<div class="article-cover">
-						<img src={post.data.cover} alt={post.data.title} loading="lazy" />
+						<div class="article-cover-inner">
+							<img src={post.data.cover} alt={post.data.title} loading="lazy" />
+						</div>
 					</div>
 				)}
 				<div class="article-header-content">

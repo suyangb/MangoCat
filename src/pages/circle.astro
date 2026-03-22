@@ -5,6 +5,7 @@ import { Icon } from "astro-icon/components";
 import { parseRss, type Article } from '../utils/RSSParser';
 import { links } from '../data/links';
 
+const Page = '鱼塘';
 interface ArticleWithSource extends Article {
   sourceName: string;
   sourceAvatar: string;
@@ -13,17 +14,9 @@ interface ArticleWithSource extends Article {
 }
 
 // 配置
-const LIMIT = 20;
+const LIMIT = 30;
 const TIMEOUT = 5000;
 const BATCH_SIZE = 3;
-// const RSS_FETCH_COUNT = 30; // 不再使用
-
-// 获取URL模式参数
-let mode: 'time' | 'random' = 'time';
-try {
-  const url = new URL(Astro.request.url);
-  mode = url.searchParams.get('mode') === 'random' ? 'random' : 'time';
-} catch { /* 静态生成使用默认值 */ }
 
 // 筛选有RSS的友链
 const rssLinks = links.filter(link => link.rss?.trim());
@@ -31,120 +24,61 @@ const rssLinks = links.filter(link => link.rss?.trim());
 // 获取RSS文章
 async function fetchArticles(): Promise<ArticleWithSource[]> {
   const allArticles: ArticleWithSource[] = [];
-  
-  if (mode === 'time') {
-    // 时间模式：获取所有源的前5篇，按时间排序取前20
-    for (let i = 0; i < rssLinks.length; i += BATCH_SIZE) {
-      const batch = rssLinks.slice(i, i + BATCH_SIZE);
-      const results = await Promise.all(
-        batch.map(async link => {
-          try {
-            const articles = await Promise.race([
-              parseRss(link.rss!),
-              new Promise<never>((_, reject) => 
-                setTimeout(() => reject(new Error('timeout')), TIMEOUT)
-              )
-            ]);
-            return articles
-              .filter(a => a.title !== '加载失败')
-              .slice(0, 5)
-              .map(a => ({
-                ...a,
-                sourceName: link.name,
-                sourceAvatar: link.avatar,
-                sourceUrl: link.url,
-                publishTimeTimestamp: new Date(a.publishTime).getTime() || 0
-              }));
-          } catch {
-            return [];
-          }
-        })
-      );
-      allArticles.push(...results.flat());
-    }
-    return allArticles
-      .sort((a, b) => b.publishTimeTimestamp - a.publishTimeTimestamp)
-      .slice(0, LIMIT);
-  }
-  
-  // ========== 随机模式：随机挑选源，每个源从最近5篇中随机选1篇 ==========
-  // 1. 随机打乱 RSS 源顺序
-  const shuffledSources = [...rssLinks];
-  for (let i = shuffledSources.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledSources[i], shuffledSources[j]] = [shuffledSources[j], shuffledSources[i]];
+
+  for (let i = 0; i < rssLinks.length; i += BATCH_SIZE) {
+    const batch = rssLinks.slice(i, i + BATCH_SIZE);
+    const results = await Promise.all(
+      batch.map(async link => {
+        try {
+          const articles = await Promise.race([
+            parseRss(link.rss!),
+            new Promise<never>((_, reject) =>
+              setTimeout(() => reject(new Error('timeout')), TIMEOUT)
+            )
+          ]);
+          return articles
+            .filter(a => a.title !== '加载失败')
+            .slice(0, 5)
+            .map(a => ({
+              ...a,
+              sourceName: link.name,
+              sourceAvatar: link.avatar,
+              sourceUrl: link.url,
+              publishTimeTimestamp: new Date(a.publishTime).getTime() || 0
+            }));
+        } catch {
+          return [];
+        }
+      })
+    );
+    allArticles.push(...results.flat());
   }
 
-  const selectedArticles: ArticleWithSource[] = [];
-  for (const link of shuffledSources) {
-    if (selectedArticles.length >= LIMIT) break;
-
-    try {
-      const articles = await Promise.race([
-        parseRss(link.rss!),
-        new Promise<never>((_, reject) => 
-          setTimeout(() => reject(new Error('timeout')), TIMEOUT)
-        )
-      ]);
-
-      // 过滤无效文章，取前5篇
-      const validArticles = articles
-        .filter(a => a.title !== '加载失败')
-        .slice(0, 5);
-
-      if (validArticles.length === 0) continue;
-
-      // 随机选一篇
-      const randomIndex = Math.floor(Math.random() * validArticles.length);
-      const article = validArticles[randomIndex];
-
-      selectedArticles.push({
-        ...article,
-        sourceName: link.name,
-        sourceAvatar: link.avatar,
-        sourceUrl: link.url,
-        publishTimeTimestamp: new Date(article.publishTime).getTime() || 0
-      });
-    } catch {
-      // 单个源失败则跳过
-      continue;
-    }
-  }
-
-  // 再次打乱顺序，使展示随机
-  for (let i = selectedArticles.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [selectedArticles[i], selectedArticles[j]] = [selectedArticles[j], selectedArticles[i]];
-  }
-
-  return selectedArticles;
+  return allArticles
+    .sort((a, b) => b.publishTimeTimestamp - a.publishTimeTimestamp)
+    .slice(0, LIMIT);
 }
 
 const articles = await fetchArticles();
 ---
 
-<Layout pagetitle={`鱼塘 - ${SiteConfig.title}`}>
+<Layout pagetitle={`${Page} - ${SiteConfig.title}`}>
   <div class="circle-container">
-    <h1 class="text-3xl font-bold text-center" style="color: var(--title-color);">鱼塘</h1>
-    <p class="circle-subtitle text-center">看看朋友们在干嘛</p>
-    
-    <div class="mode-switcher">
-      <a href="?mode=time" class={`mode-btn ${mode === 'time' ? 'active' : ''}`} data-mode="time">
-        <Icon name="tabler:clock" class="mode-icon" />
-        最新动态
-      </a>
-      <a href="?mode=random" class={`mode-btn ${mode === 'random' ? 'active' : ''}`} data-mode="random">
-        <Icon name="tabler:star" class="mode-icon" />
-        随机分享
-      </a>
+    <h1 class="text-2xl font-bold text-center" style="color: var(--title-color);">{Page}</h1>
+    <p class="text-center mb-[30px]">看看朋友们在干嘛</p>
+
+
+    <div class="circle-title">
+      <h2 class="">最近订阅</h2>
+      <p>共 {articles.length} 篇订阅</p>
     </div>
-    
     <div class="circle-post-list" id="articles-container">
+      
       {articles.length === 0 ? (
         <div class="empty-state">暂无文章数据</div>
       ) : (
         articles.map((article, i) => (
-          <article class="circle-post-item" style={`animation-delay: ${i * 0.05}s`}>
+          <article class="circle-post-item" style={`animation-delay: ${i * 0.05}s`} data-index={i}>
             <a href={article.link} target="_blank" rel="noopener noreferrer" class="circle-post-link">
               <h2 class="circle-post-title">
                 {article.title}
@@ -168,12 +102,83 @@ const articles = await fetchArticles();
 
 <script>
   (function() {
-    const url = new URL(window.location.href);
-    const mode = url.searchParams.get('mode') || 'time';
-    
-    // 更新按钮状态
-    document.querySelectorAll('.mode-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.mode === mode);
+    const container = document.getElementById('articles-container');
+    if (!container) return;
+
+    const items = Array.from(container.querySelectorAll('.circle-post-item'));
+    if (items.length === 0) return;
+
+    // 简单的Masonry布局实现
+    function layoutMasonry() {
+      const containerWidth = container.offsetWidth;
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        // 移动端单列，重置所有样式
+        items.forEach(item => {
+          item.style.position = '';
+          item.style.left = '';
+          item.style.top = '';
+          item.style.width = '';
+        });
+        container.style.height = '';
+        return;
+      }
+
+      // PC端双列瀑布流
+      const gap = 16;
+      const columnWidth = (containerWidth - gap) / 2;
+      const columnHeights = [0, 0];
+
+      items.forEach((item, index) => {
+        // 确定使用哪一列（较短的列）
+        const columnIndex = columnHeights[0] <= columnHeights[1] ? 0 : 1;
+
+        // 设置位置和宽度
+        item.style.position = 'absolute';
+        item.style.width = columnWidth + 'px';
+        item.style.left = columnIndex === 0 ? '0' : (columnWidth + gap) + 'px';
+        item.style.top = columnHeights[columnIndex] + 'px';
+
+        // 更新列高度
+        columnHeights[columnIndex] += item.offsetHeight + gap;
+      });
+
+      // 设置容器高度
+      container.style.position = 'relative';
+      container.style.height = Math.max(columnHeights[0], columnHeights[1]) + 'px';
+    }
+    // 初始化布局 - 立即计算，不等动画完成
+    requestAnimationFrame(() => {
+      layoutMasonry();
+      // 动画完成后再微调一次
+      setTimeout(layoutMasonry, 550);
+    });
+
+    // 图片加载完成后重新计算
+    const images = container.querySelectorAll('img');
+    let loadedCount = 0;
+    images.forEach(img => {
+      if (img.complete) {
+        loadedCount++;
+      } else {
+        img.addEventListener('load', () => {
+          loadedCount++;
+          if (loadedCount >= images.length) {
+            layoutMasonry();
+          }
+        });
+        img.addEventListener('error', () => {
+          loadedCount++;
+        });
+      }
+    });
+
+    // 窗口大小改变时重新布局
+    let resizeTimer: number;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(layoutMasonry, 100);
     });
   })();
 </script>
@@ -183,86 +188,65 @@ const articles = await fetchArticles();
     max-width: var(--width);
     margin: 0 auto;
   }
-  
-  .circle-subtitle {
-    font-size: calc(var(--font-title-size) - 4px);
-    color: var(--desc-color);
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .mode-switcher {
+  .circle-title {
     display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-  
-  .mode-btn {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 6px;
-    padding: 8px 12px;
-    border-radius: var(--radius);
-    border: 1px solid var(--border-color);
-    background: var(--card-bg);
-    color: var(--text-color);
+    margin-bottom: 20px;
+    padding: 0 4px;
+  }
+
+  .circle-title h2 {
+    font-size: var(--font-title-size);
+    font-weight: 500;
+    color: var(--title-color);
+  }
+
+  .circle-title p {
     font-size: var(--font-desc-size);
-    text-decoration: none;
-    transition: all 0.3s;
+    color: var(--desc-color);
   }
-  
-  .mode-btn:hover, .mode-btn.active {
-    color: var(--theme-color);
-  }
-  
-  .mode-btn.active {
-    color: var(--theme-color);
-  }
-  
-  .mode-icon { width: 16px; height: 16px; }
-  
+
   .circle-post-list {
-    column-count: 2;
-    column-gap: 16px;
+    position: relative;
   }
-  
+
   .circle-post-item {
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
     background: var(--card-bg);
-    margin-bottom: 16px;
-    break-inside: avoid;
     opacity: 0;
     animation: slideIn 0.5s forwards;
     transition: all 0.3s;
+    box-sizing: border-box;
   }
-  
+
   .circle-post-item:hover {
     border-color: var(--theme-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px var(--shadow-color);
   }
-  
+
   @keyframes slideIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  
+
   .circle-post-link {
     display: block;
     padding: 15px 15px 10px;
     text-decoration: none;
     color: inherit;
   }
-  
+
   .circle-post-title {
     font-size: calc(var(--font-title-size) - 2px);
     font-weight: 500;
     color: var(--title-color);
     line-height: 1.4;
-    margin-bottom: 8px;
+    margin-bottom: var(--gap);
   }
-  
+
   .post-link-icon {
     width: 16px;
     height: 16px;
@@ -270,7 +254,7 @@ const articles = await fetchArticles();
     vertical-align: middle;
     margin-top: -2px;
   }
-  
+
   .circle-post-desc {
     font-size: var(--font-desc-size);
     color: var(--desc-color);
@@ -280,7 +264,7 @@ const articles = await fetchArticles();
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  
+
   .circle-origin {
     display: flex;
     align-items: center;
@@ -290,29 +274,35 @@ const articles = await fetchArticles();
     font-size: var(--font-desc-size);
     color: var(--desc-color);
   }
-  
+
   .origin-left {
     display: flex;
     align-items: center;
     gap: 8px;
   }
-  
+
   .author-avatar {
     width: 20px;
     height: 20px;
     border-radius: 50%;
     object-fit: cover;
   }
-  
+
   .empty-state {
-    grid-column: 1 / -1;
     text-align: center;
     padding: 50px;
     color: var(--desc-color);
   }
-  
+
   @media (max-width: 768px) {
-    .circle-post-list { column-count: 1; }
+    .circle-post-item {
+      position: static !important;
+      width: 100% !important;
+      margin-bottom: 16px;
+    }
+    .circle-post-list {
+      height: auto !important;
+    }
     .circle-post-link { padding: 12px; }
     .circle-origin { padding: 12px; }
     .author-avatar { width: 18px; height: 18px; }

@@ -20,10 +20,11 @@ export const SiteConfig: SiteConfigType = {
   
   Categories: {
     '年度总结': { icon: 'tabler:carambola', color: '#ffae00ff' },
-    '感言': { icon: 'tabler:heart', color: '#ee0f52ff' },
-    '日常': {icon: 'tabler:edit',color: '#c03f99ff'},
-    '游戏': {icon: 'tabler:device-gamepad-2',color: '#00da49ff'},
-    '技能': {icon: 'tabler:braces', color: '#36bd41ff'}
+    '感言': { icon: 'tabler:heart', color: '#cc2b1fff' },
+    '日常': {icon: 'tabler:edit',color: '#b83f81ff'},
+    '游戏': {icon: 'tabler:device-gamepad-2',color: '#cc6a19ff'},
+    '技能': {icon: 'tabler:braces', color: '#2d7be0ff'},
+    '随笔': {icon: 'tabler:pencil', color: '#1cb17dff'},
   },
   NavConfig: [
     { name: '归档', path: '/archive', icon: 'tabler:archive' },
@@ -50,5 +51,5 @@ export const CommentConfig = {
 }
 
 export const DEVELOPER_CONFIG = {
-  THEME_VERSION: '4.4',
+  THEME_VERSION: '4.5',
 }

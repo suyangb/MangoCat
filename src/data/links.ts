@@ -130,7 +130,7 @@ export const links: Link[] = [
   },
   {
     name: "朝瓜夕拾",
-    description: "去码头整点薯条🍟",
+    description: "瓜瓜和果果的Blog",
     url: "https://yuubari.cn",
     avatar: "https://yuubari.cn/upload/3628985i.png",
     rss: "https://yuubari.cn/rss.xml"

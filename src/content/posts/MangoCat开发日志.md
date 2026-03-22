@@ -9,10 +9,10 @@ slug: "83x33k23"
 
 
 关于这个项目是怎么写出来的，其实是用AI手搓出来的，AI负责写功能，我负责写样式。
-样式当然也不是凭空想出来的，而是借鉴一些主题项目，例如：
-- **主页文章列表**借鉴了：[Pure](https://astro-pure.js.org/blog)
-- **导航栏与主页头像设计**借鉴了：[吐司气泡](https://blog.toastbubble.top/)
-- **分类、归档页和文章格式**借鉴的是：[纸鹿摸鱼处](https://blog.zhilu.site/archive)
+样式当然也不是凭空想出来的，而是借鉴一些主题项目：
+[Pure](https://astro-pure.js.org/blog)
+[Clarity](https://github.com/L33Z22L11/blog-v3)
+[吐司气泡](https://blog.toastbubble.top/)
 ......
 
 

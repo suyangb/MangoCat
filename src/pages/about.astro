@@ -5,6 +5,8 @@ import { Icon } from "astro-icon/components";
 import { SiteConfig ,ProfileConfig } from "../config";
 import { Picture } from "astro:assets";
 
+const Page = '关于';
+
 // 计算网站运营时间
 const createTime = new Date(SiteConfig.createTime);
 const now = new Date();
@@ -51,10 +53,9 @@ const tools = [
 ];
 ---
 
-<Layout>
-    <h1 class="text-3xl font-bold text-center" style="color: var(--title-color);">关于</h1>
-    <p class="about-subtitle text-center mb-[25px]">关于我是谁</p>
-    <!-- <AboutPage /> -->
+<Layout pagetitle={`${Page} - ${SiteConfig.title}`}>
+    <h1 class="text-2xl font-bold text-center" style="color: var(--title-color);">{Page}</h1>
+    <p class="text-center mb-[30px]">关于我是谁</p>
     <div class="about-content animate-slide-in">
         <div class="about-introduction">
             <p>你好，我是啊芒果，欢迎来到我的博客。</p>

@@ -4,15 +4,16 @@ import Layout from '../layouts/Layout.astro';
 import { Icon } from "astro-icon/components";
 import Comment from '../components/Comment.astro';
 import LinkPage  from '../content/link.md';
-
 import { links } from '../data/links.ts';
 
+
+const Page = '友链';
 ---
 
-<Layout pagetitle={`友链 - ${SiteConfig.title}`}>
+<Layout pagetitle={`${Page} - ${SiteConfig.title}`}>
   <div class="links-container">
-    <h1 class="text-3xl font-bold text-center" style="color: var(--title-color);">友链</h1>
-    <p class="links-subtitle text-center">与各位博主无限进步</p>
+    <h1 class="text-2xl font-bold text-center" style="color: var(--title-color);">{Page}</h1>
+    <p class="text-center mb-[30px]">与各位博主无限进步</p>
     
     <div class="links-grid">
       {links.map((link, index) => (
@@ -41,12 +42,6 @@ import { links } from '../data/links.ts';
   .links-container {
     max-width: var(--width);
     margin: 0 auto;
-  }
-  
-  .links-subtitle {
-    font-size: calc(var(--font-title-size) - 4px);
-    color: var(--text-color);
-    margin-bottom: 25px;
   }
   
   .links-grid {
