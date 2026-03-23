@@ -39,11 +39,6 @@
 .markdown-body b, .markdown-body strong {
    color: var(--strong-color);
 }
-
-.markdown-body code {
-  
-}
-
 .markdown-body pre {
   background-color: var(--code-bg);
   border-radius: var(--radius);
@@ -52,6 +47,44 @@
 .markdown-body blockquote {
   border-radius: var(--radius);
   border: 2px dashed var(--border-color);
+  padding: 10px 16px;
+  color: var(--text-color);
+}
+.markdown-body .markdown-alert .markdown-alert-title {
+  margin: 0 0 8px;
+}
+.markdown-body .markdown-alert.markdown-alert-note {
+  background-color: rgba(40, 140, 255, 0.05);
+  border-radius: var(--radius);
+  border: 2px dashed rgba(40, 140, 255, 0.2);
+  padding: 10px 16px;
+  color: var(--text-color);
+}
+.markdown-body .markdown-alert.markdown-alert-tip {
+  background-color: rgba(20, 150, 90, 0.05);
+  border-radius: var(--radius);
+  border: 2px dashed rgba(20, 150, 90, 0.2);
+  padding: 10px 16px;
+  color: var(--text-color);
+}
+.markdown-body .markdown-alert.markdown-alert-important {
+  background-color: rgba(160, 40, 230, 0.05);
+  border-radius: var(--radius);
+  border: 2px dashed rgba(160, 40, 230, 0.2);
+  padding: 10px 16px;
+  color: var(--text-color);
+}
+.markdown-body .markdown-alert.markdown-alert-warning { 
+  background-color: rgba(175, 185, 24, 0.05);
+  border-radius: var(--radius);
+  border: 2px dashed rgba(175, 185, 24, 0.2);
+  padding: 10px 16px;
+  color: var(--text-color);
+}
+.markdown-body .markdown-alert.markdown-alert-caution { 
+  background-color: rgba(211, 0, 0, 0.05);
+  border-radius: var(--radius);
+  border: 2px dashed rgba(211, 0, 0, 0.2);
   padding: 10px 16px;
   color: var(--text-color);
 }

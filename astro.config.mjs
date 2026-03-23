@@ -1,28 +1,22 @@
 import { defineConfig } from 'astro/config';
-// import expressiveCode from 'astro-expressive-code';
-import remarkBreaks from 'remark-breaks';
+
 import icon from 'astro-icon';
 import tailwindcss from '@tailwindcss/vite';
 import { SiteConfig } from './src/config.ts';
+import remarkGfm from 'remark-gfm';
+import remarkDirective from 'remark-directive';
+// 关键修改：命名导入（加花括号）
+import { rehypeGithubAlerts } from 'rehype-github-alerts';
 
 export default defineConfig({
-    site: SiteConfig.siteUrl,
-    markdown: {
-    remarkPlugins: [remarkBreaks,],
-    gfm: true,
+  site: SiteConfig.siteUrl,
+  markdown: {
+    remarkPlugins: [ remarkGfm, remarkDirective],
+    rehypePlugins: [rehypeGithubAlerts],
+    // extendDefaultPlugins: true,
   },
-  integrations: [
-    // expressiveCode({
-    //   themes: ['one-light', 'andromeeda'],
-    //   themeCssSelector: (theme) => 
-    //     theme.name === 'andromeeda' ? '[data-theme="dark"]' : '[data-theme="light"]',
-    //   // 修正：plugins数组仅放插件实例，内置插件（copy-button、language-badge）默认启用或需安装对应包
-    // }),
-    icon(), // astro-icon 集成配置正确
-  ],
-
+  integrations: [icon()],
   vite: {
     plugins: [tailwindcss()]
   },
 });
-
