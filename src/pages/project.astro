@@ -70,7 +70,7 @@ const projects = [
         <div class="project-card animate-slide-in" style={{ animationDelay: `${index * 0.1}s` }} data-key={project.name}>
           {project.githubUrl ? (
             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="project-header project-header-link" title="查看 GitHub 仓库">
-              <b class="project-name">{project.name}</b>
+              <p class="project-name">{project.name}</p>
               <span class="project-link-indicator">
                 <Icon name="tabler:arrow-up-right" class="project-link-arrow" />
               </span>
@@ -303,12 +303,12 @@ const projects = [
 
   .project-header-link:hover .project-link-indicator {
     color: var(--theme-color);
-    transform: translate(2px, -2px);
   }
 
   .project-name {
     font-size: calc(var(--font-title-size) - 2px);
     color: var(--title-color);
+    font-weight: var(--font-weight);
     margin: 0;
     line-height: 1.3;
     flex: 1;
@@ -322,7 +322,6 @@ const projects = [
     color: var(--desc-color);
     margin-left: auto;
     margin-right: 8px;
-    transition: all 0.3s ease;
   }
 
   .project-link-arrow {
@@ -371,26 +370,14 @@ const projects = [
     height: 32px;
     border: 1px solid var(--border-color);
     border-radius: 50%;
-    transition: all 0.3s ease;
     cursor: pointer;
     background-color: var(--card-bg);
   }
-
-  .tag-icon-wrapper:hover {
-    background-color: var(--theme-color);
-    border-color: var(--theme-color);
-    transform: scale(1.1);
-  }
-
   .tags-icon {
     width: 18px;
     height: 18px;
     color: var(--text-color);
     transition: color 0.3s ease;
-  }
-
-  .tag-icon-wrapper:hover .tags-icon {
-    color: white;
   }
 
   .project-stats {

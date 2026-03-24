@@ -7,6 +7,12 @@ cover: https://gitee.com/almango/image-bed/raw/master/album/game/game_mcserver_1
 tags: [我的世界]
 slug: 5cc4b857
 ---
+
+> [!NOTE]
+> 运营了半年的 MC 服务器，终于画上了句点。这段旅程，历时6个月29天，吸引了超过40名玩家参与，共同创造了无数难忘的回忆。
+
+
+
 **2025年10月7日**
 
 我运营了半年的 Minecraft 服务器，终于画上了句点。这段旅程，历时6个月29天，吸引了超过40名玩家参与，共同创造了无数难忘的回忆。
@@ -44,7 +50,8 @@ slug: 5cc4b857
 
 到了后期，服务器人数又回落到 2-4 人，只有一些元老玩家和新玩家偶尔上线。这时，存档基本定型，资源也变得取之不尽。我更新了自定义村民商店，上架了一些必要物品，玩家可以用绿宝石进行交易，因此我们根本不缺资源。我和室友 `Nan` 还共同修建了一个天空主城，因为原本的主城已经不堪重负。站在地面上仰望，天空主城十分壮观。但总的来说，后期服务器比较冷清，我也很少上线。MC 就是这样，想玩的时候会沉迷其中，不想玩的时候则会放置很久。
 
-![](https://gitee.com/almango/image-bed/raw/master/album/game/game_mcserver_3.webp)
+![哈喽](https://gitee.com/almango/image-bed/raw/master/album/game/game_mcserver_3.webp)
+
 ![](https://gitee.com/almango/image-bed/raw/master/album/game/game_mcserver_4.webp)
 
 ### 那些令人印象深刻的玩家

@@ -137,12 +137,12 @@ export const parseRss = async (rssUrl: string): Promise<Article[]> => {
       
       // 根据不同类型解析字段
       if (rssType === 'atom') {
-        // Atom 格式解析
+        // Atom 格式解析 - 优先使用 published（发布时间），而不是 updated（修改时间）
         return {
           id: index + 1,
           title: getNestedNodeText(itemElement, ['title']) || '无标题',
           author: getNestedNodeText(itemElement, ['author', 'name']) || '未知作者',
-          publishTime: formatDate(getNestedNodeText(itemElement, ['updated']) || getNestedNodeText(itemElement, ['published'])),
+          publishTime: formatDate(getNestedNodeText(itemElement, ['published']) || getNestedNodeText(itemElement, ['updated'])),
           summary: getNestedNodeText(itemElement, ['summary']) || getNestedNodeText(itemElement, ['content']) || '无简介',
           link // 新增：文章链接
         };

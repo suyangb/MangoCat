@@ -3,7 +3,7 @@
   background-color: transparent !important;
   font-family: var(--font-family);
   font-size: var(--font-text-size);
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
 /* 亮色主题 - 使用 CSS 变量 */
@@ -51,7 +51,7 @@
   color: var(--text-color); 
 }
 
-/* Github-MD-Alerts提示语法 */
+Github-MD-Alerts提示语法
 .markdown-body .markdown-alert .markdown-alert-title {margin: 0 0 8px;}
 .markdown-body .markdown-alert.markdown-alert-note {
   background-color: rgba(40, 140, 255, 0.05);

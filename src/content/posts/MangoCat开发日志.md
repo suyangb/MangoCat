@@ -1,6 +1,6 @@
 ---
 title: Astro MangoCat主题开发日志
-description: 这是一个从零开始开发的Astro博客主题，用于展示我的学习笔记和技术分享。
+description: 这是一个从零开始开发的Astro博客主题日志，这里记录的是主题的开发过程和一些问题的解决方法。
 published: 2025-12-06 16:27:41
 tags: [Astro]                               # 添加分类
 category: 技能 
