@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 /* @import 'simple-tips/index.css'; */
 /* 定义亮色主题的CSS变量 */
 :root {
@@ -21,15 +22,21 @@
 
     --nav-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 
-    --width: 720px;            /* 统一宽度 */
-    --gap: 16px;               /* 统一间距 */
-    --font-title-size: 1.2rem;         /* 统一标题字体大小 */
-    --font-text-size: 1rem;         /* 统一标准字体大小 */
-    --font-desc-size: 0.8rem;         /* 统一信息字体大小 */
+    --width: 720px;
+    /* 统一宽度 */
+    --gap: 16px;
+    /* 统一间距 */
+    --font-title-size: 1.2rem;
+    /* 统一标题字体大小 */
+    --font-text-size: 1rem;
+    /* 统一标准字体大小 */
+    --font-desc-size: 0.8rem;
+    /* 统一信息字体大小 */
     --padding: 12px;
     --font-weight: 500;
     --font-family: 'sans-serif';
-    --radius: 1rem;            /* 统一圆角幅度 */
+    --radius: 1rem;
+    /* 统一圆角幅度 */
 }
 
 
@@ -161,12 +168,18 @@ body {
     color: var(--desc-color);
     margin: 0;
     line-height: 1.5;
-    display: -webkit-box;          /* 将元素设为弹性盒模型（webkit 私有） */
-    -webkit-box-orient: vertical;  /* 子元素垂直排列（必须加前缀） */
-    -webkit-line-clamp: 3;         /* 限制显示行数（必须加前缀） */
-    line-clamp: 3;                 /* 标准属性，仅作兼容补充 */
-    overflow: hidden;              /* 隐藏超出部分（必加） */
-    text-overflow: ellipsis;       /* 可选：末尾显示省略号（增强效果） */
+    display: -webkit-box;
+    /* 将元素设为弹性盒模型（webkit 私有） */
+    -webkit-box-orient: vertical;
+    /* 子元素垂直排列（必须加前缀） */
+    -webkit-line-clamp: 3;
+    /* 限制显示行数（必须加前缀） */
+    line-clamp: 3;
+    /* 标准属性，仅作兼容补充 */
+    overflow: hidden;
+    /* 隐藏超出部分（必加） */
+    text-overflow: ellipsis;
+    /* 可选：末尾显示省略号（增强效果） */
 }
 
 .post-info {
@@ -176,12 +189,12 @@ body {
     font-size: var(--font-desc-size);
     color: var(--desc-color);
     align-items: center;
-    
+
 }
 
 .post-info .tag,
 .post-info .category,
-.post-info .word-count {    
+.post-info .word-count {
     border-radius: var(--radius);
     display: flex;
     align-items: center;
@@ -189,8 +202,9 @@ body {
     white-space: nowrap;
 
 }
+
 /* 全局图标样式，确保与文字对齐 */
-.post-info  svg {
+.post-info svg {
     width: 16px;
     height: 16px;
     display: inline-flex;
@@ -265,6 +279,7 @@ body {
         padding: 50px 0;
         text-align: center;
     }
+
     .article-header.no-cover .article-header-content .article-meta {
         justify-content: center;
     }
@@ -378,9 +393,11 @@ body {
         width: 100%;
         padding: 0 15px;
     }
+
     .header {
         padding: 12px 15px;
     }
+
     .post-title h2 {
         font-size: var(--font-title-size);
     }
@@ -397,11 +414,11 @@ body {
         font-size: calc(var(--font-title-size) + 4px) !important;
     }
 
+    .article-cover-inner {
+        height: auto;
+    }
+
     .article-meta {
         font-size: calc(var(--font-desc-size) + 1px);
     }
 }
-
-
-
-
