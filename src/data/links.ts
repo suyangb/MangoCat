@@ -22,6 +22,13 @@ export const links: Link[] = [
     rss: "https://blog.zhilu.site/atom.xml"
   },
   {
+    name: "杜老师说",
+    description: "dusays.com",
+    url: "https://dusays.com/",
+    avatar: "https://cdn.dusays.com/favicon.ico",
+    rss: "https://dusays.com/atom.xml"
+  },
+  {
     name: "定の栈",
     description: "LINK START!",
     url: "https://blog.saop.cc/",
@@ -148,5 +155,12 @@ export const links: Link[] = [
     url: "https://www.xsl.im/",
     avatar: "https://www.xsl.im/avatar.webp",
     rss: "https://www.xsl.im/atom.xml"
-  }
+  },
+  {
+    name: "枋柚梓",
+    description: "繁星永存，记忆亘古不变。",
+    url: "https://inkss.cn/",
+    avatar: "https://inkss.cn/img/avatar.png",
+    rss: "https://inkss.cn/atom.xml"
+  },
 ];
