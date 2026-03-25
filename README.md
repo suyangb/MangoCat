@@ -1,11 +1,19 @@
-### Astro Theme MangoCat
+### 🥭Astro Theme MangoCat
 
  一个简洁、现代、高性能的 Astro 博客主题 (🖥️[Demo](https://blog.almango.cn))
+
+[![](https://img.shields.io/badge/Astro-v6.0.7-BC52EE?logo=astro)]({linkUrl})
+[![](https://img.shields.io/badge/Vercel-success-2A2F3D?logo=vercel)]({linkUrl})
+[![](https://img.shields.io/badge/Node.js->=21-5FA04E?logo=nodedotjs)]({linkUrl})
+[![](https://img.shields.io/badge/pnpm-v10.26.2-F69220?logo=pnpm)]({linkUrl})
+[![](https://img.shields.io/badge/npm-v11.6.2-CB3837?logo=npm)]({linkUrl})
+[![](https://img.shields.io/badge/许可-MIT-D1AB66)]({linkUrl})
+
 
 > [!WARNING]
 > 使用该主题请删除content/posts/的文章！！！
 
-### 特性
+### ✨特性
 
 
 **🚀 高性能** - 基于 Astro 构建，零 JS 默认加载，极致的性能体验
@@ -24,13 +32,13 @@
 
 **✨ 精美图标支持** - 采用 Tabler Icons 图标库，更贴合现代审美
 
-### 安装
+### 🛠️安装
 
 环境要求：
 
-> Node.js 21 +
+> Node.js v24.12.0 (>= 21.0.0)
 
-> Astro 6 (>= 6.0.0)
+> Astro v6.0.7 (>= 6.0.7)
 
 ```bash
 # 克隆仓库
@@ -46,7 +54,7 @@ pnpm i
 pnpm dev
 ```
 
-### 构建
+### 🚀构建
 
 ```bash
 # 构建生产版本
@@ -56,7 +64,7 @@ pnpm build
 pnpm preview
 ```
 
-### 项目结构
+### 📁项目结构
 
 ```
 .
@@ -96,7 +104,7 @@ pnpm preview
 ├── tailwind.config.ts     # TailwindCSS 配置
 └── package.json
 ```
-### 配置站点信息
+### 🔄配置站点信息
 
 你可以在`src/config.ts`中配置站点信息，包括站点标题、描述、头像、图标、Twikoo 评论系统 URL、Tabler Icons 图标库 URL 等。
 
@@ -115,7 +123,7 @@ export const SiteConfig: SiteConfigType = {
   ....
 ```
 
-### 创建文章
+### ✒️创建文章
 
 > [!WARNING]
 > 需严格遵守frontmatter格式，否则会导致文章渲染错误。
@@ -134,6 +142,6 @@ id: ""
 文章内容...
 ```
 
-### 反馈
+### 📣反馈
 
 如果您有任何问题或建议，请欢迎提交 Pull Request 或创建 Issue。
