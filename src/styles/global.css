@@ -413,7 +413,7 @@ body {
     .article-title {
         font-size: calc(var(--font-title-size) + 4px) !important;
     }
-
+    
     .article-cover-inner {
         height: auto;
     }

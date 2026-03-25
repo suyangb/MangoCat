@@ -9,12 +9,19 @@
 
 
 **🚀 高性能** - 基于 Astro 构建，零 JS 默认加载，极致的性能体验
+
 **🎨 现代化设计** - 简洁优雅的界面，支持自定义主题色
+
 **📱 响应式布局** - 完美适配桌面端和移动端
+
 **🌙 深色模式** - 支持自动/手动切换深色主题
+
 **📝 Markdown ** - 采用Github Markdown 格式、增强阅读体验
-**🔍 SEO 友好** - 自动生成 RSS、Sitemap，支持 Open Graph
+
+**🔍 SEO 友好** - 自动生成 RSS、Sitemap
+
 **💬 评论系统** - 内置 Twikoo 评论支持
+
 **✨ 精美图标支持** - 采用 Tabler Icons 图标库，更贴合现代审美
 
 ### 安装
@@ -110,7 +117,7 @@ export const SiteConfig: SiteConfigType = {
 
 ### 创建文章
 
-> [!INFO]
+> [!WARNING]
 > 需严格遵守frontmatter格式，否则会导致文章渲染错误。
 
 ```md
