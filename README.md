@@ -10,7 +10,7 @@
 [![](https://img.shields.io/badge/许可-MIT-D1AB66)]({linkUrl})
 
 
-> [!error]
+> [!important]
 > 使用该主题部署后请先删除content/posts/的文章！！！
 
 ### ✨ 特性

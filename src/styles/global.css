@@ -90,7 +90,6 @@ body {
     background-color: var(--bg-color);
     /* background-image: url('/bg.svg'); */
     background-attachment: fixed;
-
     background-position: center;
     color: var(--text-color);
     line-height: 1.6;

@@ -3,9 +3,9 @@ import type { SiteConfigType } from './utils/types';
 
 export const SiteConfig: SiteConfigType = {
   title: 'Almango',
+  subtitle: '天真永不消逝，浪漫至死不渝',
   author: 'Almango',
   favicon: '/favicon.png',
-  subtitle: '天真永不消逝，浪漫至死不渝',
   siteUrl: 'https://blog.almango.cn',
   createTime: '2024-01-23',
   PaginationConfig: {
