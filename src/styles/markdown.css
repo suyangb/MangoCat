@@ -23,6 +23,9 @@
   font-weight: 500;
   line-height: 1;
 }
+.markdown-body p {
+  margin-bottom: 1.25rem;
+}
 
 .markdown-body a {
   color: var(--title-color);

@@ -69,6 +69,13 @@ export const links: Link[] = [
     avatar: "https://cdn.jsdelivr.net/gh/Revincx/blog-assets@master/images/avatar.jpg",
   },
   {
+    name: "微尘印记",
+    description: "愿如微尘，亦有印记。",
+    url: "https://weichen.ink",
+    avatar: "https://weichen.ink/avatar.jpg",
+    rss: "https://weichen.ink/rss.xml"
+  },
+  {
     name: "懒觉猫先生",
     description: "阿巴阿巴阿巴..",
     url: "https://blog.luoaicheng.cn/",
