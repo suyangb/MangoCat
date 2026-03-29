@@ -1,7 +1,31 @@
-@keyframes fadeIn {
+/* 自定义 animate.css 动画参数 - 覆盖默认的 fadeInUp */
+:root {
+  --animate-duration: 0.5s;
+  --animate-delay: 0s;
+  --animate-repeat: 1;
+  /* 减小 fadeInUp 的位移距离，默认 100px 太大 */
+  --animate-distance: 20px;
+}
+/* 覆盖 animate.css 的 fadeInUp 动画 */
+.animate__fadeInUp {
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--animate-distance), 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes animate_fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(-5px);
+        transform: translateY(-2px);
     }
     to {
         opacity: 1;
@@ -9,49 +33,4 @@
     }
 }
 
-@keyframes logoFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-5px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(-0.8px);
-    }
-}
 
-@keyframes slide-in {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* 从上到下的淡入动画 */
-@keyframes fade-in-down {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* 应用slide-in动画的类 */
-.animate-slide-in {
-    animation: slide-in 0.2s ease-out forwards;
-    opacity: 0;
-    /* 初始状态为透明 */
-}
-
-/* 应用从上到下的淡入动画 */
-.animate-fade-in-down {
-    animation: fade-in-down 0.5s ease-out forwards;
-}

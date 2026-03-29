@@ -25,7 +25,7 @@ const { post, prevPost, nextPost } = Astro.props;
 const { Content } = await render(post);
 ---
 <Layout pagetitle={`${post.data.title}`}>
-		<article class="article animate-slide-in">
+		<article class="article animate__animated animate__fadeInUp">
 			<header class={`article-header ${!post.data.cover ? 'no-cover' : ''}`}>
 				{post.data.cover && (
 					<div class="article-cover">

@@ -15,9 +15,9 @@ const Page = '友链';
     <h1 class="text-2xl font-bold text-center" style="color: var(--title-color);">{Page}</h1>
     <p class="text-center mb-[30px]">与各位博主无限进步</p>
     
-    <div class="links-grid">
+    <div class="links-grid animate__animated animate__fadeInUp">
       {links.map((link, index) => (
-        <div class="link-card animate-slide-in" style={{ animationDelay: `${index * 0.05}s` }} data-key={link.name}>
+        <div class="link-card" style={{ animationDelay: `${index * 0.05}s` }} data-key={link.name}>
           <a href={link.url} target="_blank" rel="noopener noreferrer" class="link-card-inner">
             <div class="link-avatar-container">
               <img src={link.avatar} alt={link.name} class="link-avatar" />

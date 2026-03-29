@@ -65,9 +65,9 @@ const projects = [
       </div>
     </div>
     <h2 class="projects-title">项目展示</h2>
-    <div class="projects-grid">
+    <div class="projects-grid animate__animated animate__fadeInUp">
       {projects.map((project, index) => (
-        <div class="project-card animate-slide-in" style={{ animationDelay: `${index * 0.1}s` }} data-key={project.name}>
+        <div class="project-card" style={{ animationDelay: `${index * 0.1}s` }} data-key={project.name}>
           {project.githubUrl ? (
             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="project-header project-header-link" title="查看 GitHub 仓库">
               <p class="project-name">{project.name}</p>

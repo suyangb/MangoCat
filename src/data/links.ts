@@ -163,4 +163,11 @@ export const links: Link[] = [
     avatar: "https://www.xsl.im/avatar.webp",
     rss: "https://www.xsl.im/atom.xml"
   },
+  {
+    name: "天码行空的小破站",
+    description: "路漫漫其修远兮，吾将上下而求索",
+    url: "https://cosky.top/",
+    avatar: "https://bu.dusays.com/2026/02/05/6984096009670.jpeg",
+    rss: "https://cosky.top/rss"
+  },
 ];

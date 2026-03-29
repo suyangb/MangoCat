@@ -1,5 +1,6 @@
 @import "tailwindcss";
-
+@import 'animate.css';
+@import './animation.css';
 /* @import 'simple-tips/index.css'; */
 /* 定义亮色主题的CSS变量 */
 :root {
@@ -34,7 +35,7 @@
     /* 统一信息字体大小 */
     --padding: 12px;
     --font-weight: 500;
-    --font-family: 'sans-serif';
+    --font-family: 'LXGW WenKai', 'sans-serif';
     --radius: 1rem;
     /* 统一圆角幅度 */
 }
@@ -67,11 +68,11 @@
 
 
 @font-face {
-    font-family: 'LXGWWenKaiLite';
-    src: url('/src/assets/fonts/LXGWWenKaiLite-Medium.ttf') format('truetype');
-    font-weight: normal;
+    font-family: 'LXGW WenKai';
     font-style: normal;
+    font-weight: 700;
     font-display: swap;
+    src: url('/fonts/霞鹜文楷.ttf') format('truetype');
 }
 
 

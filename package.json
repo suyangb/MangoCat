@@ -12,6 +12,7 @@
     "@astrojs/rss": "^4.0.17",
     "@iconify-json/devicon": "^1.2.61",
     "@tailwindcss/vite": "^4.1.17",
+    "animate.css": "^4.1.1",
     "astro": "^6.0.7",
     "astro-icon": "^1.1.5",
     "astro-theme-toggle": "^0.8.0",
