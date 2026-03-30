@@ -6,9 +6,9 @@
 :root {
     --theme-color: #2e83d3;
     --bg-color: #fafafa;
-    --title-color: #161616;
+    --title-color: #161618;
     --desc-color: #5f656d;
-    --text-color: #292929;
+    --text-color: #232325;
     --card-bg: #fff;
     --header-footer-bg-color: #ffffff;
     --footer-color: #6b7280;
@@ -35,7 +35,7 @@
     /* 统一信息字体大小 */
     --padding: 12px;
     --font-weight: 500;
-    --font-family: 'LXGW WenKai', 'sans-serif';
+    --font-family: 'Space Mono', 'sans-serif';
     --radius: 1rem;
     /* 统一圆角幅度 */
 }
@@ -130,8 +130,8 @@ body {
 
 /* PostList 样式 */
 .post-card {
-    padding: 20px;
-    margin-bottom: 15px;
+    padding: calc(var(--padding) + 5px);
+    margin-bottom: var(--gap);
     border-radius: var(--radius);
     border: 1px solid var(--border-color);
     transition: background-color 0.2s ease;
@@ -151,7 +151,7 @@ body {
 .post-content {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: calc(var(--gap) - 10px);
 
 }
 
@@ -305,7 +305,7 @@ body {
     color: var(--title-color);
     display: inline-block;
     line-height: 1.5 !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 5px !important;
     margin-top: 0 !important;
 }
 

@@ -17,6 +17,8 @@ function formatWordCount(count: number): string {
 }
 
 
+// 封面功能开关
+const coverEnabled = SiteConfig.CoverConfig?.enable ?? true;
 // 获取分类配置（图标和颜色）
 function getCategoryConfig(category: string): { icon: string; color: string } {
     // 默认可配置

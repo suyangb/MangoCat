@@ -11,6 +11,11 @@ export const SiteConfig: SiteConfigType = {
   PaginationConfig: {
     POSTS_PER_PAGE: 8,    // 每页显示的文章数量
   },
+  
+  // 封面功能开关
+  CoverConfig: {
+    enable: false,  // 是否开启封面功能 true/false
+  },
 
   SiteStyleConfig: {
   themeColor: '#1890ff', // 主色调
@@ -51,5 +56,5 @@ export const CommentConfig = {
 }
 
 export const DEVELOPER_CONFIG = {
-  THEME_VERSION: '4.8',
+  THEME_VERSION: '4.8a',
 }

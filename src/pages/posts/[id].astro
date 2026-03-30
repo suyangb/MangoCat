@@ -3,7 +3,10 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Postfooter from '../../components/Postfooter.astro';
 import Comment from '../../components/Comment.astro';
+import { SiteConfig } from '../../config.ts';
 
+// 封面功能开关
+const coverEnabled = SiteConfig.CoverConfig?.enable ?? true;
 
 export async function getStaticPaths() {
   // 获取所有文章并按发布日期排序（倒序）
@@ -26,8 +29,8 @@ const { Content } = await render(post);
 ---
 <Layout pagetitle={`${post.data.title}`}>
 		<article class="article animate__animated animate__fadeInUp">
-			<header class={`article-header ${!post.data.cover ? 'no-cover' : ''}`}>
-				{post.data.cover && (
+			<header class={`article-header ${!coverEnabled || !post.data.cover ? 'no-cover' : ''}`}>
+				{coverEnabled && post.data.cover && (
 					<div class="article-cover">
 						<div class="article-cover-inner">
 							<img src={post.data.cover} alt={post.data.title} loading="lazy" />
