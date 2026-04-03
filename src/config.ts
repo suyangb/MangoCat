@@ -41,8 +41,8 @@ export const SiteConfig: SiteConfigType = {
 }
 
 export const ProfileConfig = {
-  name: 'Almango',
-  avatar: '/avatar.jpg',
+  name: '王苏洋',
+  avatar: 'https://www.wsyblog.cn/IMG_8745.jpeg',
   desc: '天真永不消逝，浪漫至死不渝',
 }
 
