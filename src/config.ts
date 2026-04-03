@@ -4,9 +4,9 @@ import type { SiteConfigType } from './utils/types';
 export const SiteConfig: SiteConfigType = {
   title: '王苏洋Blog',
   subtitle: '折腾不止,记录不停',
-  author: '王苏洋',
+  author: '王苏洋Blog',
   favicon: '/IMG_8745.jpeg',
-  siteUrl: 'https://blog.almango.cn',
+  siteUrl: 'https://blog.wsyblog.cn',
   createTime: '2025-07-17',
   PaginationConfig: {
     POSTS_PER_PAGE: 8,    // 每页显示的文章数量
