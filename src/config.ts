@@ -25,7 +25,7 @@ export const SiteConfig: SiteConfigType = {
   
   Categories: {
     '年度总结': { icon: 'tabler:carambola', color: '#ffae00ff' },
-    '感言': { icon: 'tabler:heart', color: '#cc2b1fff' },
+    '记录': { icon: 'tabler:heart', color: '#cc2b1fff' },
     '日常': {icon: 'tabler:edit',color: '#b83f81ff'},
     '游戏': {icon: 'tabler:device-gamepad-2',color: '#cc6a19ff'},
     '技能': {icon: 'tabler:braces', color: '#2d7be0ff'},
