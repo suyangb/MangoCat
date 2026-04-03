@@ -2,19 +2,19 @@
 import type { SiteConfigType } from './utils/types';
 
 export const SiteConfig: SiteConfigType = {
-  title: 'Almango',
+  title: '王苏洋Blog',
   subtitle: '天真永不消逝，浪漫至死不渝',
-  author: 'Almango',
-  favicon: '/favicon.png',
+  author: '王苏洋',
+  favicon: 'https://www.wsyblog.cn/IMG_8745.jpeg',
   siteUrl: 'https://blog.almango.cn',
-  createTime: '2024-01-23',
+  createTime: '2025-07-17',
   PaginationConfig: {
     POSTS_PER_PAGE: 8,    // 每页显示的文章数量
   },
   
   // 封面功能开关
   CoverConfig: {
-    enable: false,  // 是否开启封面功能 true/false
+    enable: true,  // 是否开启封面功能 true/false
   },
 
   SiteStyleConfig: {
@@ -50,7 +50,7 @@ export const CommentConfig = {
   enable: true, 
   provider: 'twikoo', 
   twikoo: {
-    envId: 'https://www.almango.fun/', 
+    envId: 'https://twikoo.wsyblog.cn/', 
     path: 'auto', 
   }
 }
