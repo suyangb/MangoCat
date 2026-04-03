@@ -3,9 +3,9 @@ import type { SiteConfigType } from './utils/types';
 
 export const SiteConfig: SiteConfigType = {
   title: '王苏洋Blog',
-  subtitle: '天真永不消逝，浪漫至死不渝',
+  subtitle: '折腾不止,记录不停',
   author: '王苏洋',
-  favicon: 'https://www.wsyblog.cn/IMG_8745.jpeg',
+  favicon: '/IMG_8745.jpeg',
   siteUrl: 'https://blog.almango.cn',
   createTime: '2025-07-17',
   PaginationConfig: {
@@ -41,9 +41,9 @@ export const SiteConfig: SiteConfigType = {
 }
 
 export const ProfileConfig = {
-  name: '王苏洋',
-  avatar: 'https://www.wsyblog.cn/IMG_8745.jpeg',
-  desc: '天真永不消逝，浪漫至死不渝',
+  name: '王苏洋Blog',
+  avatar: '/IMG_8745.jpeg',
+  desc: '折腾不止,记录不停',
 }
 
 export const CommentConfig = {
